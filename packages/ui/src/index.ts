@@ -10,7 +10,7 @@ export type { ColorModePreference } from './theme/colorModeContext'
 export { toneColors, type Tone, type ToneColors } from './theme/tones'
 export { fontFamily, radius, motion, layout } from './theme/tokens'
 
-export { mergeSx } from './utils/sx'
+export { mergeSx, visuallyHidden } from './utils/sx'
 
 export { ToneChip, type ToneChipProps } from './components/ToneChip'
 export {
