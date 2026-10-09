@@ -1,5 +1,6 @@
 import AutoAwesomeOutlined from '@mui/icons-material/AutoAwesomeOutlined'
 import BoltOutlined from '@mui/icons-material/BoltOutlined'
+import ThreeDRotationOutlined from '@mui/icons-material/ThreeDRotationOutlined'
 import ChecklistOutlined from '@mui/icons-material/ChecklistOutlined'
 import HistoryOutlined from '@mui/icons-material/HistoryOutlined'
 import RestartAltOutlined from '@mui/icons-material/RestartAltOutlined'
@@ -38,6 +39,7 @@ export interface StudioToolbarProps {
   onOpenPalette: () => void
   onOpenPanel: () => void
   onRequirements: () => void
+  onViews: () => void
   onSave: () => void
   onHistory: () => void
   onReview: () => void
@@ -118,6 +120,15 @@ export function StudioToolbar(props: StudioToolbarProps) {
 
       <Button size="small" startIcon={<ChecklistOutlined />} onClick={props.onRequirements}>
         Requirements
+      </Button>
+
+      <Button
+        size="small"
+        startIcon={<ThreeDRotationOutlined />}
+        onClick={props.onViews}
+        disabled={!hasComponents}
+      >
+        3D views
       </Button>
 
       <Box sx={{ flex: 1 }} />

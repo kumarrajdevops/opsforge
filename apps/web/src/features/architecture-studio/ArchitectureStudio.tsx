@@ -8,6 +8,7 @@ import { ConfirmDialog, SectionTabs, SideDrawer } from '@opsforge/ui'
 import { useReactFlow } from '@xyflow/react'
 import { useCallback, useMemo, useRef, useState, type ReactNode } from 'react'
 import { ArchitectureCanvas } from './components/ArchitectureCanvas'
+import { ArchitectureViewsDrawer } from './components/ArchitectureViewsDrawer'
 import { ComponentPalette } from './components/ComponentPalette'
 import { EvaluationPanel } from './components/EvaluationPanel'
 import { EdgeInspector, NodeInspector } from './components/Inspector'
@@ -47,6 +48,7 @@ export function ArchitectureStudio({ scenario, onScenarioChange }: ArchitectureS
   const [panelOpen, setPanelOpen] = useState(false)
   const [requirementsOpen, setRequirementsOpen] = useState(false)
   const [historyOpen, setHistoryOpen] = useState(false)
+  const [viewsOpen, setViewsOpen] = useState(false)
   const [saveOpen, setSaveOpen] = useState(false)
   const [resetOpen, setResetOpen] = useState(false)
   const [notice, setNotice] = useState<string | null>(null)
@@ -237,6 +239,7 @@ export function ArchitectureStudio({ scenario, onScenarioChange }: ArchitectureS
         onOpenPalette={() => setPaletteOpen(true)}
         onOpenPanel={() => setPanelOpen(true)}
         onRequirements={() => setRequirementsOpen(true)}
+        onViews={() => setViewsOpen(true)}
         onSave={() => setSaveOpen(true)}
         onHistory={() => setHistoryOpen(true)}
         onReview={openReview}
@@ -347,6 +350,12 @@ export function ArchitectureStudio({ scenario, onScenarioChange }: ArchitectureS
         onClose={() => setRequirementsOpen(false)}
         scenario={scenario}
         evaluation={evaluation}
+      />
+      <ArchitectureViewsDrawer
+        open={viewsOpen}
+        onClose={() => setViewsOpen(false)}
+        document={document}
+        simulation={editor.simulation}
       />
       <VersionHistoryDrawer
         open={historyOpen}
