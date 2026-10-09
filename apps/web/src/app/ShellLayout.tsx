@@ -37,7 +37,7 @@ export function ShellLayout() {
       groups={GROUPS}
       activeId={activeId}
       LinkComponent={NavLink}
-      fullBleed={activeId === 'architecture'}
+      fullBleed={activeId === 'architecture' || activeId === 'incidents'}
       topBarStart={
         <Typography variant="subtitle2" component="p" noWrap>
           {current?.label ?? (activeId === 'design-system' ? 'Design System' : 'OPSFORGE')}

@@ -41,10 +41,12 @@ describe('shell', () => {
   }
 
   it('renders navigation, main region and a module page', async () => {
-    renderAt('/incidents')
+    renderAt('/labs')
     expect(screen.getByRole('main')).toBeInTheDocument()
-    expect(await screen.findByRole('heading', { name: 'Incidents', level: 1 })).toBeInTheDocument()
-    expect(screen.getByText('ForgeOps')).toBeInTheDocument()
+    expect(
+      await screen.findByRole('heading', { name: 'Hands-on Labs', level: 1 }),
+    ).toBeInTheDocument()
+    expect(screen.getAllByText('ForgeLab').length).toBeGreaterThan(0)
   })
 
   it('marks the active nav item', () => {

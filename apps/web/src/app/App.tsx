@@ -2,6 +2,7 @@ import { Reveal } from '@opsforge/ui'
 import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { ArchitectureStudioPage } from '../pages/ArchitectureStudioPage'
+import { IncidentSimulatorPage } from '../pages/IncidentSimulatorPage'
 import { CommandCenterPage } from '../pages/CommandCenterPage'
 import { ModulePlaceholderPage } from '../pages/ModulePlaceholderPage'
 import { MODULES } from './modules'
@@ -25,6 +26,8 @@ export function App() {
                   <CommandCenterPage />
                 ) : module.id === 'architecture' ? (
                   <ArchitectureStudioPage />
+                ) : module.id === 'incidents' ? (
+                  <IncidentSimulatorPage />
                 ) : (
                   <ModulePlaceholderPage module={module} />
                 )}
