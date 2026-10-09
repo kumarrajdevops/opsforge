@@ -26,6 +26,8 @@ export interface ModuleDefinition {
   group: 'command' | 'learn' | 'practice' | 'design' | 'interview' | 'analytics'
   icon: ReactNode
   summary: string
+  /** Roadmap facts shown on the placeholder page; absent once the module is built. */
+  planned?: { phase: string; feeds?: string; needs?: string }
 }
 
 /** Single source of truth for routes, navigation and module placeholders (spec navigation IA). */
@@ -46,6 +48,7 @@ export const MODULES: ModuleDefinition[] = [
     group: 'learn',
     icon: <MenuBookOutlined fontSize="small" />,
     summary: 'Per-technology knowledge hubs with documentation, mind maps and commands.',
+    planned: { phase: 'Phase 06', feeds: 'Knowledge and Confidence', needs: 'None' },
   },
   {
     id: 'documents',
@@ -54,6 +57,7 @@ export const MODULES: ModuleDefinition[] = [
     group: 'learn',
     icon: <DescriptionOutlined fontSize="small" />,
     summary: 'Ingest official and personal material with preserved provenance.',
+    planned: { phase: 'Phase 07', feeds: 'Knowledge', needs: 'Knowledge' },
   },
   {
     id: 'flashcards',
@@ -63,6 +67,7 @@ export const MODULES: ModuleDefinition[] = [
     group: 'learn',
     icon: <StyleOutlined fontSize="small" />,
     summary: 'Spaced-repetition recall for concepts, commands and troubleshooting facts.',
+    planned: { phase: 'Phase 10', feeds: 'Flashcards', needs: 'Knowledge' },
   },
   {
     id: 'questions',
@@ -71,6 +76,11 @@ export const MODULES: ModuleDefinition[] = [
     group: 'practice',
     icon: <HelpOutlineOutlined fontSize="small" />,
     summary: 'Adaptive question and scenario engine across four difficulty levels.',
+    planned: {
+      phase: 'Phase 12',
+      feeds: 'Questions',
+      needs: 'Knowledge, and Reading Mode (phase 08)',
+    },
   },
   {
     id: 'scenarios',
@@ -80,6 +90,7 @@ export const MODULES: ModuleDefinition[] = [
     icon: <AltRouteOutlined fontSize="small" />,
     summary:
       'Branching scenarios where each decision changes what happens next, from outage triage to migration planning.',
+    planned: { phase: 'Phase 13', needs: 'Questions. Shares its engine with Incidents' },
   },
   {
     id: 'incidents',
@@ -98,6 +109,11 @@ export const MODULES: ModuleDefinition[] = [
     group: 'practice',
     icon: <TerminalOutlined fontSize="small" />,
     summary: 'Sandboxed Linux, Docker, Kubernetes, Terraform and CI/CD labs.',
+    planned: {
+      phase: 'Phases 28 and 29',
+      feeds: 'Hands-on labs',
+      needs: 'Terminal foundation (browser emulation, ADR-0007)',
+    },
   },
   {
     id: 'architecture',
@@ -115,6 +131,7 @@ export const MODULES: ModuleDefinition[] = [
     group: 'design',
     icon: <LayersOutlined fontSize="small" />,
     summary: 'Architecture patterns: when to use them, and when not to.',
+    planned: { phase: 'Phase 20', needs: 'Questions and Architecture Studio' },
   },
   {
     id: 'interviewer',
@@ -151,6 +168,11 @@ export const MODULES: ModuleDefinition[] = [
     icon: <ForumOutlined fontSize="small" />,
     summary:
       'Behavioral questions, STAR answers built from your own experience, and communication coaching.',
+    planned: {
+      phase: 'Phases 36 and 37',
+      feeds: 'Communication',
+      needs: 'Questions and Reading Mode',
+    },
   },
   {
     id: 'readiness',
@@ -169,6 +191,11 @@ export const MODULES: ModuleDefinition[] = [
     icon: <HistoryOutlined fontSize="small" />,
     summary:
       'Replay any past interview question by question: your answer, what was missed and how the score was reached.',
+    planned: {
+      phase: 'Phase 40',
+      needs:
+        'Full interview simulation. Per-interview replay already exists in the AI Interviewer debrief',
+    },
   },
 ]
 
