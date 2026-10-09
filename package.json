@@ -1,0 +1,26 @@
+{
+  "name": "opsforge",
+  "private": true,
+  "version": "0.0.0",
+  "description": "OPSFORGE - evidence-based Senior DevOps interview readiness platform",
+  "type": "module",
+  "workspaces": [
+    "apps/web",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace @opsforge/web",
+    "build": "npm run build --workspace @opsforge/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
