@@ -7,6 +7,8 @@ import { findHypothesisSpec, formatElapsed, type SessionState } from '../engine'
 import { categoryLabel, channelLabel, qualityMeta, roleMeta, scoreTone } from '../presentation'
 import type { IncidentReviewState } from '../useIncidentReview'
 import { ReviewPanel } from './ReviewPanel'
+import { ServiceMap } from './ServiceMap'
+import { rootCauseServiceId } from '../visual/serviceGraph'
 
 const verdictLabel = {
   'root-cause': 'Root cause',
@@ -171,6 +173,17 @@ export function DebriefView({ scenario, state, evaluation, review, onRestart }: 
               You did not write an RCA.
             </Typography>
           )}
+        </Section>
+
+        <Section title="How the incident spread">
+          <Typography variant="body2" color="text.secondary">
+            The outage starts at the failing dependency and reaches the services that call it.
+          </Typography>
+          <ServiceMap
+            replay
+            services={scenario.services}
+            rootCauseId={rootCauseServiceId(scenario)}
+          />
         </Section>
 
         <Section title="Evidence map">

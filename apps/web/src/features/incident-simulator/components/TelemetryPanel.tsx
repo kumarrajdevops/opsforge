@@ -2,7 +2,7 @@ import Box from '@mui/material/Box'
 import type { ReactNode } from 'react'
 import { PanelTabs } from './PanelTabs'
 
-export type TelemetryTab = 'metrics' | 'logs' | 'traces' | 'timeline'
+export type TelemetryTab = 'metrics' | 'logs' | 'traces' | 'map' | 'timeline'
 
 export interface TelemetryPanelProps {
   tab: TelemetryTab
@@ -10,6 +10,7 @@ export interface TelemetryPanelProps {
   metrics: ReactNode
   logs: ReactNode
   traces: ReactNode
+  map: ReactNode
   timeline: ReactNode
   timelineCount: number
 }
@@ -21,6 +22,7 @@ export function TelemetryPanel({
   metrics,
   logs,
   traces,
+  map,
   timeline,
   timelineCount,
 }: TelemetryPanelProps) {
@@ -34,6 +36,7 @@ export function TelemetryPanel({
         { id: 'metrics', label: 'Metrics', content: <Box sx={{ p: 2 }}>{metrics}</Box> },
         { id: 'logs', label: 'Logs', content: <Box sx={{ p: 2 }}>{logs}</Box> },
         { id: 'traces', label: 'Traces', content: <Box sx={{ p: 2 }}>{traces}</Box> },
+        { id: 'map', label: 'Service map', content: <Box sx={{ p: 2 }}>{map}</Box> },
         {
           id: 'timeline',
           label: 'Timeline',

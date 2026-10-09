@@ -17,6 +17,7 @@ import { ImpactPanel, MissionPanel, ServicesPanel } from './components/OverviewP
 import { PanelTabs } from './components/PanelTabs'
 import { RemediationPanel } from './components/RemediationPanel'
 import { ReportPanel } from './components/ReportPanel'
+import { ServiceMap } from './components/ServiceMap'
 import { TelemetryPanel, type TelemetryTab } from './components/TelemetryPanel'
 import { TerminalPanel } from './components/TerminalPanel'
 import { TimelinePanel } from './components/TimelinePanel'
@@ -174,6 +175,7 @@ export function IncidentConsole({ scenario, scenarios, onScenarioChange }: Incid
           onSelect={selectTrace}
         />
       }
+      map={telemetryTab === 'map' ? <ServiceMap services={services} /> : null}
       timeline={<TimelinePanel entries={timeline} />}
     />
   )
