@@ -35,7 +35,7 @@ The product is built for one person first, but must not assume one person.
 
 ## Consequences
 
-- No rate limiting or lockout yet. Login can be brute-forced against a weak password. This belongs to G10 and must land before the API is exposed beyond localhost.
+- Login rate limiting and lockout were left to G10 and are now in place (per email and per address, in-process; see [SECURITY.md](../SECURITY.md)). Counters are not shared between instances.
 - A duplicate email returns 409, which reveals that an account exists. Accepted for a registration form that can be closed.
 - Password reset and email verification do not exist. With no mail system, recovery is an operator task.
 - Modules other than readiness snapshots still save in the browser until each is moved.

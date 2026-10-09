@@ -18,7 +18,8 @@
     "lint": "npm run lint --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "audit": "npm audit && npm audit --omit=dev"
   },
   "devDependencies": {
     "prettier": "^3.6.2"
