@@ -1,8 +1,11 @@
 import AccountTreeOutlined from '@mui/icons-material/AccountTreeOutlined'
+import AltRouteOutlined from '@mui/icons-material/AltRouteOutlined'
 import AssessmentOutlined from '@mui/icons-material/AssessmentOutlined'
 import DashboardOutlined from '@mui/icons-material/DashboardOutlined'
 import DescriptionOutlined from '@mui/icons-material/DescriptionOutlined'
 import FactCheckOutlined from '@mui/icons-material/FactCheckOutlined'
+import ForumOutlined from '@mui/icons-material/ForumOutlined'
+import HistoryOutlined from '@mui/icons-material/HistoryOutlined'
 import HelpOutlineOutlined from '@mui/icons-material/HelpOutlineOutlined'
 import LayersOutlined from '@mui/icons-material/LayersOutlined'
 import MenuBookOutlined from '@mui/icons-material/MenuBookOutlined'
@@ -70,6 +73,15 @@ export const MODULES: ModuleDefinition[] = [
     summary: 'Adaptive question and scenario engine across four difficulty levels.',
   },
   {
+    id: 'scenarios',
+    path: '/scenarios',
+    label: 'Scenarios',
+    group: 'practice',
+    icon: <AltRouteOutlined fontSize="small" />,
+    summary:
+      'Branching scenarios where each decision changes what happens next, from outage triage to migration planning.',
+  },
+  {
     id: 'incidents',
     path: '/incidents',
     label: 'Incidents',
@@ -132,6 +144,15 @@ export const MODULES: ModuleDefinition[] = [
     summary: 'Turn a job description into a weighted preparation plan.',
   },
   {
+    id: 'behavioral',
+    path: '/behavioral',
+    label: 'Behavioral',
+    group: 'interview',
+    icon: <ForumOutlined fontSize="small" />,
+    summary:
+      'Behavioral questions, STAR answers built from your own experience, and communication coaching.',
+  },
+  {
     id: 'readiness',
     path: '/readiness',
     label: 'Readiness',
@@ -139,6 +160,15 @@ export const MODULES: ModuleDefinition[] = [
     group: 'analytics',
     icon: <AssessmentOutlined fontSize="small" />,
     summary: 'Evidence-based readiness score, weaknesses and the next best actions.',
+  },
+  {
+    id: 'replay',
+    path: '/replay',
+    label: 'Interview Replay',
+    group: 'analytics',
+    icon: <HistoryOutlined fontSize="small" />,
+    summary:
+      'Replay any past interview question by question: your answer, what was missed and how the score was reached.',
   },
 ]
 
