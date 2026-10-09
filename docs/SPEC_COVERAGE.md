@@ -64,7 +64,7 @@ Result: **35 of 35 pages covered. 11 gaps and 2 errors were found and fixed in t
 | 12 | Final Product Definition, intended end state (p.34) | Only the north-star question was captured | Added VIS-01 |
 | 13 | Future sandbox direction environments (p.13) | LAB-04 omitted Docker, Kubernetes, Terraform and cloud | Extended LAB-04 |
 
-Remaining wording issue, not a coverage gap: the PRD cites TODO items (A-03, A-06, A-09, C-04, C-08) that do not exist. Tracked as S5 in [TODO-PRIORITY.md](TODO-PRIORITY.md). The PRD also links [DOMAIN_MODEL.md](DOMAIN_MODEL.md) and [READINESS_ENGINE.md](READINESS_ENGINE.md), which are not written yet (S6). [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md) is written (G6).
+Remaining wording issue, not a coverage gap: the PRD cites TODO items (A-03, A-06, A-09, C-04, C-08) that do not exist. Tracked as S5 in [TODO-PRIORITY.md](TODO-PRIORITY.md). [DOMAIN_MODEL.md](DOMAIN_MODEL.md) and [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md) are written; the PRD no longer links a separate READINESS_ENGINE document (S6).
 
 ## 3. Spec roadmap (RP0–RP9) traceability
 

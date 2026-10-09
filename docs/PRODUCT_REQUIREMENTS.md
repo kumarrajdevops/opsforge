@@ -330,7 +330,7 @@ M14–M16 are specified in detail in the spec but are absent from the navigation
 
 ### 4.16 M13 ForgeReady — Readiness Engine (§P11, §B)
 
-Detailed in [READINESS_ENGINE.md](READINESS_ENGINE.md). Requirements:
+The evidence-to-snapshot chain is in [DOMAIN_MODEL.md](DOMAIN_MODEL.md) section 5, and the contract is `packages/types/src/readiness.ts`. Requirements:
 
 | ID | Requirement |
 |---|---|
@@ -488,10 +488,10 @@ Where each topic of the Phase-1 analysis lives. This is a map and adds no requir
 | Architecture | §4.6 PAT, §4.7 ARC, SYS-02 |
 | Incident | §4.8 OPS, §4.10 OBS |
 | Lab | §4.9 LAB |
-| Readiness | §4.16 RDY, [READINESS_ENGINE.md](READINESS_ENGINE.md) |
+| Readiness | §4.16 RDY, [DOMAIN_MODEL.md](DOMAIN_MODEL.md) §5 |
 | UX | §4.17 UX and NAV, NFR-UX-* |
 | Security | NFR-SEC-*, PR-19, DOC-11, OPS-08, CIC-02, CIC-03, ARC-13, AI-06, [SECURITY.md](SECURITY.md) |
-| Infrastructure | §4.21 SYS, NFR-OPS-*, [ADR](ADR/) |
-| Data | §4.19 DAT, [DOMAIN_MODEL.md](DOMAIN_MODEL.md) |
+| Infrastructure | §4.21 SYS, NFR-OPS-*, [ARCHITECTURE.md](ARCHITECTURE.md), [ADR](ADR/) |
+| Data | §4.19 DAT, [DOMAIN_MODEL.md](DOMAIN_MODEL.md), [DATA_ARCHITECTURE.md](DATA_ARCHITECTURE.md) |
 | Future | §4.20 FUT, §6 |
 | Open decisions | [TODO.md](TODO.md); sequencing in [TODO-PRIORITY.md](TODO-PRIORITY.md) |
