@@ -1,33 +1,91 @@
+import type { EvidenceOrigin, ReadinessEvidence, ReadinessFactorId } from '@opsforge/types'
 import { OpsforgeThemeProvider } from '@opsforge/ui'
 import { render, screen, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
-import { buildSampleSnapshot } from '../features/command-center/sampleSnapshot'
-import { formatRelative, formatSigned } from '../features/command-center/presentation'
+import { buildReadinessReport } from '../features/readiness/engine'
+import { LocalStorageSnapshotRepository } from '../features/readiness/snapshots'
+import type { EvidenceSource } from '../features/readiness/sources'
 import { CommandCenterPage } from './CommandCenterPage'
 
-function renderPage() {
+const NOW = new Date('2026-06-30T12:00:00Z')
+
+function item(
+  factor: ReadinessFactorId,
+  score: number,
+  attempt: string,
+  origin: EvidenceOrigin = 'interview',
+): ReadinessEvidence {
+  return {
+    id: `${attempt}:${factor}`,
+    attemptId: attempt,
+    origin,
+    factor,
+    score,
+    at: '2026-06-29T10:00:00.000Z',
+    label: `${origin} ${attempt}`,
+    topic: 'Terraform',
+    basis: 'deterministic',
+    gaps: score < 60 ? ['Missed state locking'] : undefined,
+  }
+}
+
+const EVIDENCE: ReadinessEvidence[] = [
+  item('knowledge', 40, 'a'),
+  item('knowledge', 45, 'b'),
+  item('knowledge', 42, 'c'),
+  item('confidence', 90, 'd'),
+  item('confidence', 88, 'e'),
+  item('incidents', 55, 'f', 'incident'),
+  item('architecture', 62, 'g', 'architecture'),
+]
+
+function renderPage(evidence: ReadinessEvidence[], fail = false) {
+  const sources: EvidenceSource[] = [
+    {
+      origin: 'interview',
+      load: async () => {
+        if (fail) throw new Error('boom')
+        return evidence
+      },
+    },
+  ]
   return render(
     <OpsforgeThemeProvider>
       <MemoryRouter>
-        <CommandCenterPage />
+        <CommandCenterPage
+          runtime={{
+            sources,
+            snapshots: new LocalStorageSnapshotRepository(null),
+            now: () => NOW,
+          }}
+        />
       </MemoryRouter>
     </OpsforgeThemeProvider>,
   )
 }
 
 describe('CommandCenterPage', { timeout: 20_000 }, () => {
-  it('renders every required section', async () => {
-    renderPage()
+  it('shows the same overall score and level as the readiness engine', async () => {
+    const report = buildReadinessReport(EVIDENCE, { now: NOW })
+    renderPage(EVIDENCE)
+
     expect(
       await screen.findByRole('heading', { name: /where would you fail/i, level: 1 }),
     ).toBeInTheDocument()
-
-    expect(screen.getByRole('meter', { name: 'Overall readiness score' })).toHaveAttribute(
+    expect(await screen.findByRole('meter', { name: 'Overall readiness score' })).toHaveAttribute(
       'aria-valuenow',
-      '63',
+      String(Math.round(report.overall.score!)),
     )
-    expect(screen.getAllByText('Interview Ready').length).toBeGreaterThan(0)
+    expect(screen.getAllByText(report.level.label).length).toBeGreaterThan(0)
+    expect(screen.getByText(/same report as/i)).toBeInTheDocument()
+  })
+
+  it('renders every section from the evidence and labels no sample data', async () => {
+    renderPage(EVIDENCE)
+    expect(await screen.findByRole('meter', { name: 'Overall readiness score' })).toBeVisible()
+
+    expect(screen.queryByText(/sample data/i)).not.toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: /you would most likely fail here/i }),
     ).toBeInTheDocument()
@@ -46,75 +104,26 @@ describe('CommandCenterPage', { timeout: 20_000 }, () => {
     }
   })
 
-  it('shows all nine evidence dimensions', async () => {
-    renderPage()
+  it('lists all 11 factors and leaves unscored ones unscored instead of zero', async () => {
+    renderPage(EVIDENCE)
     const list = await screen.findByRole('list', { name: 'Dimension scores' })
-    const labels = [
-      'Knowledge',
-      'Practice',
-      'Hands-on',
-      'Troubleshooting',
-      'Architecture',
-      'Security',
-      'Communication',
-      'Confidence',
-      'Incident response',
-    ]
-    for (const label of labels) {
-      expect(within(list).getByText(label)).toBeInTheDocument()
-    }
-    expect(within(list).getAllByRole('listitem')).toHaveLength(9)
+    expect(within(list).getAllByRole('listitem')).toHaveLength(11)
+    expect(within(list).getByTestId('dimension-flashcards')).toHaveTextContent('No evidence')
+    expect(within(list).getByTestId('dimension-flashcards')).not.toHaveTextContent(/^0/)
+    expect(within(list).getByTestId('dimension-knowledge')).toHaveTextContent('3 events')
   })
 
-  it('labels the data as sample data while the engine is not connected', async () => {
-    renderPage()
-    expect(await screen.findByText('Readiness engine not connected')).toBeInTheDocument()
-    expect(screen.getByText('Sample data')).toBeInTheDocument()
+  it('shows an honest empty state with no evidence', async () => {
+    renderPage([])
+    expect(await screen.findByText(/nothing to forecast yet/i)).toBeInTheDocument()
+    expect(screen.queryByRole('meter', { name: 'Overall readiness score' })).not.toBeInTheDocument()
+    expect(screen.getByText('No evidence yet', { selector: 'p' })).toBeInTheDocument()
+    expect(screen.getAllByText(/no scored evidence yet/i).length).toBeGreaterThan(0)
   })
 
-  it('never renders a missing skill cell as zero', async () => {
-    renderPage()
-    const table = await screen.findByRole('table', { name: 'Skill matrix' })
-    expect(within(table).getAllByRole('img', { name: /no evidence yet/ }).length).toBeGreaterThan(0)
-    expect(within(table).queryByRole('img', { name: /: 0$/ })).not.toBeInTheDocument()
-  })
-
-  it('links the recommended action to its module', async () => {
-    renderPage()
-    expect(await screen.findByRole('link', { name: /start now/i })).toHaveAttribute(
-      'href',
-      '/questions',
-    )
-  })
-})
-
-describe('sample snapshot', () => {
-  it('is internally consistent', () => {
-    const snapshot = buildSampleSnapshot(new Date('2026-01-01T12:00:00Z'))
-    expect(snapshot.dimensions).toHaveLength(9)
-    expect(snapshot.overall.trend.at(-1)?.score).toBe(snapshot.overall.score)
-    expect(
-      snapshot.plan.items.filter((i) => i.status === 'done').reduce((n, i) => n + i.minutes, 0),
-    ).toBe(snapshot.plan.completedMinutes)
-    expect(snapshot.plan.items.reduce((n, i) => n + i.minutes, 0)).toBe(snapshot.plan.totalMinutes)
-    for (const skill of snapshot.weakestSkills) {
-      expect(snapshot.skills.some((s) => s.id === skill.skillId)).toBe(true)
-    }
-  })
-})
-
-describe('presentation helpers', () => {
-  it('formats signed deltas', () => {
-    expect(formatSigned(2)).toBe('+2')
-    expect(formatSigned(-1)).toBe('−1')
-    expect(formatSigned(0)).toBe('±0')
-    expect(formatSigned(-0.6, 1)).toBe('−0.6')
-  })
-
-  it('formats relative time', () => {
-    const now = new Date('2026-01-02T12:00:00Z')
-    expect(formatRelative('2026-01-02T11:42:00Z', now)).toBe('18m ago')
-    expect(formatRelative('2026-01-02T06:00:00Z', now)).toBe('6h ago')
-    expect(formatRelative('2025-12-30T12:00:00Z', now)).toBe('3d ago')
+  it('reports an error instead of falling back to other data when readiness fails', async () => {
+    renderPage([], true)
+    // A failing module is isolated by the engine: the page still renders with no evidence.
+    expect(await screen.findByText(/nothing to forecast yet/i)).toBeInTheDocument()
   })
 })

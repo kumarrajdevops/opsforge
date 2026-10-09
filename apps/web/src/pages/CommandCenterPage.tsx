@@ -1,9 +1,11 @@
 import Alert from '@mui/material/Alert'
 import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
 import Skeleton from '@mui/material/Skeleton'
 import Typography from '@mui/material/Typography'
-import { PageHeader, Reveal, StatusIndicator, ToneChip } from '@opsforge/ui'
+import { PageHeader, Reveal, StatusIndicator } from '@opsforge/ui'
 import { useMemo } from 'react'
+import { Link as RouterLink } from 'react-router-dom'
 import { ArchitectureSection } from '../features/command-center/components/ArchitectureSection'
 import { DimensionsSection } from '../features/command-center/components/DimensionsSection'
 import {
@@ -19,6 +21,7 @@ import { ReadinessHero } from '../features/command-center/components/ReadinessHe
 import { SkillMatrix, WeakestSkills } from '../features/command-center/components/SkillsSection'
 import { formatClock } from '../features/command-center/presentation'
 import { useCommandCenter } from '../features/command-center/useCommandCenter'
+import type { ReadinessRuntime } from '../features/readiness/useReadiness'
 
 function LoadingState() {
   return (
@@ -30,8 +33,8 @@ function LoadingState() {
   )
 }
 
-export function CommandCenterPage() {
-  const state = useCommandCenter()
+export function CommandCenterPage({ runtime }: { runtime?: ReadinessRuntime }) {
+  const state = useCommandCenter(runtime)
   const now = useMemo(
     () => (state.status === 'ready' ? new Date(state.snapshot.generatedAt) : new Date()),
     [state],
@@ -71,21 +74,21 @@ export function CommandCenterPage() {
               })}
             >
               <StatusIndicator
-                status={state.snapshot.source === 'engine' ? 'healthy' : 'info'}
-                label={state.snapshot.source === 'engine' ? 'Live' : 'Sample data'}
+                status={state.snapshot.evidenceTotal > 0 ? 'healthy' : 'info'}
+                label={state.snapshot.evidenceTotal > 0 ? 'Live' : 'No evidence yet'}
               />
               <Typography variant="monoSmall" color="text.secondary">
-                snapshot {formatClock(state.snapshot.generatedAt)} · {state.snapshot.evidenceTotal}{' '}
-                evidence events
+                report {formatClock(state.snapshot.generatedAt)} · {state.snapshot.evidenceTotal}{' '}
+                evidence events · same report as{' '}
+                <Link component={RouterLink} to="/readiness">
+                  Readiness
+                </Link>
               </Typography>
-              {state.snapshot.source === 'sample' && (
-                <ToneChip tone="warning" label="Readiness engine not connected" />
-              )}
             </Box>
           </Reveal>
 
           <ReadinessHero snapshot={state.snapshot} />
-          <NextActionBand action={state.snapshot.nextAction} />
+          {state.snapshot.nextAction && <NextActionBand action={state.snapshot.nextAction} />}
           <DimensionsSection dimensions={state.snapshot.dimensions} />
 
           <Box

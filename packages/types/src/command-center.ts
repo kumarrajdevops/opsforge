@@ -1,21 +1,21 @@
 /**
- * Command Center read model. The readiness engine owns every number, band and recommendation
- * here; the UI only renders them. Scores are 0-100.
+ * Command Center read model. It is derived from the Readiness Engine report and the evidence
+ * behind it, never supplied separately, so the Command Center and the Readiness page cannot
+ * disagree. Scores are 0-100; `null` means no evidence and is never shown as zero.
  */
 
-export type EvidenceDimensionId =
-  | 'knowledge'
-  | 'practice'
-  | 'hands-on'
-  | 'troubleshooting'
-  | 'architecture'
-  | 'security'
-  | 'communication'
-  | 'confidence'
-  | 'incident-response'
+import type {
+  EvidenceConfidence,
+  ReadinessFactorId,
+  ReadinessScoreBand,
+  TrendDirection,
+} from './readiness'
+
+/** The areas readiness is judged on; identical to the engine's factors. */
+export type EvidenceDimensionId = ReadinessFactorId
 
 /** Interpretation band assigned by the engine. */
-export type ScoreBand = 'critical' | 'weak' | 'developing' | 'solid' | 'strong'
+export type ScoreBand = ReadinessScoreBand
 
 export type ModuleKey =
   | 'knowledge'
@@ -33,19 +33,23 @@ export interface ReadinessLevel {
   /** 1 Learner … 6 Architect */
   value: 1 | 2 | 3 | 4 | 5 | 6
   label: string
-  next: { label: string; requirement: string } | null
+  /** Why the level is what it is, in the engine's words. */
+  reason: string
+  /** The checks the next level still needs, taken from the engine's gate. */
+  next: { label: string; requirements: string[] } | null
 }
 
 export interface DimensionScore {
   id: EvidenceDimensionId
   label: string
-  score: number
-  band: ScoreBand
-  /** Senior-track benchmark for this dimension. */
+  /** null = no evidence yet. */
+  score: number | null
+  band: ScoreBand | null
   target: number
-  /** Change vs the snapshot a week ago, in points. */
-  weeklyDelta: number
   evidenceCount: number
+  confidence: EvidenceConfidence
+  /** Recent minus earlier evidence, in points; null when there is too little to compare. */
+  delta: number | null
 }
 
 export interface FailureRisk {
@@ -57,7 +61,7 @@ export interface FailureRisk {
   likelihood: 'high' | 'medium' | 'low'
   dimension: EvidenceDimensionId
   evidenceCount: number
-  action: { label: string; module: ModuleKey }
+  action: { label: string; module: ModuleKey; available: boolean }
 }
 
 export type SkillModeId = 'knowledge' | 'hands-on' | 'troubleshooting' | 'interview'
@@ -89,32 +93,27 @@ export interface WeakSkill {
   action: { label: string; module: ModuleKey }
 }
 
-export type PlanItemKind =
-  'revision' | 'flashcards' | 'interview' | 'troubleshooting' | 'architecture' | 'verbal'
-
 export interface PlanItem {
   id: string
-  kind: PlanItemKind
   title: string
   minutes: number
   reason: string
-  status: 'done' | 'next' | 'todo'
+  status: 'next' | 'todo'
   module: ModuleKey
+  available: boolean
 }
 
 export interface TodayPlan {
   totalMinutes: number
-  completedMinutes: number
   items: PlanItem[]
 }
 
 export interface ContinueItem {
   id: string
-  kind: 'architecture' | 'incident' | 'interview' | 'lab'
   title: string
   detail: string
-  /** 0-100 */
-  progress: number
+  /** Score of that attempt, 0-100. */
+  score: number
   lastActive: string
   module: ModuleKey
 }
@@ -122,46 +121,40 @@ export interface ContinueItem {
 export interface EvidenceEvent {
   id: string
   at: string
-  mode: 'interview' | 'incident' | 'lab' | 'quiz' | 'architecture' | 'flashcards'
+  /** Module the observation came from. */
+  source: string
   subject: string
   outcome: 'pass' | 'partial' | 'fail'
+  score: number
   dimension: EvidenceDimensionId
-  /** Effect on the dimension score, in points. */
-  impact: number
+  /** Share of the dimension's weight this item carries, 0..1. */
+  share: number
   note: string
 }
 
 export interface IncidentRecord {
   id: string
   title: string
-  severity: 'SEV1' | 'SEV2' | 'SEV3'
   outcome: 'resolved' | 'partial' | 'failed'
-  minutesToMitigate: number | null
-  rootCauseFound: boolean
+  score: number
   at: string
-}
-
-export interface ArchitectureStage {
-  id: string
-  label: string
-  status: 'done' | 'current' | 'todo'
 }
 
 export interface ArchitectureProgress {
   scenariosCompleted: number
   scenariosTotal: number
-  current: { title: string; stageProgress: number } | null
-  stages: ArchitectureStage[]
-  /** Rubric criteria from the latest reviewed design. */
-  rubric: { id: string; label: string; score: number; target: number; band: ScoreBand }[]
+  /** The most recent reviewed design. */
+  latest: { title: string; score: number; band: ScoreBand; gaps: string[] } | null
 }
 
 export interface RecommendedAction {
   title: string
   why: string
   estimatedMinutes: number
-  expectedImpact: string
+  /** What a strong result would do to the factor, from the engine's projection. */
+  expectedImpact: string | null
   module: ModuleKey
+  available: boolean
 }
 
 export interface TrendPoint {
@@ -172,14 +165,18 @@ export interface TrendPoint {
 
 export interface CommandCenterSnapshot {
   generatedAt: string
-  /** Where the data came from; `sample` means the readiness engine is not connected. */
-  source: 'engine' | 'sample'
   evidenceTotal: number
   overall: {
-    score: number
-    band: ScoreBand
-    seniorTarget: number
-    weeklyDelta: number
+    /** null until at least one factor has evidence. */
+    score: number | null
+    band: ScoreBand | null
+    target: number
+    /** Share of total factor weight that has any evidence, 0..1. */
+    coverage: number
+    confidence: EvidenceConfidence
+    confidenceReason: string
+    direction: TrendDirection
+    delta: number | null
     level: ReadinessLevel
     trend: TrendPoint[]
   }
@@ -193,5 +190,5 @@ export interface CommandCenterSnapshot {
   recentEvidence: EvidenceEvent[]
   recentIncidents: IncidentRecord[]
   architecture: ArchitectureProgress
-  nextAction: RecommendedAction
+  nextAction: RecommendedAction | null
 }

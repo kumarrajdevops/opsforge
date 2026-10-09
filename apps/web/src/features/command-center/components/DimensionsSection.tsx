@@ -2,15 +2,14 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import type { DimensionScore } from '@opsforge/types'
 import { Panel, ProgressBar, RadarChart, Reveal, ToneChip } from '@opsforge/ui'
+import { confidenceLabel } from '../../readiness/presentation'
 import { bandLabel, bandTone, deltaTone, formatSigned } from '../presentation'
 
-const SHORT_LABELS: Partial<Record<DimensionScore['id'], string>> = {
-  'incident-response': 'Incident resp.',
-  troubleshooting: 'Troubleshoot',
-}
-
 function DimensionTile({ dimension, index }: { dimension: DimensionScore; index: number }) {
-  const tone = bandTone[dimension.band]
+  const { score, band } = dimension
+  const scored = score !== null && band !== null
+  const tone = scored ? bandTone[band] : 'neutral'
+  const delta = dimension.delta
   return (
     <Box component="li" sx={{ listStyle: 'none' }}>
       <Reveal delay={0.05 + index * 0.04}>
@@ -19,41 +18,58 @@ function DimensionTile({ dimension, index }: { dimension: DimensionScore; index:
           sx={(theme) => ({
             p: 1.75,
             borderRadius: `${theme.opsforge.radius.md}px`,
-            border: `1px solid ${theme.palette.border.default}`,
+            border: `1px ${scored ? 'solid' : 'dashed'} ${theme.palette.border.default}`,
             backgroundColor: theme.palette.background.paper,
           })}
         >
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <Typography variant="metric" sx={{ fontSize: 28, lineHeight: 1 }}>
-              {dimension.score}
+              {scored ? score : '—'}
             </Typography>
-            <ToneChip tone={tone} label={bandLabel[dimension.band]} />
+            <ToneChip tone={tone} label={scored ? bandLabel[band] : 'No evidence'} />
           </Box>
           <Box sx={{ mt: 1.25 }}>
-            <ProgressBar
-              label={dimension.label}
-              value={dimension.score}
-              tone={tone}
-              valueLabel={`/ ${dimension.target}`}
-              target={dimension.target}
-              targetLabel="Senior target"
-            />
+            {scored ? (
+              <ProgressBar
+                label={dimension.label}
+                value={score}
+                tone={tone}
+                valueLabel={`/ ${dimension.target}`}
+                target={dimension.target}
+                targetLabel="Target"
+              />
+            ) : (
+              <>
+                <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                  {dimension.label}
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+                  Target {dimension.target}. Not scored yet.
+                </Typography>
+              </>
+            )}
           </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
-            <Typography variant="monoSmall" color="text.secondary">
-              {dimension.evidenceCount} events
-            </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1, gap: 1 }}>
             <Typography
               variant="monoSmall"
-              sx={(theme) => ({
-                color:
-                  deltaTone(dimension.weeklyDelta) === 'neutral'
-                    ? theme.palette.text.secondary
-                    : theme.palette[deltaTone(dimension.weeklyDelta) as 'success' | 'error'].main,
-              })}
+              color="text.secondary"
+              title={confidenceLabel[dimension.confidence]}
             >
-              {formatSigned(dimension.weeklyDelta)} wk
+              {dimension.evidenceCount} {dimension.evidenceCount === 1 ? 'event' : 'events'}
             </Typography>
+            {delta !== null && (
+              <Typography
+                variant="monoSmall"
+                sx={(theme) => ({
+                  color:
+                    deltaTone(delta) === 'neutral'
+                      ? theme.palette.text.secondary
+                      : theme.palette[deltaTone(delta) as 'success' | 'error'].main,
+                })}
+              >
+                {formatSigned(delta)} recent
+              </Typography>
+            )}
           </Box>
         </Box>
       </Reveal>
@@ -62,10 +78,11 @@ function DimensionTile({ dimension, index }: { dimension: DimensionScore; index:
 }
 
 export function DimensionsSection({ dimensions }: { dimensions: DimensionScore[] }) {
+  const scored = dimensions.filter((d) => d.score !== null)
   return (
     <Panel
       title="Readiness profile"
-      subtitle="Nine evidence dimensions against the Senior target (dashed)."
+      subtitle={`${dimensions.length} evidence dimensions against their targets (dashed). Dimensions without evidence are left off the chart, not drawn as zero.`}
     >
       <Box
         sx={{
@@ -75,14 +92,16 @@ export function DimensionsSection({ dimensions }: { dimensions: DimensionScore[]
           alignItems: 'center',
         }}
       >
-        <RadarChart
-          label="Readiness profile"
-          axes={dimensions.map((d) => ({
-            label: SHORT_LABELS[d.id] ?? d.label,
-            value: d.score,
-            target: d.target,
-          }))}
-        />
+        {scored.length >= 3 ? (
+          <RadarChart
+            label="Readiness profile"
+            axes={scored.map((d) => ({ label: d.label, value: d.score!, target: d.target }))}
+          />
+        ) : (
+          <Typography variant="body2" color="text.secondary">
+            The profile chart needs at least three scored dimensions. {scored.length} so far.
+          </Typography>
+        )}
         <Box
           component="ul"
           aria-label="Dimension scores"

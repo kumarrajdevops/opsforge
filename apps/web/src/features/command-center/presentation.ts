@@ -49,12 +49,6 @@ export const incidentOutcomeTone: Record<IncidentRecord['outcome'], Tone> = {
   failed: 'error',
 }
 
-export const severityTone: Record<IncidentRecord['severity'], Tone> = {
-  SEV1: 'error',
-  SEV2: 'warning',
-  SEV3: 'info',
-}
-
 export const moduleLabel: Record<ModuleKey, string> = {
   knowledge: 'ForgeLearn',
   flashcards: 'ForgeCards',

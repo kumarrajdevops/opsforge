@@ -50,13 +50,16 @@ export function NextActionBand({ action }: { action: RecommendedAction }) {
           </Typography>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
             <ToneChip tone="neutral" mono label={`${action.estimatedMinutes} min`} />
-            <ToneChip tone="success" mono label={action.expectedImpact} />
+            {action.expectedImpact && <ToneChip tone="info" mono label={action.expectedImpact} />}
             <ToneChip tone="neutral" label={moduleLabel[action.module]} />
+            {!action.available && <ToneChip tone="warning" label="Module not built yet" />}
           </Box>
         </Box>
-        <ModuleButton module={action.module} variant="contained" size="large">
-          Start now
-        </ModuleButton>
+        {action.available && (
+          <ModuleButton module={action.module} variant="contained" size="large">
+            Start now
+          </ModuleButton>
+        )}
       </Box>
     </Reveal>
   )

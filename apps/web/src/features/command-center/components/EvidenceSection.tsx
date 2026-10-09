@@ -3,15 +3,14 @@ import Typography from '@mui/material/Typography'
 import type { DimensionScore, EvidenceEvent, IncidentRecord } from '@opsforge/types'
 import { Panel, Reveal, ToneChip } from '@opsforge/ui'
 import {
-  deltaTone,
   formatClock,
   formatRelative,
-  formatSigned,
   incidentOutcomeTone,
   outcomeLabel,
   outcomeTone,
-  severityTone,
+  bandTone,
 } from '../presentation'
+import { bandFor } from '../../readiness/scoring'
 
 interface EvidenceFeedProps {
   events: EvidenceEvent[]
@@ -24,8 +23,13 @@ export function EvidenceFeed({ events, dimensions, now }: EvidenceFeedProps) {
   return (
     <Panel
       title="Recent interview evidence"
-      subtitle="Every scored answer, lab and drill. This is what readiness is built from."
+      subtitle="Every scored answer, incident and design. This is what readiness is built from."
     >
+      {events.length === 0 && (
+        <Typography variant="body2" color="text.secondary">
+          No scored evidence yet.
+        </Typography>
+      )}
       <Box component="ol" sx={{ listStyle: 'none', m: 0, p: 0 }}>
         {events.map((event, i) => (
           <Box component="li" key={event.id}>
@@ -40,20 +44,20 @@ export function EvidenceFeed({ events, dimensions, now }: EvidenceFeedProps) {
                   <ToneChip
                     tone={outcomeTone[event.outcome]}
                     mono
-                    label={outcomeLabel[event.outcome]}
+                    label={`${outcomeLabel[event.outcome]} ${event.score}`}
                   />
                   <Typography
                     variant="monoSmall"
                     color="text.secondary"
                     title={formatClock(event.at)}
                   >
-                    {formatRelative(event.at, now)} · {event.mode}
+                    {formatRelative(event.at, now)} · {event.source}
                   </Typography>
                   <Box sx={{ ml: 'auto' }}>
                     <ToneChip
-                      tone={deltaTone(event.impact)}
+                      tone="neutral"
                       mono
-                      label={`${formatSigned(event.impact, 1)} ${label(event.dimension)}`}
+                      label={`${Math.round(event.share * 100)}% of ${label(event.dimension)}`}
                     />
                   </Box>
                 </Box>
@@ -75,6 +79,11 @@ export function EvidenceFeed({ events, dimensions, now }: EvidenceFeedProps) {
 export function RecentIncidents({ incidents, now }: { incidents: IncidentRecord[]; now: Date }) {
   return (
     <Panel title="Recent incidents" subtitle="Simulated, scored on mitigation and root cause.">
+      {incidents.length === 0 && (
+        <Typography variant="body2" color="text.secondary">
+          No incident has been run yet.
+        </Typography>
+      )}
       <Box component="ul" sx={{ listStyle: 'none', m: 0, p: 0, display: 'grid', gap: 1.25 }}>
         {incidents.map((incident, i) => (
           <Box component="li" key={incident.id}>
@@ -84,25 +93,18 @@ export function RecentIncidents({ incidents, now }: { incidents: IncidentRecord[
                   p: 1.5,
                   borderRadius: `${theme.opsforge.radius.md}px`,
                   border: `1px solid ${theme.palette.border.default}`,
-                  borderLeft: `3px solid ${theme.palette[severityTone[incident.severity] as 'error'].main}`,
+                  borderLeft: `3px solid ${theme.palette[bandTone[bandFor(incident.score)] as 'error'].main}`,
                 })}
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
-                  <ToneChip tone={severityTone[incident.severity]} mono label={incident.severity} />
                   <ToneChip tone={incidentOutcomeTone[incident.outcome]} label={incident.outcome} />
+                  <ToneChip tone="neutral" mono label={`score ${incident.score}`} />
                   <Typography variant="monoSmall" color="text.secondary" sx={{ ml: 'auto' }}>
                     {formatRelative(incident.at, now)}
                   </Typography>
                 </Box>
                 <Typography variant="body2" sx={{ fontWeight: 600, mt: 0.75 }}>
                   {incident.title}
-                </Typography>
-                <Typography variant="caption" color="text.secondary">
-                  {incident.minutesToMitigate === null
-                    ? 'Not mitigated'
-                    : `Mitigated in ${incident.minutesToMitigate} min`}
-                  {' · '}
-                  {incident.rootCauseFound ? 'root cause found' : 'root cause missed'}
                 </Typography>
               </Box>
             </Reveal>

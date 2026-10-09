@@ -1,5 +1,6 @@
 import type {
   EvidenceSourceStatus,
+  ReadinessEvidence,
   ReadinessReport,
   ReadinessSnapshot,
   ReadinessSnapshotRepository,
@@ -22,6 +23,8 @@ export type ReadinessState =
   | {
       status: 'ready'
       report: ReadinessReport
+      /** The evidence the report was built from, for views that group it differently. */
+      evidence: ReadinessEvidence[]
       sources: EvidenceSourceStatus[]
       history: ReadinessSnapshot[]
     }
@@ -41,7 +44,7 @@ export function useReadiness(runtime: ReadinessRuntime = {}): ReadinessState {
       const { evidence, statuses } = await loadEvidence(sources)
       const report = buildReadinessReport(evidence, { now: now?.() })
       const history = await recordSnapshot(report, snapshots)
-      if (!cancelled) setState({ status: 'ready', report, sources: statuses, history })
+      if (!cancelled) setState({ status: 'ready', report, evidence, sources: statuses, history })
     })().catch((error: unknown) => {
       if (!cancelled) {
         setState({

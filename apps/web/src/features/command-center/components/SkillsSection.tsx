@@ -15,9 +15,14 @@ export function SkillMatrix({ skills, modes }: SkillMatrixProps) {
   return (
     <Panel
       title="Skill matrix"
-      subtitle="Technology by evidence mode. Dashed cells have no evidence yet."
+      subtitle="Topic by evidence mode. Dashed cells have no evidence yet."
     >
-      <Box sx={{ overflowX: 'auto' }}>
+      {skills.length === 0 && (
+        <Typography variant="body2" color="text.secondary">
+          No topic has scored evidence yet. Topics appear after a scored answer, incident or design.
+        </Typography>
+      )}
+      <Box sx={{ overflowX: 'auto', display: skills.length === 0 ? 'none' : 'block' }}>
         <Box role="table" aria-label="Skill matrix" sx={{ minWidth: 470 }}>
           <Box
             role="row"
@@ -92,6 +97,11 @@ export function SkillMatrix({ skills, modes }: SkillMatrixProps) {
 export function WeakestSkills({ skills }: { skills: WeakSkill[] }) {
   return (
     <Panel title="Weakest skills" subtitle="Largest gap to target, ranked.">
+      {skills.length === 0 && (
+        <Typography variant="body2" color="text.secondary">
+          No scored topic is below target.
+        </Typography>
+      )}
       <Box component="ol" sx={{ listStyle: 'none', m: 0, p: 0, display: 'grid', gap: 2 }}>
         {skills.map((skill, i) => (
           <Box component="li" key={skill.skillId}>

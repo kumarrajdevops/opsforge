@@ -1,4 +1,3 @@
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled'
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked'
 import Box from '@mui/material/Box'
@@ -9,8 +8,6 @@ import { formatRelative, moduleLabel } from '../presentation'
 import { ModuleButton } from './ModuleButton'
 
 function StatusIcon({ status }: { status: PlanItem['status'] }) {
-  if (status === 'done')
-    return <CheckCircleIcon fontSize="small" color="success" titleAccess="Done" />
   if (status === 'next') {
     return <PlayCircleFilledIcon fontSize="small" color="primary" titleAccess="Up next" />
   }
@@ -27,24 +24,14 @@ export function TodayPlanSection({ plan }: { plan: TodayPlan }) {
   return (
     <Panel
       title="Today’s adaptive plan"
-      subtitle="Built from your weakest evidence. It re-plans after each session."
-      actions={
-        <ToneChip
-          tone="neutral"
-          mono
-          label={`${plan.completedMinutes} / ${plan.totalMinutes} min`}
-        />
-      }
+      subtitle="Ranked by the largest expected gain. It changes when your evidence changes."
+      actions={<ToneChip tone="neutral" mono label={`${plan.totalMinutes} min`} />}
     >
-      <Box sx={{ mb: 2 }}>
-        <ProgressBar
-          label="Plan progress"
-          value={plan.completedMinutes}
-          max={plan.totalMinutes}
-          valueLabel={`${Math.round((plan.completedMinutes / plan.totalMinutes) * 100)}%`}
-          tone="primary"
-        />
-      </Box>
+      {plan.items.length === 0 && (
+        <Typography variant="body2" color="text.secondary">
+          No actions yet.
+        </Typography>
+      )}
       <Box component="ol" sx={{ listStyle: 'none', m: 0, p: 0 }}>
         {plan.items.map((item, i) => {
           const isNext = item.status === 'next'
@@ -64,18 +51,11 @@ export function TodayPlanSection({ plan }: { plan: TodayPlan }) {
                     borderRadius: `${theme.opsforge.radius.md}px`,
                     borderBottom: isNext ? 'none' : `1px solid ${theme.palette.border.subtle}`,
                     backgroundColor: isNext ? theme.palette.action.hover : 'transparent',
-                    opacity: item.status === 'done' ? 0.7 : 1,
                   })}
                 >
                   <StatusIcon status={item.status} />
                   <Box sx={{ minWidth: 0 }}>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontWeight: 600,
-                        textDecoration: item.status === 'done' ? 'line-through' : 'none',
-                      }}
-                    >
+                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
                       {item.title}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
@@ -86,7 +66,8 @@ export function TodayPlanSection({ plan }: { plan: TodayPlan }) {
                     <Typography variant="monoSmall" color="text.secondary">
                       {item.minutes}m
                     </Typography>
-                    {isNext && (
+                    {!item.available && <ToneChip tone="warning" label="Not built yet" />}
+                    {isNext && item.available && (
                       <ModuleButton module={item.module} size="small" variant="contained">
                         Start
                       </ModuleButton>
@@ -104,7 +85,12 @@ export function TodayPlanSection({ plan }: { plan: TodayPlan }) {
 
 export function ContinueTraining({ items, now }: { items: ContinueItem[]; now: Date }) {
   return (
-    <Panel title="Continue training" subtitle="Pick up where you left off.">
+    <Panel title="Continue training" subtitle="Your latest attempt in each module.">
+      {items.length === 0 && (
+        <Typography variant="body2" color="text.secondary">
+          Nothing to continue. Finish a scored attempt in any module and it appears here.
+        </Typography>
+      )}
       <Box component="ul" sx={{ listStyle: 'none', m: 0, p: 0, display: 'grid', gap: 1.5 }}>
         {items.map((item, i) => (
           <Box component="li" key={item.id}>
@@ -127,10 +113,15 @@ export function ContinueTraining({ items, now }: { items: ContinueItem[]; now: D
                 <Typography variant="caption" color="text.secondary" component="p" sx={{ mb: 1 }}>
                   {item.detail}
                 </Typography>
-                <ProgressBar label="Progress" value={item.progress} tone="primary" />
+                <ProgressBar
+                  label="Last score"
+                  value={item.score}
+                  tone="primary"
+                  valueLabel={`${item.score} / 100`}
+                />
                 <Box sx={{ mt: 1, display: 'flex', justifyContent: 'flex-end' }}>
                   <ModuleButton module={item.module} size="small" variant="outlined">
-                    Resume
+                    Open
                   </ModuleButton>
                 </Box>
               </Box>
