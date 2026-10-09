@@ -1,6 +1,6 @@
 import ConstructionOutlined from '@mui/icons-material/ConstructionOutlined'
 import Typography from '@mui/material/Typography'
-import { AppShell, ColorModeToggle, type NavGroup } from '@opsforge/ui'
+import { AppShell, ColorModeToggle, PageTransition, type NavGroup } from '@opsforge/ui'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { ApiStatus } from '../features/health/ApiStatus'
 import { MODULES, buildNavGroups, findActiveId } from './modules'
@@ -50,7 +50,9 @@ export function ShellLayout() {
         </>
       }
     >
-      <Outlet />
+      <PageTransition routeKey={activeId ?? pathname}>
+        <Outlet />
+      </PageTransition>
     </AppShell>
   )
 }
