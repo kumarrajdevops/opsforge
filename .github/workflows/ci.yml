@@ -1,0 +1,111 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    name: Web (format, lint, typecheck, test, build)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  api:
+    name: API (lint, typecheck, test)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: apps/api/pyproject.toml
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: mypy
+      - run: pytest -q
+
+  migrations:
+    name: Migrations on PostgreSQL with pgvector
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17
+        env:
+          POSTGRES_USER: opsforge
+          POSTGRES_PASSWORD: opsforge
+          POSTGRES_DB: opsforge
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U opsforge -d opsforge"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql+psycopg://opsforge:opsforge@localhost:5432/opsforge
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: apps/api/pyproject.toml
+      - run: pip install -e ".[dev]"
+      - name: Enable pgvector, as the local init script does
+        run: >
+          python -c "import psycopg;
+          c=psycopg.connect('postgresql://opsforge:opsforge@localhost:5432/opsforge', autocommit=True);
+          c.execute('CREATE EXTENSION IF NOT EXISTS vector');
+          print(c.execute(\"SELECT extversion FROM pg_extension WHERE extname='vector'\").fetchone())"
+      - name: Upgrade to head
+        run: alembic upgrade head
+      - name: Downgrade to base and upgrade again
+        run: |
+          alembic downgrade base
+          alembic upgrade head
+      - name: Models match the migrations
+        run: alembic check
+
+  compose:
+    name: Docker Compose config and image builds
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate compose files
+        run: |
+          cp .env.example .env
+          docker compose config --quiet
+          docker compose --profile app config --quiet
+      - name: Build the application images
+        run: docker compose --profile app build
