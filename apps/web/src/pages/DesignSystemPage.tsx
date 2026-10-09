@@ -1,3 +1,5 @@
+import DashboardOutlined from '@mui/icons-material/DashboardOutlined'
+import SchoolOutlined from '@mui/icons-material/SchoolOutlined'
 import TerminalOutlined from '@mui/icons-material/TerminalOutlined'
 import Badge from '@mui/material/Badge'
 import Box from '@mui/material/Box'
@@ -19,12 +21,33 @@ import {
   ScoreRing,
   SectionTabs,
   SideDrawer,
+  SidebarNav,
   StatusIndicator,
   ToneChip,
   type DataTableColumn,
+  type NavGroup,
   type Tone,
 } from '@opsforge/ui'
 import { useState } from 'react'
+import { Foundations } from './designSystem/Foundations'
+
+const NAV_DEMO: NavGroup[] = [
+  {
+    id: 'demo-learn',
+    label: 'Learn',
+    items: [
+      { id: 'demo-home', label: 'Command Center', to: '#navigation', icon: <DashboardOutlined /> },
+      { id: 'demo-knowledge', label: 'Knowledge', to: '#navigation', icon: <SchoolOutlined /> },
+      {
+        id: 'demo-labs',
+        label: 'Labs',
+        to: '#navigation',
+        icon: <TerminalOutlined />,
+        badge: 'Soon',
+      },
+    ],
+  },
+]
 
 const TONES: Tone[] = ['neutral', 'primary', 'ai', 'success', 'warning', 'error', 'info']
 
@@ -70,6 +93,8 @@ export default function DesignSystemPage() {
         title="Design System"
         description="Living reference for the OPSFORGE component library. Toggle light and dark from the top bar."
       />
+
+      <Foundations />
 
       <Section title="Typography">
         <Stack spacing={1}>
@@ -233,6 +258,12 @@ export default function DesignSystemPage() {
 
       <Section title="Data table">
         <DataTable<DemoRow> label="Example topics" rows={ROWS} columns={COLUMNS} hideFooter />
+      </Section>
+
+      <Section title="Navigation">
+        <Box sx={{ maxWidth: 264, border: 1, borderColor: 'border.default', borderRadius: 2 }}>
+          <SidebarNav groups={NAV_DEMO} activeId="demo-home" />
+        </Box>
       </Section>
 
       <Section title="Dialogs and drawers">
