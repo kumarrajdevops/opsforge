@@ -19,7 +19,9 @@
     "test": "npm run test --workspaces --if-present",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "audit": "npm audit && npm audit --omit=dev"
+    "audit": "npm audit && npm audit --omit=dev",
+    "check": "node scripts/check.mjs",
+    "check:fast": "node scripts/check.mjs --fast"
   },
   "devDependencies": {
     "prettier": "^3.6.2"
