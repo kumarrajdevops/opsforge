@@ -1,0 +1,30 @@
+{
+  "name": "neural-ops-interview-brain",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Neural Ops — DevOps Interview Brain UI prototype",
+  "scripts": {"dev":"vite","build":"vite build","preview":"vite preview"},
+  "dependencies": {
+    "@emotion/react":"latest",
+    "@emotion/styled":"latest",
+    "@fontsource/manrope":"latest",
+    "@fontsource/roboto-mono":"latest",
+    "@mui/icons-material":"latest",
+    "@mui/material":"latest",
+    "@mui/system":"latest",
+    "@mui/x-charts":"latest",
+    "@mui/x-data-grid":"latest",
+    "react":"latest",
+    "react-dom":"latest",
+    "react-router-dom":"latest",
+    "react-use":"latest",
+    "lucide-react":"latest",
+    "framer-motion":"latest",
+    "three":"latest",
+    "@react-three/fiber":"latest",
+    "@react-three/drei":"latest",
+    "@xyflow/react":"latest",
+    "gsap":"latest"
+  },
+  "devDependencies": {"@vitejs/plugin-react":"latest","vite":"latest"}
+}
