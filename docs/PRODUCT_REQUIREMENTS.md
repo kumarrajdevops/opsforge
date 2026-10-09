@@ -471,7 +471,7 @@ All `FUT-*` items; real cloud sandbox provisioning (FUT-03); multi-user/team fea
 | Item | Disposition |
 |---|---|
 | "12 day streak" badge | Conflicts with UX-03 ("gaming XP mechanics"). Treated as a plain consistency metric, not a game mechanic. TODO A-09. |
-| Hard-coded profile "Kumar / Senior track" | Replaced by real user identity (see ADR-0010). |
+| Hard-coded profile "Kumar / Senior track" | Replaced by real user identity (see [ADR-0005](ADR/0005-identity-and-persistence.md)). |
 | ⌘K command palette button | Kept as UX-12; behavior to be defined. |
 | Export report (Readiness) | Kept as RDY-10; format undefined (PDF/Markdown/JSON). TODO C-08. |
 | Documents status "Interview-ready" | Kept; meaning undefined. TODO C-08. |

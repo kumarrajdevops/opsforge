@@ -19,7 +19,7 @@ Cross-cutting requirements (PR-*, NFR-*, VIS-01, SYS-*) apply to every module an
 - **Requirements**: AI-01..AI-06, NFR-AI-01..04, NFR-SEC-09, NFR-SEC-10, NFR-PERF-03.
 - **Inputs**: prompts from calling modules, retrieved chunks (from M03), provider configuration and keys (server side only), P2 for logging evaluations and prompt versions.
 - **Evidence produced**: evaluations (dimension judgments with the prompt/model version) stored separately from evidence (DAT-04, DAT-05). No scores.
-- **Status**: Partial. The `LlmProvider` interface exists; no provider is registered. Phases 08, 38. Gates G5, G6.
+- **Status**: Partial. The `LlmProvider` interface exists; no provider is registered and the server gateway is not built. Decisions are made: [ADR-0006](ADR/0006-llm-providers-and-secrets.md) and [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md) (gates G5, G6 done). Build is Phase 08; also 38.
 
 ### P2 Evidence & Data Platform
 
@@ -27,7 +27,7 @@ Cross-cutting requirements (PR-*, NFR-*, VIS-01, SYS-*) apply to every module an
 - **Requirements**: DAT-01..DAT-09, NFR-DATA-01..04, NFR-SEC-01..04, NFR-SEC-08, NFR-MNT-01, NFR-MNT-04, SYS-01..SYS-04.
 - **Inputs**: writes from every module; schema-validated content files (questions, scenarios, labs, patterns, rubrics).
 - **Evidence produced**: none itself; it stores all evidence and exposes it read-only to M13.
-- **Status**: Partial. Shared TypeScript types exist and data is held in browser storage; there is no API persistence or auth yet. Gate G4.
+- **Status**: Partial. Shared TypeScript types exist and data is held in browser storage; the API now has accounts (email and password, session cookie) and stores readiness snapshots per user. Other modules still save in the browser. Gate G4 is done for the snapshot pattern ([ADR-0005](ADR/0005-identity-and-persistence.md)).
 
 ### P3 Design System & Motion
 
@@ -283,4 +283,4 @@ Topological order that satisfies every hard edge: P2, P3, P1, M04, M07, M08, M09
 
 - M06, M11, M12, M10 (layers 3–5) and M13 (layer 1) were built before their prerequisites M05, M03 and P1 existed. They run on pasted text, hard-coded scenarios and deterministic stand-ins. This works, but each of these must be re-pointed at the real module when it arrives: M11/M12 at M03, M06 at the M05 scenario engine, M10 at the M05 question bank and the M16 STAR database.
 - The next unblocked, highest-value layer is M05 + M03 + M04, because they supply the empty readiness factors (questions, knowledge, flashcards).
-- P1 is the single hard prerequisite for M03, M05, M16 and M10; it needs the G5 and G6 decisions first.
+- P1 is the single hard prerequisite for M03, M05, M16 and M10; its G5 and G6 decisions are made (ADR-0006, AI_ARCHITECTURE.md); the build is Phase 08.
