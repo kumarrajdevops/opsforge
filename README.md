@@ -40,7 +40,7 @@ cd apps/api && .venv/Scripts/python -m uvicorn app.main:app --reload   # http://
 npm run dev                                             # http://localhost:5173
 ```
 
-The Vite dev server proxies `/api` to the API. The top bar shows the API state from `/api/health/ready`. In development the sidebar has a **Design System** page showing every component, with a light/dark toggle.
+The Vite dev server proxies `/api` to the API. The top bar shows the API state from `/api/health/ready`. In development the sidebar has a **Design System** page showing the tokens and every component, with a light/dark toggle. The rules and token reference are in [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md).
 
 ### Docker naming
 
