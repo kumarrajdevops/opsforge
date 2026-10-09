@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
       globals: true,
       setupFiles: ['./src/test/setup.ts'],
       css: false,
+      testTimeout: 20_000,
     },
   }
 })

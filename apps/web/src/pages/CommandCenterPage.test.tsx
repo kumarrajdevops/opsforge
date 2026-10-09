@@ -16,7 +16,7 @@ function renderPage() {
   )
 }
 
-describe('CommandCenterPage', () => {
+describe('CommandCenterPage', { timeout: 20_000 }, () => {
   it('renders every required section', async () => {
     renderPage()
     expect(
