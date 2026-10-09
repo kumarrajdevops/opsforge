@@ -1,6 +1,6 @@
 # OPSFORGE: AI architecture
 
-Status: rules and call table are decided (gate G6). The server-side gateway (P1) is not built yet; see [What exists today](#what-exists-today). Provider, key and budget decisions are in [ADR-0006](ADR/0006-llm-providers-and-secrets.md). Requirement IDs refer to [PRODUCT_REQUIREMENTS.md](PRODUCT_REQUIREMENTS.md).
+Status: rules and call table are decided (gate G6). Revised 2026-10-09 to add the AI boundaries, the provider abstraction, retrieval (RAG), the evaluation pipeline and embedding versioning. The server-side gateway (P1) is not built yet; see [What exists today](#what-exists-today). Provider, key and budget decisions are in [ADR-0006](ADR/0006-llm-providers-and-secrets.md); retrieval storage is in [ADR-0011](ADR/0011-retrieval-and-vector-storage.md). Requirement IDs refer to [PRODUCT_REQUIREMENTS.md](PRODUCT_REQUIREMENTS.md). System context is in [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## The rule
 
@@ -31,6 +31,106 @@ Evidence (P2) ──► Readiness engine (M13): deterministic weighting ──�
 ```
 
 A model is never on the path between evidence and score. If every step above is removed, the product still works and says it is working without a model.
+
+## AI boundaries
+
+| Boundary | Rule |
+| --- | --- |
+| Code | `apps/api/app/ai` (P1) is the only package that imports a provider SDK or opens a connection to a model. A lint contract forbids provider imports anywhere else. `domain` and the readiness engine never import `ai` |
+| Callers | A context calls P1 through its service interface with a purpose id. It cannot pass a provider, a model name or a raw prompt |
+| Browser | The browser never holds a provider key and never contacts a provider. It calls `/api` routes, and the gateway client in the web app only knows `LlmProvider` |
+| Data | A model sees only what the purpose needs, after redaction. It has no database access and no tools that act on the system |
+| Output | Model output is parsed, validated and cross-checked before any other code uses it, and is never stored as a score |
+| Failure | Any failure (budget, timeout, invalid output, provider down, offline) returns `unavailable` or `unevaluated`, and the caller runs its deterministic path |
+
+## Provider abstraction
+
+One interface hides the vendor. Features depend on it, so changing or adding a provider changes configuration and one adapter.
+
+```
+LlmProvider
+  id, kind (local | cloud), capabilities (chat, json, embeddings, streaming)
+  complete(request)  -> completion { text, usage { in, out }, model, finishReason }
+  embed(texts)       -> vectors   (only when capabilities include embeddings)
+  health()           -> ok | degraded | down
+```
+
+| Provider | Kind | Default | Notes |
+| --- | --- | --- | --- |
+| Ollama | local | **On** | HTTP to the `OLLAMA_URL` host. Evaluation and generation models are configured by name per purpose class. Runs as an optional Compose service on the developer's machine; a GPU is not required for the deterministic product |
+| OpenAI | cloud | Off | Needs `AI_CLOUD_ENABLED=true` and a key in the environment. Adapter behind the same interface |
+| Anthropic | cloud | Off | Same conditions as OpenAI |
+
+Routing is configuration, not code:
+
+- A **route** is an ordered list of providers per *purpose class* (`evaluate`, `generate`, `embed`). The gateway tries the first allowed, healthy, under-budget provider and falls through on failure.
+- A purpose marked local-only (resume and document text by default) skips cloud providers even when enabled.
+- Provider SDKs are used only inside their adapter. The request and completion shapes are the vendor-neutral ones in `@opsforge/types` and their Python mirrors.
+- No fake or mock provider ships in the product. Tests use a test double in the test tree. When no provider is available the product says so and uses the deterministic path.
+
+Capacity and cost controls live in the gateway: per-provider concurrency, daily and monthly budgets, per-user rate limits, a request timeout and `maxOutputTokens`. Each call writes one `ai_usage` row (provider, model, prompt version, tokens, latency, cost, outcome) and no prompt or response text.
+
+## Retrieval (RAG)
+
+Decision: [ADR-0011](ADR/0011-retrieval-and-vector-storage.md). Storage: [DATA_ARCHITECTURE.md](DATA_ARCHITECTURE.md) section 5. **Designed; built in phase 07.**
+
+```
+upload ─► store object ─► parse (worker) ─► chunk ─► embed (gateway) ─► doc_chunks (pgvector)
+                                                                          │
+question ─► embed query ─► hybrid search (vector + full text, owner filter in SQL)
+        ─► top-k chunks with ids and provenance
+        ─► docs.answer prompt (chunks as delimited untrusted data)
+        ─► validate: every claim cites a returned chunk id ─► answer or "no answer"
+```
+
+Rules:
+
+1. **Single retrieval function.** `search(actor, query, filters, k)` is the only way to read chunks. It applies the owner and provenance filters in SQL before ranking, so a prompt can never widen what is retrievable.
+2. **Chunking** follows the document structure (headings, code blocks, lists), targets a few hundred tokens, and keeps the heading path and ordinal so a citation can be shown in context. Code fences and tables are not split mid-block.
+3. **Hybrid ranking.** Cosine similarity over embeddings combined with a full-text rank, merged by reciprocal rank fusion. Exact technical terms (a flag, an error string) must be findable, which pure vector search is poor at.
+4. **Cite or refuse.** An answer must cite chunk ids from the retrieved set. An answer with a claim that cites nothing, or an id that was not returned, is rejected. If retrieval returns nothing useful the answer is "no answer from your documents", and the UI can offer an unsourced model answer only if it is clearly labelled as such and not stored as knowledge (AI-05, PR-03).
+5. **Retrieved text is untrusted.** It is placed in delimited blocks like any other user text. A chunk that says "ignore the rules" is data.
+6. **Provenance travels.** The answer shows the provenance type of each cited chunk. Official documentation and a user's note are never presented as the same thing.
+7. **No feedback into scoring.** Reading an answer creates no evidence (PR-01).
+
+Retrieval quality is measured, not assumed: a fixed set of question-to-expected-chunk pairs reports recall at k and mean reciprocal rank, and a drop below the agreed threshold blocks a change to chunking, the embedding model or the ranking.
+
+## Embeddings and versioning
+
+| Item | Rule |
+| --- | --- |
+| Model | Configured per environment: a local model through Ollama by default, a cloud embedding model optionally. The choice is made in the phase 07 spike against the golden retrieval set |
+| Dimension | Fixed per index version. A different model means a new index version, never in-place conversion |
+| Index version | `(chunker_version, embedding_model, embedding_model_version, dimension)`. Stored on every chunk and in `doc_index_versions` |
+| Rebuild | Build the new version in the background, flip `active` in one transaction, retire the old one later ([DATA_ARCHITECTURE.md](DATA_ARCHITECTURE.md) section 5.4). Retrieval never mixes versions |
+| Query embedding | Must use the same model as the active index version; the gateway refuses a mismatch |
+| Prompt version | `domain.purpose.vN`, stored with every result. Prompts are files in the repository; their content hash is recorded in `ai_prompt_versions` when first used |
+| Evaluator version | The pair (prompt version, model) is the evaluator identity stored with an evaluation, so a later rerun is a new evaluation and not an overwrite (DAT-07) |
+
+## Evaluation pipeline
+
+How an answer becomes evidence. The model step is optional; every other step is deterministic.
+
+```
+attempt (stored raw)
+  │
+  ├─ 1. deterministic checks     structure, required terms, command correctness, timing
+  ├─ 2. model step (optional)    extract evidence dimensions with quotes, via P1
+  │        └─ unavailable / unevaluated → skip, basis = rule-based
+  ├─ 3. validate and cross-check ids, quotes, closed vocabulary, no score-like fields
+  ├─ 4. evaluation record        dimensions met, evaluator id and version, basis
+  └─ 5. evidence mapping         deterministic code maps dimensions to a 0-100 evidence
+                                 score per factor, with origin and basis
+        ▼
+evidence (P2, append-only) ─► readiness engine (M13)
+```
+
+- `basis` is `deterministic` when only step 1 contributed, `rule-based` when rules extracted dimensions, `llm-assisted` when step 2 contributed dimensions, and `mixed` when both did. It is stored and shown (DAT-04, DAT-05).
+- Step 5 is a pure function with a version. The mapping and the weights are in versioned configuration, not in a prompt.
+- **Disagreement.** When a deterministic check and the model step conflict (the check says the command is wrong, the model says it is right), the deterministic result wins, and the conflict is recorded on the evaluation for review.
+- **Confidence of evidence.** An `llm-assisted` evaluation can carry a lower confidence weight in the engine's configuration. This changes how much the evidence counts, never the answer's "grade".
+- **Re-evaluation.** A better prompt or model adds a new evaluation and new evidence that supersedes the old by reference. History is not rewritten (DAT-08).
+- **Human review.** For generated content that enters the product (scenario drafts, generated cards the user accepts), a person decides. The model never publishes.
 
 ## What a model may return
 
@@ -122,6 +222,8 @@ A prompt, model or provider change is promoted only if the golden set passes at 
 | M10 `interview.analyze-answer` (evidence extraction with quote checks) and `interview.phrase` (wording validation) | Built; run through the browser registry; fall back to rules when no provider |
 | M08, M11, M12 deterministic review and extraction | Built; no model path |
 | P1 gateway in `apps/api`, provider adapters, `ai_usage`, budgets, redaction, retry, golden sets | **Not built** (Phase 08) |
+| Retrieval: chunking, embeddings, `doc_chunks`, hybrid search, citation check | **Not built** (Phase 07). The `vector` extension is enabled in `opsforge-postgres` |
+| Evaluation pipeline server-side (evaluation and evidence tables, mapping function) | **Not built** (Phase 12 onward) |
 | M03, M05, M06, M16 model purposes | Not built |
 
 When P1 is built, the validation helpers move to the API and the browser keeps only the gateway client. No feature code changes, because features depend on `LlmProvider`, not on a vendor.
