@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
 import type { FactorReport } from '@opsforge/types'
-import { Panel, ProgressBar, Sparkline, ToneChip } from '@opsforge/ui'
+import { AnimatedNumber, Panel, ProgressBar, Sparkline, StateSwap, ToneChip } from '@opsforge/ui'
 import { ORIGINS } from '../config'
 import {
   bandLabel,
@@ -39,13 +39,15 @@ export function FactorCard({ factor }: { factor: FactorReport }) {
       actions={
         <Box sx={{ display: 'flex', gap: 0.75, alignItems: 'center' }}>
           <Typography variant="metric" component="span" aria-label={`${factor.label} score`}>
-            {formatScore(factor.score)}
+            {factor.score === null ? formatScore(null) : <AnimatedNumber value={factor.score} />}
           </Typography>
-          {factor.band ? (
-            <ToneChip tone={tone} label={bandLabel[factor.band]} />
-          ) : (
-            <ToneChip tone="neutral" label="No evidence" />
-          )}
+          <StateSwap stateKey={factor.band ?? 'none'} inline>
+            {factor.band ? (
+              <ToneChip tone={tone} label={bandLabel[factor.band]} />
+            ) : (
+              <ToneChip tone="neutral" label="No evidence" />
+            )}
+          </StateSwap>
         </Box>
       }
     >

@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import type { ReadinessReport } from '@opsforge/types'
-import { LevelLadder, Panel, ScoreRing, Sparkline, ToneChip } from '@opsforge/ui'
+import { LevelLadder, Panel, ScoreRing, Sparkline, StateSwap, ToneChip } from '@opsforge/ui'
 import { LEVELS } from '../config'
 import {
   bandLabel,
@@ -41,9 +41,13 @@ export function ReadinessHero({ report }: { report: ReadinessReport }) {
             tone={tone}
             size={168}
             thickness={12}
-            display={formatScore(overall.score)}
+            display={overall.score === null ? formatScore(null) : undefined}
           />
-          {overall.band && <ToneChip tone={tone} label={bandLabel[overall.band]} />}
+          {overall.band && (
+            <StateSwap stateKey={overall.band} inline>
+              <ToneChip tone={tone} label={bandLabel[overall.band]} />
+            </StateSwap>
+          )}
         </Box>
 
         <Box sx={{ display: 'grid', gap: 2, minWidth: 0 }}>
