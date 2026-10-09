@@ -5,6 +5,7 @@ import { ArchitectureStudioPage } from '../pages/ArchitectureStudioPage'
 import { IncidentSimulatorPage } from '../pages/IncidentSimulatorPage'
 import { InterviewerPage } from '../pages/InterviewerPage'
 import { JdPage } from '../pages/JdPage'
+import { ReadinessPage } from '../pages/ReadinessPage'
 import { ResumePage } from '../pages/ResumePage'
 import { CommandCenterPage } from '../pages/CommandCenterPage'
 import { ModulePlaceholderPage } from '../pages/ModulePlaceholderPage'
@@ -37,6 +38,8 @@ export function App() {
                   <ResumePage />
                 ) : module.id === 'jd' ? (
                   <JdPage />
+                ) : module.id === 'readiness' ? (
+                  <ReadinessPage />
                 ) : (
                   <ModulePlaceholderPage module={module} />
                 )}
