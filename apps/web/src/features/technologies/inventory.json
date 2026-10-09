@@ -1,0 +1,5690 @@
+[
+  {
+    "id": 1,
+    "discipline": "Cloud Platforms",
+    "name": "AWS",
+    "category": "Cloud platform",
+    "website": "https://aws.amazon.com/",
+    "docs": "https://docs.aws.amazon.com/"
+  },
+  {
+    "id": 2,
+    "discipline": "Cloud Platforms",
+    "name": "Microsoft Azure",
+    "category": "Cloud platform",
+    "website": "https://azure.microsoft.com/",
+    "docs": "https://learn.microsoft.com/azure/"
+  },
+  {
+    "id": 3,
+    "discipline": "Cloud Platforms",
+    "name": "Google Cloud Platform (GCP)",
+    "category": "Cloud platform",
+    "website": "https://cloud.google.com/",
+    "docs": "https://cloud.google.com/docs"
+  },
+  {
+    "id": 4,
+    "discipline": "Cloud Platforms",
+    "name": "Oracle Cloud Infrastructure (OCI)",
+    "category": "Cloud platform",
+    "website": "https://www.oracle.com/cloud/",
+    "docs": "https://docs.oracle.com/en-us/iaas/"
+  },
+  {
+    "id": 5,
+    "discipline": "Cloud Platforms",
+    "name": "IBM Cloud",
+    "category": "Cloud platform",
+    "website": "https://www.ibm.com/cloud",
+    "docs": "https://cloud.ibm.com/docs"
+  },
+  {
+    "id": 6,
+    "discipline": "Cloud Platforms",
+    "name": "Alibaba Cloud",
+    "category": "Cloud platform",
+    "website": "https://www.alibabacloud.com/",
+    "docs": "https://www.alibabacloud.com/help"
+  },
+  {
+    "id": 7,
+    "discipline": "Cloud Platforms",
+    "name": "DigitalOcean",
+    "category": "Cloud platform",
+    "website": "https://www.digitalocean.com/",
+    "docs": "https://docs.digitalocean.com/"
+  },
+  {
+    "id": 8,
+    "discipline": "Cloud Platforms",
+    "name": "VMware vSphere",
+    "category": "Cloud platform",
+    "website": "https://www.vmware.com/products/cloud-infrastructure/vsphere",
+    "docs": "https://docs.vmware.com/"
+  },
+  {
+    "id": 9,
+    "discipline": "Cloud Platforms",
+    "name": "OpenStack",
+    "category": "Cloud platform",
+    "website": "https://www.openstack.org/",
+    "docs": "https://docs.openstack.org/"
+  },
+  {
+    "id": 10,
+    "discipline": "Cloud Platforms",
+    "name": "Proxmox VE",
+    "category": "Cloud platform",
+    "website": "https://www.proxmox.com/en/proxmox-virtual-environment/overview",
+    "docs": "https://pve.proxmox.com/pve-docs/"
+  },
+  {
+    "id": 11,
+    "discipline": "Cloud Platforms",
+    "name": "Nutanix",
+    "category": "Cloud platform",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 12,
+    "discipline": "Cloud Platforms",
+    "name": "Vagrant",
+    "category": "Cloud platform",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 13,
+    "discipline": "Cloud Platforms",
+    "name": "Multipass",
+    "category": "Cloud platform",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 14,
+    "discipline": "DevOps and Delivery",
+    "name": "Git",
+    "category": "Source control / CI/CD / build",
+    "website": "https://git-scm.com/",
+    "docs": "https://git-scm.com/doc"
+  },
+  {
+    "id": 15,
+    "discipline": "DevOps and Delivery",
+    "name": "GitHub",
+    "category": "Source control / CI/CD / build",
+    "website": "https://github.com/",
+    "docs": "https://docs.github.com/"
+  },
+  {
+    "id": 16,
+    "discipline": "DevOps and Delivery",
+    "name": "GitLab",
+    "category": "Source control / CI/CD / build",
+    "website": "https://about.gitlab.com/",
+    "docs": "https://docs.gitlab.com/"
+  },
+  {
+    "id": 17,
+    "discipline": "DevOps and Delivery",
+    "name": "Bitbucket",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 18,
+    "discipline": "DevOps and Delivery",
+    "name": "Azure DevOps",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 19,
+    "discipline": "DevOps and Delivery",
+    "name": "Jenkins",
+    "category": "Source control / CI/CD / build",
+    "website": "https://www.jenkins.io/",
+    "docs": "https://www.jenkins.io/doc/"
+  },
+  {
+    "id": 20,
+    "discipline": "DevOps and Delivery",
+    "name": "CircleCI",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 21,
+    "discipline": "DevOps and Delivery",
+    "name": "Bamboo",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 22,
+    "discipline": "DevOps and Delivery",
+    "name": "Travis CI",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 23,
+    "discipline": "DevOps and Delivery",
+    "name": "TeamCity",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 24,
+    "discipline": "DevOps and Delivery",
+    "name": "Buildkite",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 25,
+    "discipline": "DevOps and Delivery",
+    "name": "Argo CD",
+    "category": "Source control / CI/CD / build",
+    "website": "https://argo-cd.readthedocs.io/",
+    "docs": "https://argo-cd.readthedocs.io/en/stable/"
+  },
+  {
+    "id": 26,
+    "discipline": "DevOps and Delivery",
+    "name": "Flux CD",
+    "category": "Source control / CI/CD / build",
+    "website": "https://fluxcd.io/",
+    "docs": "https://fluxcd.io/flux/"
+  },
+  {
+    "id": 27,
+    "discipline": "DevOps and Delivery",
+    "name": "Tekton",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 28,
+    "discipline": "DevOps and Delivery",
+    "name": "Spinnaker",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 29,
+    "discipline": "DevOps and Delivery",
+    "name": "Harness",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 30,
+    "discipline": "DevOps and Delivery",
+    "name": "GoCD",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 31,
+    "discipline": "DevOps and Delivery",
+    "name": "Dagger",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 32,
+    "discipline": "DevOps and Delivery",
+    "name": "GitHub Actions",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 33,
+    "discipline": "DevOps and Delivery",
+    "name": "GitLab CI/CD",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 34,
+    "discipline": "DevOps and Delivery",
+    "name": "Azure Pipelines",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 35,
+    "discipline": "DevOps and Delivery",
+    "name": "Make",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 36,
+    "discipline": "DevOps and Delivery",
+    "name": "Apache Maven",
+    "category": "Source control / CI/CD / build",
+    "website": "https://maven.apache.org/",
+    "docs": "https://maven.apache.org/guides/"
+  },
+  {
+    "id": 37,
+    "discipline": "DevOps and Delivery",
+    "name": "Gradle",
+    "category": "Source control / CI/CD / build",
+    "website": "https://gradle.org/",
+    "docs": "https://docs.gradle.org/current/userguide/userguide.html"
+  },
+  {
+    "id": 38,
+    "discipline": "DevOps and Delivery",
+    "name": "Bazel",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 39,
+    "discipline": "DevOps and Delivery",
+    "name": "GNU Make",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 40,
+    "discipline": "DevOps and Delivery",
+    "name": "SonarQube",
+    "category": "Source control / CI/CD / build",
+    "website": "https://www.sonarsource.com/products/sonarqube/",
+    "docs": "https://docs.sonarsource.com/sonarqube/"
+  },
+  {
+    "id": 41,
+    "discipline": "DevOps and Delivery",
+    "name": "SonarCloud",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 42,
+    "discipline": "DevOps and Delivery",
+    "name": "Changesets",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 43,
+    "discipline": "DevOps and Delivery",
+    "name": "semantic-release",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 44,
+    "discipline": "DevOps and Delivery",
+    "name": "Renovate",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 45,
+    "discipline": "DevOps and Delivery",
+    "name": "Dependabot",
+    "category": "Source control / CI/CD / build",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 46,
+    "discipline": "IaC and Configuration",
+    "name": "Terraform",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "https://www.hashicorp.com/products/terraform",
+    "docs": "https://developer.hashicorp.com/terraform/docs"
+  },
+  {
+    "id": 47,
+    "discipline": "IaC and Configuration",
+    "name": "OpenTofu",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "https://opentofu.org/",
+    "docs": "https://opentofu.org/docs/"
+  },
+  {
+    "id": 48,
+    "discipline": "IaC and Configuration",
+    "name": "Pulumi",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "https://www.pulumi.com/",
+    "docs": "https://www.pulumi.com/docs/"
+  },
+  {
+    "id": 49,
+    "discipline": "IaC and Configuration",
+    "name": "AWS CloudFormation",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 50,
+    "discipline": "IaC and Configuration",
+    "name": "Azure Bicep",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 51,
+    "discipline": "IaC and Configuration",
+    "name": "ARM Templates",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 52,
+    "discipline": "IaC and Configuration",
+    "name": "Google Cloud Deployment Manager",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 53,
+    "discipline": "IaC and Configuration",
+    "name": "Ansible",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "https://www.ansible.com/",
+    "docs": "https://docs.ansible.com/"
+  },
+  {
+    "id": 54,
+    "discipline": "IaC and Configuration",
+    "name": "Chef",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 55,
+    "discipline": "IaC and Configuration",
+    "name": "Puppet",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 56,
+    "discipline": "IaC and Configuration",
+    "name": "Salt",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 57,
+    "discipline": "IaC and Configuration",
+    "name": "CFEngine",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 58,
+    "discipline": "IaC and Configuration",
+    "name": "Crossplane",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 59,
+    "discipline": "IaC and Configuration",
+    "name": "AWS CDK",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 60,
+    "discipline": "IaC and Configuration",
+    "name": "CDK for Terraform",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 61,
+    "discipline": "IaC and Configuration",
+    "name": "Terragrunt",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 62,
+    "discipline": "IaC and Configuration",
+    "name": "Packer",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 63,
+    "discipline": "IaC and Configuration",
+    "name": "Vagrant",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 64,
+    "discipline": "IaC and Configuration",
+    "name": "InSpec",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 65,
+    "discipline": "IaC and Configuration",
+    "name": "Serverspec",
+    "category": "Infrastructure as Code / configuration management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 66,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Docker",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "https://www.docker.com/",
+    "docs": "https://docs.docker.com/"
+  },
+  {
+    "id": 67,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Podman",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 68,
+    "discipline": "Containers and Platform Engineering",
+    "name": "containerd",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 69,
+    "discipline": "Containers and Platform Engineering",
+    "name": "CRI-O",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 70,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Kubernetes",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "https://kubernetes.io/",
+    "docs": "https://kubernetes.io/docs/"
+  },
+  {
+    "id": 71,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Amazon ECS",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 72,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Amazon EKS",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 73,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Azure Kubernetes Service (AKS)",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 74,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Google Kubernetes Engine (GKE)",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 75,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Red Hat OpenShift",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 76,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Rancher",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 77,
+    "discipline": "Containers and Platform Engineering",
+    "name": "K3s",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 78,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Minikube",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 79,
+    "discipline": "Containers and Platform Engineering",
+    "name": "kind",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 80,
+    "discipline": "Containers and Platform Engineering",
+    "name": "k3d",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 81,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Helm",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "https://helm.sh/",
+    "docs": "https://helm.sh/docs/"
+  },
+  {
+    "id": 82,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Kustomize",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 83,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Skaffold",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 84,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Tilt",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 85,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Telepresence",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 86,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Istio",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "https://istio.io/",
+    "docs": "https://istio.io/latest/docs/"
+  },
+  {
+    "id": 87,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Linkerd",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 88,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Consul",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 89,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Envoy Proxy",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 90,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Cilium",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 91,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Calico",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 92,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Flannel",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 93,
+    "discipline": "Containers and Platform Engineering",
+    "name": "CoreDNS",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 94,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Backstage",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 95,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Port",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 96,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Humanitec",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 97,
+    "discipline": "Containers and Platform Engineering",
+    "name": "Crossplane",
+    "category": "Containers / orchestration / platform engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 98,
+    "discipline": "DevSecOps and Security",
+    "name": "Snyk",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 99,
+    "discipline": "DevSecOps and Security",
+    "name": "SonarQube",
+    "category": "Security / DevSecOps",
+    "website": "https://www.sonarsource.com/products/sonarqube/",
+    "docs": "https://docs.sonarsource.com/sonarqube/"
+  },
+  {
+    "id": 100,
+    "discipline": "DevSecOps and Security",
+    "name": "Checkmarx",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 101,
+    "discipline": "DevSecOps and Security",
+    "name": "Veracode",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 102,
+    "discipline": "DevSecOps and Security",
+    "name": "Semgrep",
+    "category": "Security / DevSecOps",
+    "website": "https://semgrep.dev/",
+    "docs": "https://semgrep.dev/docs/"
+  },
+  {
+    "id": 103,
+    "discipline": "DevSecOps and Security",
+    "name": "CodeQL",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 104,
+    "discipline": "DevSecOps and Security",
+    "name": "Fortify",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 105,
+    "discipline": "DevSecOps and Security",
+    "name": "GitHub Advanced Security",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 106,
+    "discipline": "DevSecOps and Security",
+    "name": "GitLab Security",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 107,
+    "discipline": "DevSecOps and Security",
+    "name": "OWASP ZAP",
+    "category": "Security / DevSecOps",
+    "website": "https://www.zaproxy.org/",
+    "docs": "https://www.zaproxy.org/docs/"
+  },
+  {
+    "id": 108,
+    "discipline": "DevSecOps and Security",
+    "name": "Burp Suite",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 109,
+    "discipline": "DevSecOps and Security",
+    "name": "StackHawk",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 110,
+    "discipline": "DevSecOps and Security",
+    "name": "Trivy",
+    "category": "Security / DevSecOps",
+    "website": "https://trivy.dev/",
+    "docs": "https://trivy.dev/docs/latest/"
+  },
+  {
+    "id": 111,
+    "discipline": "DevSecOps and Security",
+    "name": "Grype",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 112,
+    "discipline": "DevSecOps and Security",
+    "name": "Anchore",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 113,
+    "discipline": "DevSecOps and Security",
+    "name": "Clair",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 114,
+    "discipline": "DevSecOps and Security",
+    "name": "Checkov",
+    "category": "Security / DevSecOps",
+    "website": "https://www.checkov.io/",
+    "docs": "https://www.checkov.io/1.Welcome/What%20is%20Checkov.html"
+  },
+  {
+    "id": 115,
+    "discipline": "DevSecOps and Security",
+    "name": "Terrascan",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 116,
+    "discipline": "DevSecOps and Security",
+    "name": "KICS",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 117,
+    "discipline": "DevSecOps and Security",
+    "name": "tfsec",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 118,
+    "discipline": "DevSecOps and Security",
+    "name": "kube-bench",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 119,
+    "discipline": "DevSecOps and Security",
+    "name": "Kubescape",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 120,
+    "discipline": "DevSecOps and Security",
+    "name": "Falco",
+    "category": "Security / DevSecOps",
+    "website": "https://falco.org/",
+    "docs": "https://falco.org/docs/"
+  },
+  {
+    "id": 121,
+    "discipline": "DevSecOps and Security",
+    "name": "Aqua Security",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 122,
+    "discipline": "DevSecOps and Security",
+    "name": "Sysdig Secure",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 123,
+    "discipline": "DevSecOps and Security",
+    "name": "Prisma Cloud",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 124,
+    "discipline": "DevSecOps and Security",
+    "name": "Wiz",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 125,
+    "discipline": "DevSecOps and Security",
+    "name": "Orca Security",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 126,
+    "discipline": "DevSecOps and Security",
+    "name": "NeuVector",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 127,
+    "discipline": "DevSecOps and Security",
+    "name": "HashiCorp Vault",
+    "category": "Security / DevSecOps",
+    "website": "https://www.hashicorp.com/products/vault",
+    "docs": "https://developer.hashicorp.com/vault/docs"
+  },
+  {
+    "id": 128,
+    "discipline": "DevSecOps and Security",
+    "name": "AWS Secrets Manager",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 129,
+    "discipline": "DevSecOps and Security",
+    "name": "Azure Key Vault",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 130,
+    "discipline": "DevSecOps and Security",
+    "name": "Google Cloud Secret Manager",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 131,
+    "discipline": "DevSecOps and Security",
+    "name": "External Secrets Operator",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 132,
+    "discipline": "DevSecOps and Security",
+    "name": "SOPS",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 133,
+    "discipline": "DevSecOps and Security",
+    "name": "Sealed Secrets",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 134,
+    "discipline": "DevSecOps and Security",
+    "name": "cert-manager",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 135,
+    "discipline": "DevSecOps and Security",
+    "name": "HashiCorp Boundary",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 136,
+    "discipline": "DevSecOps and Security",
+    "name": "Open Policy Agent (OPA)",
+    "category": "Security / DevSecOps",
+    "website": "https://www.openpolicyagent.org/",
+    "docs": "https://www.openpolicyagent.org/docs/latest/"
+  },
+  {
+    "id": 137,
+    "discipline": "DevSecOps and Security",
+    "name": "Kyverno",
+    "category": "Security / DevSecOps",
+    "website": "https://kyverno.io/",
+    "docs": "https://kyverno.io/docs/"
+  },
+  {
+    "id": 138,
+    "discipline": "DevSecOps and Security",
+    "name": "Conftest",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 139,
+    "discipline": "DevSecOps and Security",
+    "name": "Sigstore",
+    "category": "Security / DevSecOps",
+    "website": "https://www.sigstore.dev/",
+    "docs": "https://docs.sigstore.dev/"
+  },
+  {
+    "id": 140,
+    "discipline": "DevSecOps and Security",
+    "name": "Cosign",
+    "category": "Security / DevSecOps",
+    "website": "https://www.sigstore.dev/",
+    "docs": "https://docs.sigstore.dev/cosign/overview/"
+  },
+  {
+    "id": 141,
+    "discipline": "DevSecOps and Security",
+    "name": "in-toto",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 142,
+    "discipline": "DevSecOps and Security",
+    "name": "SLSA",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 143,
+    "discipline": "DevSecOps and Security",
+    "name": "Syft",
+    "category": "Security / DevSecOps",
+    "website": "https://github.com/anchore/syft",
+    "docs": "https://github.com/anchore/syft#readme"
+  },
+  {
+    "id": 144,
+    "discipline": "DevSecOps and Security",
+    "name": "Dependency-Track",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 145,
+    "discipline": "DevSecOps and Security",
+    "name": "OWASP Dependency-Check",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 146,
+    "discipline": "DevSecOps and Security",
+    "name": "Renovate",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 147,
+    "discipline": "DevSecOps and Security",
+    "name": "DefectDojo",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 148,
+    "discipline": "DevSecOps and Security",
+    "name": "Wazuh",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 149,
+    "discipline": "DevSecOps and Security",
+    "name": "CrowdStrike Falcon",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 150,
+    "discipline": "DevSecOps and Security",
+    "name": "Microsoft Defender for Cloud",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 151,
+    "discipline": "DevSecOps and Security",
+    "name": "AWS Security Hub",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 152,
+    "discipline": "DevSecOps and Security",
+    "name": "Google Security Command Center",
+    "category": "Security / DevSecOps",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 153,
+    "discipline": "Observability and Monitoring",
+    "name": "Prometheus",
+    "category": "Observability / monitoring / logging",
+    "website": "https://prometheus.io/",
+    "docs": "https://prometheus.io/docs/"
+  },
+  {
+    "id": 154,
+    "discipline": "Observability and Monitoring",
+    "name": "Grafana",
+    "category": "Observability / monitoring / logging",
+    "website": "https://grafana.com/",
+    "docs": "https://grafana.com/docs/"
+  },
+  {
+    "id": 155,
+    "discipline": "Observability and Monitoring",
+    "name": "Alertmanager",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 156,
+    "discipline": "Observability and Monitoring",
+    "name": "VictoriaMetrics",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 157,
+    "discipline": "Observability and Monitoring",
+    "name": "Thanos",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 158,
+    "discipline": "Observability and Monitoring",
+    "name": "Mimir",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 159,
+    "discipline": "Observability and Monitoring",
+    "name": "Zabbix",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 160,
+    "discipline": "Observability and Monitoring",
+    "name": "Nagios",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 161,
+    "discipline": "Observability and Monitoring",
+    "name": "Icinga",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 162,
+    "discipline": "Observability and Monitoring",
+    "name": "Datadog",
+    "category": "Observability / monitoring / logging",
+    "website": "https://www.datadoghq.com/",
+    "docs": "https://docs.datadoghq.com/"
+  },
+  {
+    "id": 163,
+    "discipline": "Observability and Monitoring",
+    "name": "Dynatrace",
+    "category": "Observability / monitoring / logging",
+    "website": "https://www.dynatrace.com/",
+    "docs": "https://docs.dynatrace.com/"
+  },
+  {
+    "id": 164,
+    "discipline": "Observability and Monitoring",
+    "name": "New Relic",
+    "category": "Observability / monitoring / logging",
+    "website": "https://newrelic.com/",
+    "docs": "https://docs.newrelic.com/"
+  },
+  {
+    "id": 165,
+    "discipline": "Observability and Monitoring",
+    "name": "AppDynamics",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 166,
+    "discipline": "Observability and Monitoring",
+    "name": "Splunk Observability Cloud",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 167,
+    "discipline": "Observability and Monitoring",
+    "name": "Elastic Observability",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 168,
+    "discipline": "Observability and Monitoring",
+    "name": "OpenTelemetry",
+    "category": "Observability / monitoring / logging",
+    "website": "https://opentelemetry.io/",
+    "docs": "https://opentelemetry.io/docs/"
+  },
+  {
+    "id": 169,
+    "discipline": "Observability and Monitoring",
+    "name": "Jaeger",
+    "category": "Observability / monitoring / logging",
+    "website": "https://www.jaegertracing.io/",
+    "docs": "https://www.jaegertracing.io/docs/"
+  },
+  {
+    "id": 170,
+    "discipline": "Observability and Monitoring",
+    "name": "Grafana Tempo",
+    "category": "Observability / monitoring / logging",
+    "website": "https://grafana.com/oss/tempo/",
+    "docs": "https://grafana.com/docs/tempo/latest/"
+  },
+  {
+    "id": 171,
+    "discipline": "Observability and Monitoring",
+    "name": "Zipkin",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 172,
+    "discipline": "Observability and Monitoring",
+    "name": "OpenSearch",
+    "category": "Observability / monitoring / logging",
+    "website": "https://opensearch.org/",
+    "docs": "https://opensearch.org/docs/latest/"
+  },
+  {
+    "id": 173,
+    "discipline": "Observability and Monitoring",
+    "name": "Elastic Stack (ELK)",
+    "category": "Observability / monitoring / logging",
+    "website": "https://www.elastic.co/elastic-stack",
+    "docs": "https://www.elastic.co/guide/index.html"
+  },
+  {
+    "id": 174,
+    "discipline": "Observability and Monitoring",
+    "name": "Fluentd",
+    "category": "Observability / monitoring / logging",
+    "website": "https://www.fluentd.org/",
+    "docs": "https://docs.fluentd.org/"
+  },
+  {
+    "id": 175,
+    "discipline": "Observability and Monitoring",
+    "name": "Fluent Bit",
+    "category": "Observability / monitoring / logging",
+    "website": "https://fluentbit.io/",
+    "docs": "https://docs.fluentbit.io/manual/"
+  },
+  {
+    "id": 176,
+    "discipline": "Observability and Monitoring",
+    "name": "Vector",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 177,
+    "discipline": "Observability and Monitoring",
+    "name": "Logstash",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 178,
+    "discipline": "Observability and Monitoring",
+    "name": "Loki",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 179,
+    "discipline": "Observability and Monitoring",
+    "name": "Graylog",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 180,
+    "discipline": "Observability and Monitoring",
+    "name": "Sumo Logic",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 181,
+    "discipline": "Observability and Monitoring",
+    "name": "Coralogix",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 182,
+    "discipline": "Observability and Monitoring",
+    "name": "Better Stack",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 183,
+    "discipline": "Observability and Monitoring",
+    "name": "PagerDuty",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 184,
+    "discipline": "Observability and Monitoring",
+    "name": "Opsgenie",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 185,
+    "discipline": "Observability and Monitoring",
+    "name": "Grafana OnCall",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 186,
+    "discipline": "Observability and Monitoring",
+    "name": "Splunk On-Call",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 187,
+    "discipline": "Observability and Monitoring",
+    "name": "Uptime Kuma",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 188,
+    "discipline": "Observability and Monitoring",
+    "name": "Blackbox Exporter",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 189,
+    "discipline": "Observability and Monitoring",
+    "name": "k6",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 190,
+    "discipline": "Observability and Monitoring",
+    "name": "Apache JMeter",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 191,
+    "discipline": "Observability and Monitoring",
+    "name": "Gatling",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 192,
+    "discipline": "Observability and Monitoring",
+    "name": "Locust",
+    "category": "Observability / monitoring / logging",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 193,
+    "discipline": "Networking and Edge",
+    "name": "NGINX",
+    "category": "Networking / edge",
+    "website": "https://nginx.org/",
+    "docs": "https://nginx.org/en/docs/"
+  },
+  {
+    "id": 194,
+    "discipline": "Networking and Edge",
+    "name": "HAProxy",
+    "category": "Networking / edge",
+    "website": "https://www.haproxy.org/",
+    "docs": "https://docs.haproxy.org/"
+  },
+  {
+    "id": 195,
+    "discipline": "Networking and Edge",
+    "name": "Apache HTTP Server",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 196,
+    "discipline": "Networking and Edge",
+    "name": "Traefik",
+    "category": "Networking / edge",
+    "website": "https://traefik.io/",
+    "docs": "https://doc.traefik.io/traefik/"
+  },
+  {
+    "id": 197,
+    "discipline": "Networking and Edge",
+    "name": "Kong",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 198,
+    "discipline": "Networking and Edge",
+    "name": "Apigee",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 199,
+    "discipline": "Networking and Edge",
+    "name": "Tyk",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 200,
+    "discipline": "Networking and Edge",
+    "name": "Envoy Gateway",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 201,
+    "discipline": "Networking and Edge",
+    "name": "F5 BIG-IP",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 202,
+    "discipline": "Networking and Edge",
+    "name": "Cloudflare",
+    "category": "Networking / edge",
+    "website": "https://www.cloudflare.com/",
+    "docs": "https://developers.cloudflare.com/"
+  },
+  {
+    "id": 203,
+    "discipline": "Networking and Edge",
+    "name": "Akamai",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 204,
+    "discipline": "Networking and Edge",
+    "name": "Fastly",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 205,
+    "discipline": "Networking and Edge",
+    "name": "CoreDNS",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 206,
+    "discipline": "Networking and Edge",
+    "name": "Infoblox",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 207,
+    "discipline": "Networking and Edge",
+    "name": "Cilium",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 208,
+    "discipline": "Networking and Edge",
+    "name": "WireGuard",
+    "category": "Networking / edge",
+    "website": "https://www.wireguard.com/",
+    "docs": "https://www.wireguard.com/quickstart/"
+  },
+  {
+    "id": 209,
+    "discipline": "Networking and Edge",
+    "name": "OpenVPN",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 210,
+    "discipline": "Networking and Edge",
+    "name": "Tailscale",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 211,
+    "discipline": "Networking and Edge",
+    "name": "ZeroTier",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 212,
+    "discipline": "Networking and Edge",
+    "name": "Wireshark",
+    "category": "Networking / edge",
+    "website": "https://www.wireshark.org/",
+    "docs": "https://www.wireshark.org/docs/"
+  },
+  {
+    "id": 213,
+    "discipline": "Networking and Edge",
+    "name": "tcpdump",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 214,
+    "discipline": "Networking and Edge",
+    "name": "Nmap",
+    "category": "Networking / edge",
+    "website": "https://nmap.org/",
+    "docs": "https://nmap.org/book/man.html"
+  },
+  {
+    "id": 215,
+    "discipline": "Networking and Edge",
+    "name": "NetBox",
+    "category": "Networking / edge",
+    "website": "https://netboxlabs.com/oss/netbox/",
+    "docs": "https://netboxlabs.com/docs/netbox/"
+  },
+  {
+    "id": 216,
+    "discipline": "Networking and Edge",
+    "name": "Calico",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 217,
+    "discipline": "Networking and Edge",
+    "name": "MetalLB",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 218,
+    "discipline": "Networking and Edge",
+    "name": "ExternalDNS",
+    "category": "Networking / edge",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 219,
+    "discipline": "Programming and Scripting",
+    "name": "Python",
+    "category": "Programming / scripting / configuration",
+    "website": "https://www.python.org/",
+    "docs": "https://docs.python.org/3/"
+  },
+  {
+    "id": 220,
+    "discipline": "Programming and Scripting",
+    "name": "Go",
+    "category": "Programming / scripting / configuration",
+    "website": "https://go.dev/",
+    "docs": "https://go.dev/doc/"
+  },
+  {
+    "id": 221,
+    "discipline": "Programming and Scripting",
+    "name": "Bash",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 222,
+    "discipline": "Programming and Scripting",
+    "name": "PowerShell",
+    "category": "Programming / scripting / configuration",
+    "website": "https://learn.microsoft.com/powershell/",
+    "docs": "https://learn.microsoft.com/powershell/"
+  },
+  {
+    "id": 223,
+    "discipline": "Programming and Scripting",
+    "name": "Groovy",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 224,
+    "discipline": "Programming and Scripting",
+    "name": "Java",
+    "category": "Programming / scripting / configuration",
+    "website": "https://www.java.com/",
+    "docs": "https://docs.oracle.com/en/java/"
+  },
+  {
+    "id": 225,
+    "discipline": "Programming and Scripting",
+    "name": "JavaScript",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 226,
+    "discipline": "Programming and Scripting",
+    "name": "TypeScript",
+    "category": "Programming / scripting / configuration",
+    "website": "https://www.typescriptlang.org/",
+    "docs": "https://www.typescriptlang.org/docs/"
+  },
+  {
+    "id": 227,
+    "discipline": "Programming and Scripting",
+    "name": "Ruby",
+    "category": "Programming / scripting / configuration",
+    "website": "https://www.ruby-lang.org/",
+    "docs": "https://www.ruby-lang.org/en/documentation/"
+  },
+  {
+    "id": 228,
+    "discipline": "Programming and Scripting",
+    "name": "Rust",
+    "category": "Programming / scripting / configuration",
+    "website": "https://www.rust-lang.org/",
+    "docs": "https://doc.rust-lang.org/book/"
+  },
+  {
+    "id": 229,
+    "discipline": "Programming and Scripting",
+    "name": "C",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 230,
+    "discipline": "Programming and Scripting",
+    "name": "C++",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 231,
+    "discipline": "Programming and Scripting",
+    "name": "C#",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 232,
+    "discipline": "Programming and Scripting",
+    "name": "YAML",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 233,
+    "discipline": "Programming and Scripting",
+    "name": "JSON",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 234,
+    "discipline": "Programming and Scripting",
+    "name": "HCL",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 235,
+    "discipline": "Programming and Scripting",
+    "name": "SQL",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 236,
+    "discipline": "Programming and Scripting",
+    "name": "Make",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 237,
+    "discipline": "Programming and Scripting",
+    "name": "jq",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 238,
+    "discipline": "Programming and Scripting",
+    "name": "yq",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 239,
+    "discipline": "Programming and Scripting",
+    "name": "Task",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 240,
+    "discipline": "Programming and Scripting",
+    "name": "Just",
+    "category": "Programming / scripting / configuration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 241,
+    "discipline": "Artifact and Package Management",
+    "name": "JFrog Artifactory",
+    "category": "Artifact / package management",
+    "website": "https://jfrog.com/artifactory/",
+    "docs": "https://jfrog.com/help/r/jfrog-artifactory-documentation"
+  },
+  {
+    "id": 242,
+    "discipline": "Artifact and Package Management",
+    "name": "Sonatype Nexus Repository",
+    "category": "Artifact / package management",
+    "website": "https://www.sonatype.com/products/sonatype-nexus-repository",
+    "docs": "https://help.sonatype.com/en/sonatype-nexus-repository.html"
+  },
+  {
+    "id": 243,
+    "discipline": "Artifact and Package Management",
+    "name": "Harbor",
+    "category": "Artifact / package management",
+    "website": "https://goharbor.io/",
+    "docs": "https://goharbor.io/docs/"
+  },
+  {
+    "id": 244,
+    "discipline": "Artifact and Package Management",
+    "name": "Docker Hub",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 245,
+    "discipline": "Artifact and Package Management",
+    "name": "Amazon ECR",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 246,
+    "discipline": "Artifact and Package Management",
+    "name": "Azure Container Registry",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 247,
+    "discipline": "Artifact and Package Management",
+    "name": "Google Artifact Registry",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 248,
+    "discipline": "Artifact and Package Management",
+    "name": "GitHub Packages",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 249,
+    "discipline": "Artifact and Package Management",
+    "name": "GitLab Package Registry",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 250,
+    "discipline": "Artifact and Package Management",
+    "name": "npm",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 251,
+    "discipline": "Artifact and Package Management",
+    "name": "Yarn",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 252,
+    "discipline": "Artifact and Package Management",
+    "name": "pnpm",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 253,
+    "discipline": "Artifact and Package Management",
+    "name": "PyPI / pip",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 254,
+    "discipline": "Artifact and Package Management",
+    "name": "uv",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 255,
+    "discipline": "Artifact and Package Management",
+    "name": "Poetry",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 256,
+    "discipline": "Artifact and Package Management",
+    "name": "Conda",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 257,
+    "discipline": "Artifact and Package Management",
+    "name": "Maven Central",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 258,
+    "discipline": "Artifact and Package Management",
+    "name": "Gradle",
+    "category": "Artifact / package management",
+    "website": "https://gradle.org/",
+    "docs": "https://docs.gradle.org/current/userguide/userguide.html"
+  },
+  {
+    "id": 259,
+    "discipline": "Artifact and Package Management",
+    "name": "NuGet",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 260,
+    "discipline": "Artifact and Package Management",
+    "name": "Go Modules",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 261,
+    "discipline": "Artifact and Package Management",
+    "name": "Cargo",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 262,
+    "discipline": "Artifact and Package Management",
+    "name": "JFrog Xray",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 263,
+    "discipline": "Artifact and Package Management",
+    "name": "ORAS",
+    "category": "Artifact / package management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 264,
+    "discipline": "MLOps",
+    "name": "MLflow",
+    "category": "MLOps / machine learning",
+    "website": "https://mlflow.org/",
+    "docs": "https://mlflow.org/docs/latest/"
+  },
+  {
+    "id": 265,
+    "discipline": "MLOps",
+    "name": "Kubeflow",
+    "category": "MLOps / machine learning",
+    "website": "https://www.kubeflow.org/",
+    "docs": "https://www.kubeflow.org/docs/"
+  },
+  {
+    "id": 266,
+    "discipline": "MLOps",
+    "name": "Metaflow",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 267,
+    "discipline": "MLOps",
+    "name": "ZenML",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 268,
+    "discipline": "MLOps",
+    "name": "Flyte",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 269,
+    "discipline": "MLOps",
+    "name": "Apache Airflow",
+    "category": "MLOps / machine learning",
+    "website": "https://airflow.apache.org/",
+    "docs": "https://airflow.apache.org/docs/"
+  },
+  {
+    "id": 270,
+    "discipline": "MLOps",
+    "name": "Prefect",
+    "category": "MLOps / machine learning",
+    "website": "https://www.prefect.io/",
+    "docs": "https://docs.prefect.io/"
+  },
+  {
+    "id": 271,
+    "discipline": "MLOps",
+    "name": "Dagster",
+    "category": "MLOps / machine learning",
+    "website": "https://dagster.io/",
+    "docs": "https://docs.dagster.io/"
+  },
+  {
+    "id": 272,
+    "discipline": "MLOps",
+    "name": "DVC",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 273,
+    "discipline": "MLOps",
+    "name": "lakeFS",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 274,
+    "discipline": "MLOps",
+    "name": "Weights & Biases",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 275,
+    "discipline": "MLOps",
+    "name": "Comet",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 276,
+    "discipline": "MLOps",
+    "name": "Neptune.ai",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 277,
+    "discipline": "MLOps",
+    "name": "ClearML",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 278,
+    "discipline": "MLOps",
+    "name": "Aim",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 279,
+    "discipline": "MLOps",
+    "name": "TensorBoard",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 280,
+    "discipline": "MLOps",
+    "name": "Optuna",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 281,
+    "discipline": "MLOps",
+    "name": "Ray Tune",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 282,
+    "discipline": "MLOps",
+    "name": "Katib",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 283,
+    "discipline": "MLOps",
+    "name": "BentoML",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 284,
+    "discipline": "MLOps",
+    "name": "KServe",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 285,
+    "discipline": "MLOps",
+    "name": "Seldon",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 286,
+    "discipline": "MLOps",
+    "name": "NVIDIA Triton Inference Server",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 287,
+    "discipline": "MLOps",
+    "name": "TorchServe",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 288,
+    "discipline": "MLOps",
+    "name": "TensorFlow Serving",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 289,
+    "discipline": "MLOps",
+    "name": "ONNX Runtime",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 290,
+    "discipline": "MLOps",
+    "name": "NVIDIA TensorRT",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 291,
+    "discipline": "MLOps",
+    "name": "Ray",
+    "category": "MLOps / machine learning",
+    "website": "https://www.ray.io/",
+    "docs": "https://docs.ray.io/"
+  },
+  {
+    "id": 292,
+    "discipline": "MLOps",
+    "name": "Apache Spark",
+    "category": "MLOps / machine learning",
+    "website": "https://spark.apache.org/",
+    "docs": "https://spark.apache.org/docs/latest/"
+  },
+  {
+    "id": 293,
+    "discipline": "MLOps",
+    "name": "Feast",
+    "category": "MLOps / machine learning",
+    "website": "https://feast.dev/",
+    "docs": "https://docs.feast.dev/"
+  },
+  {
+    "id": 294,
+    "discipline": "MLOps",
+    "name": "Hopsworks",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 295,
+    "discipline": "MLOps",
+    "name": "Tecton",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 296,
+    "discipline": "MLOps",
+    "name": "Evidently AI",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 297,
+    "discipline": "MLOps",
+    "name": "WhyLabs",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 298,
+    "discipline": "MLOps",
+    "name": "Arize AI",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 299,
+    "discipline": "MLOps",
+    "name": "Fiddler AI",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 300,
+    "discipline": "MLOps",
+    "name": "NannyML",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 301,
+    "discipline": "MLOps",
+    "name": "Great Expectations",
+    "category": "MLOps / machine learning",
+    "website": "https://greatexpectations.io/",
+    "docs": "https://docs.greatexpectations.io/"
+  },
+  {
+    "id": 302,
+    "discipline": "MLOps",
+    "name": "Deepchecks",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 303,
+    "discipline": "MLOps",
+    "name": "TensorFlow",
+    "category": "MLOps / machine learning",
+    "website": "https://www.tensorflow.org/",
+    "docs": "https://www.tensorflow.org/learn"
+  },
+  {
+    "id": 304,
+    "discipline": "MLOps",
+    "name": "PyTorch",
+    "category": "MLOps / machine learning",
+    "website": "https://pytorch.org/",
+    "docs": "https://pytorch.org/docs/stable/"
+  },
+  {
+    "id": 305,
+    "discipline": "MLOps",
+    "name": "scikit-learn",
+    "category": "MLOps / machine learning",
+    "website": "https://scikit-learn.org/",
+    "docs": "https://scikit-learn.org/stable/user_guide.html"
+  },
+  {
+    "id": 306,
+    "discipline": "MLOps",
+    "name": "XGBoost",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 307,
+    "discipline": "MLOps",
+    "name": "LightGBM",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 308,
+    "discipline": "MLOps",
+    "name": "CatBoost",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 309,
+    "discipline": "MLOps",
+    "name": "JAX",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 310,
+    "discipline": "MLOps",
+    "name": "Keras",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 311,
+    "discipline": "MLOps",
+    "name": "Hugging Face Transformers",
+    "category": "MLOps / machine learning",
+    "website": "https://huggingface.co/docs/transformers/",
+    "docs": "https://huggingface.co/docs/transformers/"
+  },
+  {
+    "id": 312,
+    "discipline": "MLOps",
+    "name": "ONNX",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 313,
+    "discipline": "MLOps",
+    "name": "Apache MXNet",
+    "category": "MLOps / machine learning",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 314,
+    "discipline": "LLMOps and AI Applications",
+    "name": "LangChain",
+    "category": "LLMOps / AI applications",
+    "website": "https://www.langchain.com/",
+    "docs": "https://python.langchain.com/docs/"
+  },
+  {
+    "id": 315,
+    "discipline": "LLMOps and AI Applications",
+    "name": "LangGraph",
+    "category": "LLMOps / AI applications",
+    "website": "https://www.langchain.com/langgraph",
+    "docs": "https://langchain-ai.github.io/langgraph/"
+  },
+  {
+    "id": 316,
+    "discipline": "LLMOps and AI Applications",
+    "name": "LlamaIndex",
+    "category": "LLMOps / AI applications",
+    "website": "https://www.llamaindex.ai/",
+    "docs": "https://docs.llamaindex.ai/"
+  },
+  {
+    "id": 317,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Haystack",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 318,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Semantic Kernel",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 319,
+    "discipline": "LLMOps and AI Applications",
+    "name": "DSPy",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 320,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Guidance",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 321,
+    "discipline": "LLMOps and AI Applications",
+    "name": "PydanticAI",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 322,
+    "discipline": "LLMOps and AI Applications",
+    "name": "AutoGen",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 323,
+    "discipline": "LLMOps and AI Applications",
+    "name": "CrewAI",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 324,
+    "discipline": "LLMOps and AI Applications",
+    "name": "OpenAI Agents SDK",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 325,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Hugging Face",
+    "category": "LLMOps / AI applications",
+    "website": "https://huggingface.co/",
+    "docs": "https://huggingface.co/docs"
+  },
+  {
+    "id": 326,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Ollama",
+    "category": "LLMOps / AI applications",
+    "website": "https://ollama.com/",
+    "docs": "https://docs.ollama.com/"
+  },
+  {
+    "id": 327,
+    "discipline": "LLMOps and AI Applications",
+    "name": "vLLM",
+    "category": "LLMOps / AI applications",
+    "website": "https://vllm.ai/",
+    "docs": "https://docs.vllm.ai/"
+  },
+  {
+    "id": 328,
+    "discipline": "LLMOps and AI Applications",
+    "name": "SGLang",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 329,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Hugging Face TGI",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 330,
+    "discipline": "LLMOps and AI Applications",
+    "name": "llama.cpp",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 331,
+    "discipline": "LLMOps and AI Applications",
+    "name": "LM Studio",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 332,
+    "discipline": "LLMOps and AI Applications",
+    "name": "LiteLLM",
+    "category": "LLMOps / AI applications",
+    "website": "https://www.litellm.ai/",
+    "docs": "https://docs.litellm.ai/"
+  },
+  {
+    "id": 333,
+    "discipline": "LLMOps and AI Applications",
+    "name": "OpenRouter",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 334,
+    "discipline": "LLMOps and AI Applications",
+    "name": "NVIDIA NIM",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 335,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Ray Serve",
+    "category": "LLMOps / AI applications",
+    "website": "https://docs.ray.io/en/latest/serve/",
+    "docs": "https://docs.ray.io/en/latest/serve/"
+  },
+  {
+    "id": 336,
+    "discipline": "LLMOps and AI Applications",
+    "name": "BentoML",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 337,
+    "discipline": "LLMOps and AI Applications",
+    "name": "MLflow",
+    "category": "LLMOps / AI applications",
+    "website": "https://mlflow.org/",
+    "docs": "https://mlflow.org/docs/latest/"
+  },
+  {
+    "id": 338,
+    "discipline": "LLMOps and AI Applications",
+    "name": "LangSmith",
+    "category": "LLMOps / AI applications",
+    "website": "https://www.langchain.com/langsmith",
+    "docs": "https://docs.smith.langchain.com/"
+  },
+  {
+    "id": 339,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Langfuse",
+    "category": "LLMOps / AI applications",
+    "website": "https://langfuse.com/",
+    "docs": "https://langfuse.com/docs"
+  },
+  {
+    "id": 340,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Arize Phoenix",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 341,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Weights & Biases Weave",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 342,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Helicone",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 343,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Portkey",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 344,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Braintrust",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 345,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Promptfoo",
+    "category": "LLMOps / AI applications",
+    "website": "https://www.promptfoo.dev/",
+    "docs": "https://www.promptfoo.dev/docs/intro/"
+  },
+  {
+    "id": 346,
+    "discipline": "LLMOps and AI Applications",
+    "name": "DeepEval",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 347,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Ragas",
+    "category": "LLMOps / AI applications",
+    "website": "https://ragas.io/",
+    "docs": "https://docs.ragas.io/"
+  },
+  {
+    "id": 348,
+    "discipline": "LLMOps and AI Applications",
+    "name": "TruLens",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 349,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Giskard",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 350,
+    "discipline": "LLMOps and AI Applications",
+    "name": "OpenAI Evals",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 351,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Guardrails AI",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 352,
+    "discipline": "LLMOps and AI Applications",
+    "name": "NeMo Guardrails",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 353,
+    "discipline": "LLMOps and AI Applications",
+    "name": "LLM Guard",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 354,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Lakera Guard",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 355,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Rebuff",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 356,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Outlines",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 357,
+    "discipline": "LLMOps and AI Applications",
+    "name": "Instructor",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 358,
+    "discipline": "LLMOps and AI Applications",
+    "name": "vLLM Production Stack",
+    "category": "LLMOps / AI applications",
+    "website": "https://github.com/vllm-project/production-stack",
+    "docs": "https://github.com/vllm-project/production-stack#readme"
+  },
+  {
+    "id": 359,
+    "discipline": "LLMOps and AI Applications",
+    "name": "KServe",
+    "category": "LLMOps / AI applications",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 360,
+    "discipline": "Generative AI and Model Development",
+    "name": "OpenAI API",
+    "category": "Generative AI / model development",
+    "website": "https://openai.com/",
+    "docs": "https://platform.openai.com/docs/"
+  },
+  {
+    "id": 361,
+    "discipline": "Generative AI and Model Development",
+    "name": "Anthropic API",
+    "category": "Generative AI / model development",
+    "website": "https://www.anthropic.com/",
+    "docs": "https://docs.anthropic.com/"
+  },
+  {
+    "id": 362,
+    "discipline": "Generative AI and Model Development",
+    "name": "Google Gemini API",
+    "category": "Generative AI / model development",
+    "website": "https://ai.google.dev/",
+    "docs": "https://ai.google.dev/gemini-api/docs"
+  },
+  {
+    "id": 363,
+    "discipline": "Generative AI and Model Development",
+    "name": "Amazon Bedrock",
+    "category": "Generative AI / model development",
+    "website": "https://aws.amazon.com/bedrock/",
+    "docs": "https://docs.aws.amazon.com/bedrock/"
+  },
+  {
+    "id": 364,
+    "discipline": "Generative AI and Model Development",
+    "name": "Azure AI Foundry",
+    "category": "Generative AI / model development",
+    "website": "https://azure.microsoft.com/products/ai-foundry",
+    "docs": "https://learn.microsoft.com/azure/ai-foundry/"
+  },
+  {
+    "id": 365,
+    "discipline": "Generative AI and Model Development",
+    "name": "Google Vertex AI",
+    "category": "Generative AI / model development",
+    "website": "https://cloud.google.com/vertex-ai",
+    "docs": "https://cloud.google.com/vertex-ai/docs"
+  },
+  {
+    "id": 366,
+    "discipline": "Generative AI and Model Development",
+    "name": "NVIDIA AI Enterprise",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 367,
+    "discipline": "Generative AI and Model Development",
+    "name": "Hugging Face Hub",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 368,
+    "discipline": "Generative AI and Model Development",
+    "name": "Kaggle",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 369,
+    "discipline": "Generative AI and Model Development",
+    "name": "Google Colab",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 370,
+    "discipline": "Generative AI and Model Development",
+    "name": "JupyterLab",
+    "category": "Generative AI / model development",
+    "website": "https://jupyter.org/",
+    "docs": "https://jupyterlab.readthedocs.io/"
+  },
+  {
+    "id": 371,
+    "discipline": "Generative AI and Model Development",
+    "name": "Visual Studio Code",
+    "category": "Generative AI / model development",
+    "website": "https://code.visualstudio.com/",
+    "docs": "https://code.visualstudio.com/docs"
+  },
+  {
+    "id": 372,
+    "discipline": "Generative AI and Model Development",
+    "name": "Cursor",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 373,
+    "discipline": "Generative AI and Model Development",
+    "name": "Continue",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 374,
+    "discipline": "Generative AI and Model Development",
+    "name": "Aider",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 375,
+    "discipline": "Generative AI and Model Development",
+    "name": "MCP (Model Context Protocol)",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 376,
+    "discipline": "Generative AI and Model Development",
+    "name": "FastMCP",
+    "category": "Generative AI / model development",
+    "website": "https://gofastmcp.com/",
+    "docs": "https://gofastmcp.com/getting-started/welcome"
+  },
+  {
+    "id": 377,
+    "discipline": "Generative AI and Model Development",
+    "name": "Composio",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 378,
+    "discipline": "Generative AI and Model Development",
+    "name": "Browser Use",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 379,
+    "discipline": "Generative AI and Model Development",
+    "name": "Playwright",
+    "category": "Generative AI / model development",
+    "website": "https://playwright.dev/",
+    "docs": "https://playwright.dev/docs/intro"
+  },
+  {
+    "id": 380,
+    "discipline": "Generative AI and Model Development",
+    "name": "Crawl4AI",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 381,
+    "discipline": "Generative AI and Model Development",
+    "name": "Unstructured",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 382,
+    "discipline": "Generative AI and Model Development",
+    "name": "Docling",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 383,
+    "discipline": "Generative AI and Model Development",
+    "name": "Marker",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 384,
+    "discipline": "Generative AI and Model Development",
+    "name": "Instructor",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 385,
+    "discipline": "Generative AI and Model Development",
+    "name": "Outlines",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 386,
+    "discipline": "Generative AI and Model Development",
+    "name": "NVIDIA CUDA",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 387,
+    "discipline": "Generative AI and Model Development",
+    "name": "NVIDIA cuDNN",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 388,
+    "discipline": "Generative AI and Model Development",
+    "name": "NVIDIA TensorRT-LLM",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 389,
+    "discipline": "Generative AI and Model Development",
+    "name": "DeepSpeed",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 390,
+    "discipline": "Generative AI and Model Development",
+    "name": "Megatron-LM",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 391,
+    "discipline": "Generative AI and Model Development",
+    "name": "Axolotl",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 392,
+    "discipline": "Generative AI and Model Development",
+    "name": "LLaMA-Factory",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 393,
+    "discipline": "Generative AI and Model Development",
+    "name": "Unsloth",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 394,
+    "discipline": "Generative AI and Model Development",
+    "name": "PEFT",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 395,
+    "discipline": "Generative AI and Model Development",
+    "name": "TRL",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 396,
+    "discipline": "Generative AI and Model Development",
+    "name": "DeepSpeed ZeRO",
+    "category": "Generative AI / model development",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 397,
+    "discipline": "Data Engineering",
+    "name": "Apache Kafka",
+    "category": "Data engineering",
+    "website": "https://kafka.apache.org/",
+    "docs": "https://kafka.apache.org/documentation/"
+  },
+  {
+    "id": 398,
+    "discipline": "Data Engineering",
+    "name": "Apache Pulsar",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 399,
+    "discipline": "Data Engineering",
+    "name": "RabbitMQ",
+    "category": "Data engineering",
+    "website": "https://www.rabbitmq.com/",
+    "docs": "https://www.rabbitmq.com/docs"
+  },
+  {
+    "id": 400,
+    "discipline": "Data Engineering",
+    "name": "NATS",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 401,
+    "discipline": "Data Engineering",
+    "name": "Apache Flink",
+    "category": "Data engineering",
+    "website": "https://flink.apache.org/",
+    "docs": "https://flink.apache.org/docs/stable/"
+  },
+  {
+    "id": 402,
+    "discipline": "Data Engineering",
+    "name": "Apache Beam",
+    "category": "Data engineering",
+    "website": "https://beam.apache.org/",
+    "docs": "https://beam.apache.org/documentation/"
+  },
+  {
+    "id": 403,
+    "discipline": "Data Engineering",
+    "name": "Apache NiFi",
+    "category": "Data engineering",
+    "website": "https://nifi.apache.org/",
+    "docs": "https://nifi.apache.org/documentation.html"
+  },
+  {
+    "id": 404,
+    "discipline": "Data Engineering",
+    "name": "Debezium",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 405,
+    "discipline": "Data Engineering",
+    "name": "Airbyte",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 406,
+    "discipline": "Data Engineering",
+    "name": "Fivetran",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 407,
+    "discipline": "Data Engineering",
+    "name": "Meltano",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 408,
+    "discipline": "Data Engineering",
+    "name": "Singer",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 409,
+    "discipline": "Data Engineering",
+    "name": "dbt",
+    "category": "Data engineering",
+    "website": "https://www.getdbt.com/",
+    "docs": "https://docs.getdbt.com/"
+  },
+  {
+    "id": 410,
+    "discipline": "Data Engineering",
+    "name": "SQLMesh",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 411,
+    "discipline": "Data Engineering",
+    "name": "Apache Spark",
+    "category": "Data engineering",
+    "website": "https://spark.apache.org/",
+    "docs": "https://spark.apache.org/docs/latest/"
+  },
+  {
+    "id": 412,
+    "discipline": "Data Engineering",
+    "name": "Dask",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 413,
+    "discipline": "Data Engineering",
+    "name": "Polars",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 414,
+    "discipline": "Data Engineering",
+    "name": "Pandas",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 415,
+    "discipline": "Data Engineering",
+    "name": "DuckDB",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 416,
+    "discipline": "Data Engineering",
+    "name": "Trino",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 417,
+    "discipline": "Data Engineering",
+    "name": "Presto",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 418,
+    "discipline": "Data Engineering",
+    "name": "Apache Hive",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 419,
+    "discipline": "Data Engineering",
+    "name": "Apache Iceberg",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 420,
+    "discipline": "Data Engineering",
+    "name": "Delta Lake",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 421,
+    "discipline": "Data Engineering",
+    "name": "Apache Hudi",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 422,
+    "discipline": "Data Engineering",
+    "name": "Hadoop",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 423,
+    "discipline": "Data Engineering",
+    "name": "Apache Oozie",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 424,
+    "discipline": "Data Engineering",
+    "name": "AWS Glue",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 425,
+    "discipline": "Data Engineering",
+    "name": "Azure Data Factory",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 426,
+    "discipline": "Data Engineering",
+    "name": "Google Cloud Dataflow",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 427,
+    "discipline": "Data Engineering",
+    "name": "Snowflake",
+    "category": "Data engineering",
+    "website": "https://www.snowflake.com/",
+    "docs": "https://docs.snowflake.com/"
+  },
+  {
+    "id": 428,
+    "discipline": "Data Engineering",
+    "name": "Databricks",
+    "category": "Data engineering",
+    "website": "https://www.databricks.com/",
+    "docs": "https://docs.databricks.com/"
+  },
+  {
+    "id": 429,
+    "discipline": "Data Engineering",
+    "name": "BigQuery",
+    "category": "Data engineering",
+    "website": "https://cloud.google.com/bigquery",
+    "docs": "https://cloud.google.com/bigquery/docs"
+  },
+  {
+    "id": 430,
+    "discipline": "Data Engineering",
+    "name": "Amazon Redshift",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 431,
+    "discipline": "Data Engineering",
+    "name": "Azure Synapse Analytics",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 432,
+    "discipline": "Data Engineering",
+    "name": "ClickHouse",
+    "category": "Data engineering",
+    "website": "https://clickhouse.com/",
+    "docs": "https://clickhouse.com/docs"
+  },
+  {
+    "id": 433,
+    "discipline": "Data Engineering",
+    "name": "Apache Druid",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 434,
+    "discipline": "Data Engineering",
+    "name": "Apache Pinot",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 435,
+    "discipline": "Data Engineering",
+    "name": "DataHub",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 436,
+    "discipline": "Data Engineering",
+    "name": "OpenMetadata",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 437,
+    "discipline": "Data Engineering",
+    "name": "Collibra",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 438,
+    "discipline": "Data Engineering",
+    "name": "Alation",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 439,
+    "discipline": "Data Engineering",
+    "name": "Great Expectations",
+    "category": "Data engineering",
+    "website": "https://greatexpectations.io/",
+    "docs": "https://docs.greatexpectations.io/"
+  },
+  {
+    "id": 440,
+    "discipline": "Data Engineering",
+    "name": "Soda",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 441,
+    "discipline": "Data Engineering",
+    "name": "Monte Carlo",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 442,
+    "discipline": "Data Engineering",
+    "name": "Elementary",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 443,
+    "discipline": "Data Engineering",
+    "name": "OpenLineage",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 444,
+    "discipline": "Data Engineering",
+    "name": "Marquez",
+    "category": "Data engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 445,
+    "discipline": "Data Engineering",
+    "name": "Feast",
+    "category": "Data engineering",
+    "website": "https://feast.dev/",
+    "docs": "https://docs.feast.dev/"
+  },
+  {
+    "id": 446,
+    "discipline": "Databases and Vector Stores",
+    "name": "PostgreSQL",
+    "category": "Databases / vector stores",
+    "website": "https://www.postgresql.org/",
+    "docs": "https://www.postgresql.org/docs/"
+  },
+  {
+    "id": 447,
+    "discipline": "Databases and Vector Stores",
+    "name": "MySQL",
+    "category": "Databases / vector stores",
+    "website": "https://www.mysql.com/",
+    "docs": "https://dev.mysql.com/doc/"
+  },
+  {
+    "id": 448,
+    "discipline": "Databases and Vector Stores",
+    "name": "MariaDB",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 449,
+    "discipline": "Databases and Vector Stores",
+    "name": "Microsoft SQL Server",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 450,
+    "discipline": "Databases and Vector Stores",
+    "name": "Oracle Database",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 451,
+    "discipline": "Databases and Vector Stores",
+    "name": "MongoDB",
+    "category": "Databases / vector stores",
+    "website": "https://www.mongodb.com/",
+    "docs": "https://www.mongodb.com/docs/"
+  },
+  {
+    "id": 452,
+    "discipline": "Databases and Vector Stores",
+    "name": "Apache Cassandra",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 453,
+    "discipline": "Databases and Vector Stores",
+    "name": "ScyllaDB",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 454,
+    "discipline": "Databases and Vector Stores",
+    "name": "Redis",
+    "category": "Databases / vector stores",
+    "website": "https://redis.io/",
+    "docs": "https://redis.io/docs/latest/"
+  },
+  {
+    "id": 455,
+    "discipline": "Databases and Vector Stores",
+    "name": "Valkey",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 456,
+    "discipline": "Databases and Vector Stores",
+    "name": "Memcached",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 457,
+    "discipline": "Databases and Vector Stores",
+    "name": "Elasticsearch",
+    "category": "Databases / vector stores",
+    "website": "https://www.elastic.co/elasticsearch",
+    "docs": "https://www.elastic.co/guide/index.html"
+  },
+  {
+    "id": 458,
+    "discipline": "Databases and Vector Stores",
+    "name": "OpenSearch",
+    "category": "Databases / vector stores",
+    "website": "https://opensearch.org/",
+    "docs": "https://opensearch.org/docs/latest/"
+  },
+  {
+    "id": 459,
+    "discipline": "Databases and Vector Stores",
+    "name": "Couchbase",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 460,
+    "discipline": "Databases and Vector Stores",
+    "name": "Neo4j",
+    "category": "Databases / vector stores",
+    "website": "https://neo4j.com/",
+    "docs": "https://neo4j.com/docs/"
+  },
+  {
+    "id": 461,
+    "discipline": "Databases and Vector Stores",
+    "name": "Amazon DynamoDB",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 462,
+    "discipline": "Databases and Vector Stores",
+    "name": "Google Cloud Spanner",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 463,
+    "discipline": "Databases and Vector Stores",
+    "name": "CockroachDB",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 464,
+    "discipline": "Databases and Vector Stores",
+    "name": "YugabyteDB",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 465,
+    "discipline": "Databases and Vector Stores",
+    "name": "ClickHouse",
+    "category": "Databases / vector stores",
+    "website": "https://clickhouse.com/",
+    "docs": "https://clickhouse.com/docs"
+  },
+  {
+    "id": 466,
+    "discipline": "Databases and Vector Stores",
+    "name": "Qdrant",
+    "category": "Databases / vector stores",
+    "website": "https://qdrant.tech/",
+    "docs": "https://qdrant.tech/documentation/"
+  },
+  {
+    "id": 467,
+    "discipline": "Databases and Vector Stores",
+    "name": "Milvus",
+    "category": "Databases / vector stores",
+    "website": "https://milvus.io/",
+    "docs": "https://milvus.io/docs"
+  },
+  {
+    "id": 468,
+    "discipline": "Databases and Vector Stores",
+    "name": "Weaviate",
+    "category": "Databases / vector stores",
+    "website": "https://weaviate.io/",
+    "docs": "https://weaviate.io/developers/weaviate"
+  },
+  {
+    "id": 469,
+    "discipline": "Databases and Vector Stores",
+    "name": "Chroma",
+    "category": "Databases / vector stores",
+    "website": "https://www.trychroma.com/",
+    "docs": "https://docs.trychroma.com/"
+  },
+  {
+    "id": 470,
+    "discipline": "Databases and Vector Stores",
+    "name": "Pinecone",
+    "category": "Databases / vector stores",
+    "website": "https://www.pinecone.io/",
+    "docs": "https://docs.pinecone.io/"
+  },
+  {
+    "id": 471,
+    "discipline": "Databases and Vector Stores",
+    "name": "pgvector",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 472,
+    "discipline": "Databases and Vector Stores",
+    "name": "FAISS",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 473,
+    "discipline": "Databases and Vector Stores",
+    "name": "LanceDB",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 474,
+    "discipline": "Databases and Vector Stores",
+    "name": "Vespa",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 475,
+    "discipline": "Databases and Vector Stores",
+    "name": "Redis Vector Search",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 476,
+    "discipline": "Databases and Vector Stores",
+    "name": "OpenSearch vector search",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 477,
+    "discipline": "Databases and Vector Stores",
+    "name": "SQLite",
+    "category": "Databases / vector stores",
+    "website": "https://sqlite.org/",
+    "docs": "https://sqlite.org/docs.html"
+  },
+  {
+    "id": 478,
+    "discipline": "Databases and Vector Stores",
+    "name": "TiDB",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 479,
+    "discipline": "Databases and Vector Stores",
+    "name": "PlanetScale",
+    "category": "Databases / vector stores",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 480,
+    "discipline": "Databases and Vector Stores",
+    "name": "Neon",
+    "category": "Databases / vector stores",
+    "website": "https://neon.tech/",
+    "docs": "https://neon.tech/docs"
+  },
+  {
+    "id": 481,
+    "discipline": "Databases and Vector Stores",
+    "name": "Supabase",
+    "category": "Databases / vector stores",
+    "website": "https://supabase.com/",
+    "docs": "https://supabase.com/docs"
+  },
+  {
+    "id": 482,
+    "discipline": "RAG and Retrieval",
+    "name": "LlamaIndex",
+    "category": "RAG / retrieval",
+    "website": "https://www.llamaindex.ai/",
+    "docs": "https://docs.llamaindex.ai/"
+  },
+  {
+    "id": 483,
+    "discipline": "RAG and Retrieval",
+    "name": "LangChain",
+    "category": "RAG / retrieval",
+    "website": "https://www.langchain.com/",
+    "docs": "https://python.langchain.com/docs/"
+  },
+  {
+    "id": 484,
+    "discipline": "RAG and Retrieval",
+    "name": "Haystack",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 485,
+    "discipline": "RAG and Retrieval",
+    "name": "txtai",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 486,
+    "discipline": "RAG and Retrieval",
+    "name": "DSPy",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 487,
+    "discipline": "RAG and Retrieval",
+    "name": "Vespa",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 488,
+    "discipline": "RAG and Retrieval",
+    "name": "Elasticsearch",
+    "category": "RAG / retrieval",
+    "website": "https://www.elastic.co/elasticsearch",
+    "docs": "https://www.elastic.co/guide/index.html"
+  },
+  {
+    "id": 489,
+    "discipline": "RAG and Retrieval",
+    "name": "OpenSearch",
+    "category": "RAG / retrieval",
+    "website": "https://opensearch.org/",
+    "docs": "https://opensearch.org/docs/latest/"
+  },
+  {
+    "id": 490,
+    "discipline": "RAG and Retrieval",
+    "name": "Apache Solr",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 491,
+    "discipline": "RAG and Retrieval",
+    "name": "Typesense",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 492,
+    "discipline": "RAG and Retrieval",
+    "name": "Meilisearch",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 493,
+    "discipline": "RAG and Retrieval",
+    "name": "Cohere Rerank",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 494,
+    "discipline": "RAG and Retrieval",
+    "name": "Jina AI",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 495,
+    "discipline": "RAG and Retrieval",
+    "name": "Voyage AI",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 496,
+    "discipline": "RAG and Retrieval",
+    "name": "Sentence Transformers",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 497,
+    "discipline": "RAG and Retrieval",
+    "name": "BGE models",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 498,
+    "discipline": "RAG and Retrieval",
+    "name": "Unstructured",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 499,
+    "discipline": "RAG and Retrieval",
+    "name": "Docling",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 500,
+    "discipline": "RAG and Retrieval",
+    "name": "Apache Tika",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 501,
+    "discipline": "RAG and Retrieval",
+    "name": "Tesseract OCR",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 502,
+    "discipline": "RAG and Retrieval",
+    "name": "PaddleOCR",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 503,
+    "discipline": "RAG and Retrieval",
+    "name": "MinerU",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 504,
+    "discipline": "RAG and Retrieval",
+    "name": "Ragas",
+    "category": "RAG / retrieval",
+    "website": "https://ragas.io/",
+    "docs": "https://docs.ragas.io/"
+  },
+  {
+    "id": 505,
+    "discipline": "RAG and Retrieval",
+    "name": "DeepEval",
+    "category": "RAG / retrieval",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 506,
+    "discipline": "FinOps and Cost Management",
+    "name": "Kubecost",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 507,
+    "discipline": "FinOps and Cost Management",
+    "name": "OpenCost",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 508,
+    "discipline": "FinOps and Cost Management",
+    "name": "Infracost",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 509,
+    "discipline": "FinOps and Cost Management",
+    "name": "CloudHealth",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 510,
+    "discipline": "FinOps and Cost Management",
+    "name": "Flexera One",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 511,
+    "discipline": "FinOps and Cost Management",
+    "name": "Apptio Cloudability",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 512,
+    "discipline": "FinOps and Cost Management",
+    "name": "Harness CCM",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 513,
+    "discipline": "FinOps and Cost Management",
+    "name": "AWS Cost Explorer",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 514,
+    "discipline": "FinOps and Cost Management",
+    "name": "Azure Cost Management",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 515,
+    "discipline": "FinOps and Cost Management",
+    "name": "Google Cloud Billing",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 516,
+    "discipline": "FinOps and Cost Management",
+    "name": "CAST AI",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 517,
+    "discipline": "FinOps and Cost Management",
+    "name": "StormForge",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 518,
+    "discipline": "FinOps and Cost Management",
+    "name": "Karpenter",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 519,
+    "discipline": "FinOps and Cost Management",
+    "name": "Kubernetes Cluster Autoscaler",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 520,
+    "discipline": "FinOps and Cost Management",
+    "name": "Goldilocks",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 521,
+    "discipline": "FinOps and Cost Management",
+    "name": "VPA recommender",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 522,
+    "discipline": "FinOps and Cost Management",
+    "name": "OpenCost integrations",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 523,
+    "discipline": "FinOps and Cost Management",
+    "name": "CloudZero",
+    "category": "FinOps / cost management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 524,
+    "discipline": "ITSM and Reliability",
+    "name": "ServiceNow",
+    "category": "ITSM / SRE / reliability",
+    "website": "https://www.servicenow.com/",
+    "docs": "https://www.servicenow.com/docs/"
+  },
+  {
+    "id": 525,
+    "discipline": "ITSM and Reliability",
+    "name": "Jira Service Management",
+    "category": "ITSM / SRE / reliability",
+    "website": "https://www.atlassian.com/software/jira/service-management",
+    "docs": "https://support.atlassian.com/jira-service-management-cloud/"
+  },
+  {
+    "id": 526,
+    "discipline": "ITSM and Reliability",
+    "name": "Freshservice",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 527,
+    "discipline": "ITSM and Reliability",
+    "name": "BMC Helix",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 528,
+    "discipline": "ITSM and Reliability",
+    "name": "Zendesk",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 529,
+    "discipline": "ITSM and Reliability",
+    "name": "PagerDuty",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 530,
+    "discipline": "ITSM and Reliability",
+    "name": "incident.io",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 531,
+    "discipline": "ITSM and Reliability",
+    "name": "Rootly",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 532,
+    "discipline": "ITSM and Reliability",
+    "name": "FireHydrant",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 533,
+    "discipline": "ITSM and Reliability",
+    "name": "Blameless",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 534,
+    "discipline": "ITSM and Reliability",
+    "name": "Nobl9",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 535,
+    "discipline": "ITSM and Reliability",
+    "name": "Sloth",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 536,
+    "discipline": "ITSM and Reliability",
+    "name": "Pyrra",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 537,
+    "discipline": "ITSM and Reliability",
+    "name": "Chaos Mesh",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 538,
+    "discipline": "ITSM and Reliability",
+    "name": "LitmusChaos",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 539,
+    "discipline": "ITSM and Reliability",
+    "name": "Gremlin",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 540,
+    "discipline": "ITSM and Reliability",
+    "name": "AWS Fault Injection Service",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 541,
+    "discipline": "ITSM and Reliability",
+    "name": "Steadybit",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 542,
+    "discipline": "ITSM and Reliability",
+    "name": "Resilience4j",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 543,
+    "discipline": "ITSM and Reliability",
+    "name": "Toxiproxy",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 544,
+    "discipline": "ITSM and Reliability",
+    "name": "Backstage",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 545,
+    "discipline": "ITSM and Reliability",
+    "name": "OpsLevel",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 546,
+    "discipline": "ITSM and Reliability",
+    "name": "Cortex",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 547,
+    "discipline": "ITSM and Reliability",
+    "name": "Compass",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 548,
+    "discipline": "ITSM and Reliability",
+    "name": "OpenFeature",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 549,
+    "discipline": "ITSM and Reliability",
+    "name": "LaunchDarkly",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 550,
+    "discipline": "ITSM and Reliability",
+    "name": "Unleash",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 551,
+    "discipline": "ITSM and Reliability",
+    "name": "Flagsmith",
+    "category": "ITSM / SRE / reliability",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 552,
+    "discipline": "Testing and Quality",
+    "name": "pytest",
+    "category": "Testing / quality engineering",
+    "website": "https://pytest.org/",
+    "docs": "https://docs.pytest.org/"
+  },
+  {
+    "id": 553,
+    "discipline": "Testing and Quality",
+    "name": "unittest",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 554,
+    "discipline": "Testing and Quality",
+    "name": "JUnit",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 555,
+    "discipline": "Testing and Quality",
+    "name": "TestNG",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 556,
+    "discipline": "Testing and Quality",
+    "name": "NUnit",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 557,
+    "discipline": "Testing and Quality",
+    "name": "xUnit",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 558,
+    "discipline": "Testing and Quality",
+    "name": "Jest",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 559,
+    "discipline": "Testing and Quality",
+    "name": "Vitest",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 560,
+    "discipline": "Testing and Quality",
+    "name": "Mocha",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 561,
+    "discipline": "Testing and Quality",
+    "name": "Playwright",
+    "category": "Testing / quality engineering",
+    "website": "https://playwright.dev/",
+    "docs": "https://playwright.dev/docs/intro"
+  },
+  {
+    "id": 562,
+    "discipline": "Testing and Quality",
+    "name": "Cypress",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 563,
+    "discipline": "Testing and Quality",
+    "name": "Selenium",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 564,
+    "discipline": "Testing and Quality",
+    "name": "Appium",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 565,
+    "discipline": "Testing and Quality",
+    "name": "Robot Framework",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 566,
+    "discipline": "Testing and Quality",
+    "name": "Postman",
+    "category": "Testing / quality engineering",
+    "website": "https://www.postman.com/",
+    "docs": "https://learning.postman.com/docs/"
+  },
+  {
+    "id": 567,
+    "discipline": "Testing and Quality",
+    "name": "Bruno",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 568,
+    "discipline": "Testing and Quality",
+    "name": "Newman",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 569,
+    "discipline": "Testing and Quality",
+    "name": "REST Assured",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 570,
+    "discipline": "Testing and Quality",
+    "name": "Pact",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 571,
+    "discipline": "Testing and Quality",
+    "name": "WireMock",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 572,
+    "discipline": "Testing and Quality",
+    "name": "Hoverfly",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 573,
+    "discipline": "Testing and Quality",
+    "name": "Testcontainers",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 574,
+    "discipline": "Testing and Quality",
+    "name": "LocalStack",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 575,
+    "discipline": "Testing and Quality",
+    "name": "WireMock Cloud",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 576,
+    "discipline": "Testing and Quality",
+    "name": "Allure Report",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 577,
+    "discipline": "Testing and Quality",
+    "name": "ReportPortal",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 578,
+    "discipline": "Testing and Quality",
+    "name": "PIT",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 579,
+    "discipline": "Testing and Quality",
+    "name": "JaCoCo",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 580,
+    "discipline": "Testing and Quality",
+    "name": "Istanbul / NYC",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 581,
+    "discipline": "Testing and Quality",
+    "name": "OWASP ZAP",
+    "category": "Testing / quality engineering",
+    "website": "https://www.zaproxy.org/",
+    "docs": "https://www.zaproxy.org/docs/"
+  },
+  {
+    "id": 582,
+    "discipline": "Testing and Quality",
+    "name": "Trivy",
+    "category": "Testing / quality engineering",
+    "website": "https://trivy.dev/",
+    "docs": "https://trivy.dev/docs/latest/"
+  },
+  {
+    "id": 583,
+    "discipline": "Testing and Quality",
+    "name": "k6",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 584,
+    "discipline": "Testing and Quality",
+    "name": "Apache JMeter",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 585,
+    "discipline": "Testing and Quality",
+    "name": "Gatling",
+    "category": "Testing / quality engineering",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 586,
+    "discipline": "Identity and Access",
+    "name": "Keycloak",
+    "category": "Identity / access management",
+    "website": "https://www.keycloak.org/",
+    "docs": "https://www.keycloak.org/documentation"
+  },
+  {
+    "id": 587,
+    "discipline": "Identity and Access",
+    "name": "Auth0",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 588,
+    "discipline": "Identity and Access",
+    "name": "Okta",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 589,
+    "discipline": "Identity and Access",
+    "name": "Microsoft Entra ID",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 590,
+    "discipline": "Identity and Access",
+    "name": "Ping Identity",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 591,
+    "discipline": "Identity and Access",
+    "name": "ForgeRock",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 592,
+    "discipline": "Identity and Access",
+    "name": "Dex",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 593,
+    "discipline": "Identity and Access",
+    "name": "OAuth 2.0",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 594,
+    "discipline": "Identity and Access",
+    "name": "OpenID Connect",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 595,
+    "discipline": "Identity and Access",
+    "name": "SAML",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 596,
+    "discipline": "Identity and Access",
+    "name": "SPIFFE / SPIRE",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 597,
+    "discipline": "Identity and Access",
+    "name": "HashiCorp Vault",
+    "category": "Identity / access management",
+    "website": "https://www.hashicorp.com/products/vault",
+    "docs": "https://developer.hashicorp.com/vault/docs"
+  },
+  {
+    "id": 598,
+    "discipline": "Identity and Access",
+    "name": "CyberArk",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 599,
+    "discipline": "Identity and Access",
+    "name": "Delinea",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 600,
+    "discipline": "Identity and Access",
+    "name": "Teleport",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 601,
+    "discipline": "Identity and Access",
+    "name": "Boundary",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 602,
+    "discipline": "Identity and Access",
+    "name": "FreeIPA",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 603,
+    "discipline": "Identity and Access",
+    "name": "OpenLDAP",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 604,
+    "discipline": "Identity and Access",
+    "name": "Active Directory",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 605,
+    "discipline": "Identity and Access",
+    "name": "cert-manager",
+    "category": "Identity / access management",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 606,
+    "discipline": "AIOps and Automation",
+    "name": "StackStorm",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 607,
+    "discipline": "AIOps and Automation",
+    "name": "Rundeck",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 608,
+    "discipline": "AIOps and Automation",
+    "name": "AWX",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 609,
+    "discipline": "AIOps and Automation",
+    "name": "Ansible Automation Platform",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 610,
+    "discipline": "AIOps and Automation",
+    "name": "n8n",
+    "category": "AIOps / automation",
+    "website": "https://n8n.io/",
+    "docs": "https://docs.n8n.io/"
+  },
+  {
+    "id": 611,
+    "discipline": "AIOps and Automation",
+    "name": "Node-RED",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 612,
+    "discipline": "AIOps and Automation",
+    "name": "Temporal",
+    "category": "AIOps / automation",
+    "website": "https://temporal.io/",
+    "docs": "https://docs.temporal.io/"
+  },
+  {
+    "id": 613,
+    "discipline": "AIOps and Automation",
+    "name": "Argo Workflows",
+    "category": "AIOps / automation",
+    "website": "https://argoproj.github.io/workflows/",
+    "docs": "https://argo-workflows.readthedocs.io/"
+  },
+  {
+    "id": 614,
+    "discipline": "AIOps and Automation",
+    "name": "Kestra",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 615,
+    "discipline": "AIOps and Automation",
+    "name": "Windmill",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 616,
+    "discipline": "AIOps and Automation",
+    "name": "Robusta",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 617,
+    "discipline": "AIOps and Automation",
+    "name": "BigPanda",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 618,
+    "discipline": "AIOps and Automation",
+    "name": "Moogsoft",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 619,
+    "discipline": "AIOps and Automation",
+    "name": "Dynatrace Davis AI",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 620,
+    "discipline": "AIOps and Automation",
+    "name": "Datadog Watchdog",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 621,
+    "discipline": "AIOps and Automation",
+    "name": "New Relic AI",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 622,
+    "discipline": "AIOps and Automation",
+    "name": "Elastic AI Assistant",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 623,
+    "discipline": "AIOps and Automation",
+    "name": "ServiceNow AIOps",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 624,
+    "discipline": "AIOps and Automation",
+    "name": "IBM Instana",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 625,
+    "discipline": "AIOps and Automation",
+    "name": "IBM Turbonomic",
+    "category": "AIOps / automation",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 626,
+    "discipline": "AI Infrastructure",
+    "name": "NVIDIA GPU Operator",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 627,
+    "discipline": "AI Infrastructure",
+    "name": "NVIDIA DCGM Exporter",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 628,
+    "discipline": "AI Infrastructure",
+    "name": "NVIDIA Kubernetes device plugin",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 629,
+    "discipline": "AI Infrastructure",
+    "name": "KubeRay",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 630,
+    "discipline": "AI Infrastructure",
+    "name": "Volcano",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 631,
+    "discipline": "AI Infrastructure",
+    "name": "Kueue",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 632,
+    "discipline": "AI Infrastructure",
+    "name": "Run:ai",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 633,
+    "discipline": "AI Infrastructure",
+    "name": "Determined AI",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 634,
+    "discipline": "AI Infrastructure",
+    "name": "MosaicML Composer",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 635,
+    "discipline": "AI Infrastructure",
+    "name": "Horovod",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 636,
+    "discipline": "AI Infrastructure",
+    "name": "DeepSpeed",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 637,
+    "discipline": "AI Infrastructure",
+    "name": "Ray",
+    "category": "AI infrastructure / GPU",
+    "website": "https://www.ray.io/",
+    "docs": "https://docs.ray.io/"
+  },
+  {
+    "id": 638,
+    "discipline": "AI Infrastructure",
+    "name": "Apache Spark",
+    "category": "AI infrastructure / GPU",
+    "website": "https://spark.apache.org/",
+    "docs": "https://spark.apache.org/docs/latest/"
+  },
+  {
+    "id": 639,
+    "discipline": "AI Infrastructure",
+    "name": "Dask",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 640,
+    "discipline": "AI Infrastructure",
+    "name": "MPI",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 641,
+    "discipline": "AI Infrastructure",
+    "name": "NVIDIA NCCL",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 642,
+    "discipline": "AI Infrastructure",
+    "name": "NVIDIA CUDA",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 643,
+    "discipline": "AI Infrastructure",
+    "name": "Slurm",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 644,
+    "discipline": "AI Infrastructure",
+    "name": "Apptainer",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 645,
+    "discipline": "AI Infrastructure",
+    "name": "Singularity",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 646,
+    "discipline": "AI Infrastructure",
+    "name": "NVIDIA Triton Inference Server",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 647,
+    "discipline": "AI Infrastructure",
+    "name": "vLLM",
+    "category": "AI infrastructure / GPU",
+    "website": "https://vllm.ai/",
+    "docs": "https://docs.vllm.ai/"
+  },
+  {
+    "id": 648,
+    "discipline": "AI Infrastructure",
+    "name": "SGLang",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 649,
+    "discipline": "AI Infrastructure",
+    "name": "KServe",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 650,
+    "discipline": "AI Infrastructure",
+    "name": "Ray Serve",
+    "category": "AI infrastructure / GPU",
+    "website": "https://docs.ray.io/en/latest/serve/",
+    "docs": "https://docs.ray.io/en/latest/serve/"
+  },
+  {
+    "id": 651,
+    "discipline": "AI Infrastructure",
+    "name": "BentoML",
+    "category": "AI infrastructure / GPU",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 652,
+    "discipline": "AI Governance",
+    "name": "MLflow Model Registry",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 653,
+    "discipline": "AI Governance",
+    "name": "Model Cards Toolkit",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 654,
+    "discipline": "AI Governance",
+    "name": "Responsible AI Toolbox",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 655,
+    "discipline": "AI Governance",
+    "name": "Fairlearn",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 656,
+    "discipline": "AI Governance",
+    "name": "AI Fairness 360",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 657,
+    "discipline": "AI Governance",
+    "name": "SHAP",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 658,
+    "discipline": "AI Governance",
+    "name": "LIME",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 659,
+    "discipline": "AI Governance",
+    "name": "InterpretML",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 660,
+    "discipline": "AI Governance",
+    "name": "Aequitas",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 661,
+    "discipline": "AI Governance",
+    "name": "Giskard",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 662,
+    "discipline": "AI Governance",
+    "name": "Garak",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 663,
+    "discipline": "AI Governance",
+    "name": "PyRIT",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 664,
+    "discipline": "AI Governance",
+    "name": "Promptfoo",
+    "category": "AI governance / evaluation / safety",
+    "website": "https://www.promptfoo.dev/",
+    "docs": "https://www.promptfoo.dev/docs/intro/"
+  },
+  {
+    "id": 665,
+    "discipline": "AI Governance",
+    "name": "NeMo Guardrails",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 666,
+    "discipline": "AI Governance",
+    "name": "Guardrails AI",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 667,
+    "discipline": "AI Governance",
+    "name": "Lakera Guard",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 668,
+    "discipline": "AI Governance",
+    "name": "Microsoft Presidio",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 669,
+    "discipline": "AI Governance",
+    "name": "Private AI",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 670,
+    "discipline": "AI Governance",
+    "name": "WhyLabs",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 671,
+    "discipline": "AI Governance",
+    "name": "Arize AI",
+    "category": "AI governance / evaluation / safety",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 672,
+    "discipline": "Documentation and Collaboration",
+    "name": "Confluence",
+    "category": "Documentation / collaboration",
+    "website": "https://www.atlassian.com/software/confluence",
+    "docs": "https://support.atlassian.com/confluence-cloud/"
+  },
+  {
+    "id": 673,
+    "discipline": "Documentation and Collaboration",
+    "name": "Notion",
+    "category": "Documentation / collaboration",
+    "website": "https://www.notion.so/",
+    "docs": "https://www.notion.so/help"
+  },
+  {
+    "id": 674,
+    "discipline": "Documentation and Collaboration",
+    "name": "GitBook",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 675,
+    "discipline": "Documentation and Collaboration",
+    "name": "MkDocs",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 676,
+    "discipline": "Documentation and Collaboration",
+    "name": "Docusaurus",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 677,
+    "discipline": "Documentation and Collaboration",
+    "name": "Sphinx",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 678,
+    "discipline": "Documentation and Collaboration",
+    "name": "Backstage TechDocs",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 679,
+    "discipline": "Documentation and Collaboration",
+    "name": "Swagger / OpenAPI",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 680,
+    "discipline": "Documentation and Collaboration",
+    "name": "AsyncAPI",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 681,
+    "discipline": "Documentation and Collaboration",
+    "name": "Mermaid",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 682,
+    "discipline": "Documentation and Collaboration",
+    "name": "PlantUML",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 683,
+    "discipline": "Documentation and Collaboration",
+    "name": "Structurizr",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 684,
+    "discipline": "Documentation and Collaboration",
+    "name": "Lucidchart",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 685,
+    "discipline": "Documentation and Collaboration",
+    "name": "Draw.io / diagrams.net",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 686,
+    "discipline": "Documentation and Collaboration",
+    "name": "Miro",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 687,
+    "discipline": "Documentation and Collaboration",
+    "name": "Slack",
+    "category": "Documentation / collaboration",
+    "website": "https://slack.com/",
+    "docs": "https://api.slack.com/docs"
+  },
+  {
+    "id": 688,
+    "discipline": "Documentation and Collaboration",
+    "name": "Microsoft Teams",
+    "category": "Documentation / collaboration",
+    "website": "https://www.microsoft.com/microsoft-teams/",
+    "docs": "https://learn.microsoft.com/microsoftteams/"
+  },
+  {
+    "id": 689,
+    "discipline": "Documentation and Collaboration",
+    "name": "Mattermost",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 690,
+    "discipline": "Documentation and Collaboration",
+    "name": "Discord",
+    "category": "Documentation / collaboration",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 691,
+    "discipline": "Asset Management and Governance",
+    "name": "NetBox",
+    "category": "Asset management / governance",
+    "website": "https://netboxlabs.com/oss/netbox/",
+    "docs": "https://netboxlabs.com/docs/netbox/"
+  },
+  {
+    "id": 692,
+    "discipline": "Asset Management and Governance",
+    "name": "Device42",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 693,
+    "discipline": "Asset Management and Governance",
+    "name": "ServiceNow CMDB",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 694,
+    "discipline": "Asset Management and Governance",
+    "name": "Ralph",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 695,
+    "discipline": "Asset Management and Governance",
+    "name": "Snipe-IT",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 696,
+    "discipline": "Asset Management and Governance",
+    "name": "Lansweeper",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 697,
+    "discipline": "Asset Management and Governance",
+    "name": "OpenTofu",
+    "category": "Asset management / governance",
+    "website": "https://opentofu.org/",
+    "docs": "https://opentofu.org/docs/"
+  },
+  {
+    "id": 698,
+    "discipline": "Asset Management and Governance",
+    "name": "Terraform Enterprise",
+    "category": "Asset management / governance",
+    "website": "https://www.hashicorp.com/products/terraform",
+    "docs": "https://developer.hashicorp.com/terraform/enterprise"
+  },
+  {
+    "id": 699,
+    "discipline": "Asset Management and Governance",
+    "name": "Spacelift",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 700,
+    "discipline": "Asset Management and Governance",
+    "name": "env0",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 701,
+    "discipline": "Asset Management and Governance",
+    "name": "Scalr",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 702,
+    "discipline": "Asset Management and Governance",
+    "name": "Atlantis",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 703,
+    "discipline": "Asset Management and Governance",
+    "name": "Terraform Cloud",
+    "category": "Asset management / governance",
+    "website": "https://cloud.hashicorp.com/products/terraform",
+    "docs": "https://developer.hashicorp.com/terraform/cloud-docs"
+  },
+  {
+    "id": 704,
+    "discipline": "Asset Management and Governance",
+    "name": "OPA",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 705,
+    "discipline": "Asset Management and Governance",
+    "name": "Kyverno",
+    "category": "Asset management / governance",
+    "website": "https://kyverno.io/",
+    "docs": "https://kyverno.io/docs/"
+  },
+  {
+    "id": 706,
+    "discipline": "Asset Management and Governance",
+    "name": "Cloud Custodian",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 707,
+    "discipline": "Asset Management and Governance",
+    "name": "Steampipe",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 708,
+    "discipline": "Asset Management and Governance",
+    "name": "Prowler",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 709,
+    "discipline": "Asset Management and Governance",
+    "name": "ScoutSuite",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 710,
+    "discipline": "Asset Management and Governance",
+    "name": "CloudQuery",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  },
+  {
+    "id": 711,
+    "discipline": "Asset Management and Governance",
+    "name": "Cartography",
+    "category": "Asset management / governance",
+    "website": "",
+    "docs": ""
+  }
+]
