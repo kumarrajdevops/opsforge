@@ -1,9 +1,9 @@
 import Box from '@mui/material/Box'
-import LinearProgress from '@mui/material/LinearProgress'
 import Typography from '@mui/material/Typography'
+import { alpha, useTheme } from '@mui/material/styles'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useId } from 'react'
 import { toneColors, type Tone } from '../theme/tones'
-import { useMountedFlag } from './useMountedFlag'
 
 export interface ProgressBarProps {
   label: string
@@ -28,8 +28,10 @@ export function ProgressBar({
   targetLabel = 'Target',
 }: ProgressBarProps) {
   const labelId = useId()
-  const percent = (Math.min(Math.max(value, 0), max) / max) * 100
-  const mounted = useMountedFlag()
+  const theme = useTheme()
+  const reduced = useReducedMotion()
+  const fraction = Math.min(Math.max(value, 0), max) / max
+  const percent = fraction * 100
 
   return (
     <Box>
@@ -44,22 +46,36 @@ export function ProgressBar({
         </Typography>
       </Box>
       <Box sx={{ position: 'relative' }}>
-        <LinearProgress
-          variant="determinate"
-          value={percent}
+        <Box
+          role="progressbar"
           aria-labelledby={labelId}
-          sx={(theme) => ({
-            '& .MuiLinearProgress-bar': {
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round(percent)}
+          sx={{
+            height: 6,
+            borderRadius: 3,
+            overflow: 'hidden',
+            backgroundColor: alpha(theme.palette.text.primary, 0.08),
+          }}
+        >
+          <motion.div
+            style={{
+              height: '100%',
+              width: '100%',
+              originX: 0,
+              borderRadius: 3,
               backgroundColor: toneColors(theme, tone).solid,
-              transform: `translateX(-${100 - (mounted ? percent : 0)}%) !important`,
-              transition: `transform ${theme.opsforge.motion.duration.slow}ms ${theme.opsforge.motion.easing.emphasized}`,
-            },
-          })}
-        />
+            }}
+            initial={{ scaleX: reduced ? fraction : 0 }}
+            animate={{ scaleX: fraction }}
+            transition={reduced ? { duration: 0 } : { duration: 0.6, ease: [0.2, 0, 0, 1] }}
+          />
+        </Box>
         {target !== undefined && (
           <Box
             title={`${targetLabel}: ${target}`}
-            sx={(theme) => ({
+            sx={{
               position: 'absolute',
               top: -3,
               bottom: -3,
@@ -67,7 +83,7 @@ export function ProgressBar({
               width: 2,
               borderRadius: 1,
               backgroundColor: theme.palette.text.primary,
-            })}
+            }}
           />
         )}
       </Box>

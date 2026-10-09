@@ -40,6 +40,16 @@ export {
 export { SideDrawer, type SideDrawerProps } from './components/SideDrawer'
 export { DataTable, type DataTableColumn, type DataTableProps } from './components/DataTable'
 export { Reveal, type RevealProps } from './components/Reveal'
+export { AnimatedNumber, type AnimatedNumberProps } from './components/AnimatedNumber'
+export {
+  PageTransition,
+  Stagger,
+  StaggerItem,
+  StateSwap,
+  type PageTransitionProps,
+  type StaggerProps,
+  type StateSwapProps,
+} from './components/motion'
 export type { LinkTarget } from './components/linkTypes'
 
 export { AppShell, type AppShellProps } from './components/navigation/AppShell'
