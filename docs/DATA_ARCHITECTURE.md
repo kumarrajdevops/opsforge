@@ -62,9 +62,9 @@ The existing three tables keep their names. Renaming them for the prefix scheme 
 
 - Alembic is the only way the schema changes. The application never creates tables at start-up.
 - A migration is one forward step, reviewed with the model change. Destructive changes (drop column, type change) use expand and contract across two releases.
-- Migrations run as a separate command before the API starts (a Compose service or a job), never inside the API process (ARCHITECTURE section 14).
+- Migrations are the `alembic upgrade head` command, never code inside the API process. **Today** the API image runs it before starting uvicorn (the Dockerfile `CMD`), which is fine for one replica. With more than one replica it must move to a separate step before the rollout (a Compose service or a Kubernetes Job), because two replicas would race (ARCHITECTURE section 14).
 - Tests run on SQLite for speed. Anything SQLite cannot represent (triggers, pgvector, partial indexes, `CHECK` with PostgreSQL functions) is tested against real PostgreSQL in CI; the model uses `JSON().with_variant(JSONB, "postgresql")` where both must work.
-- **Gap:** the PostgreSQL-backed migration test in CI is not set up. It is listed in the phase 45 testing work.
+- **CI migration check (built):** the `migrations` job in `.github/workflows/ci.yml` starts `pgvector/pgvector:pg17`, runs `alembic upgrade head`, `downgrade base`, `upgrade head` again, then `alembic check` so the models and migrations cannot drift apart. Feature tests that need PostgreSQL itself (trigger behaviour, vector queries) are still to be written.
 
 ## 3. Append-only data
 

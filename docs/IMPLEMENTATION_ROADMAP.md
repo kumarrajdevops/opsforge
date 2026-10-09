@@ -28,7 +28,7 @@ Order warning: the product was built by feature, so phases 26–27, 34–35, 38�
 | --- | --- | --- | --- | --- | --- |
 | 01 | Product Specification & Source of Truth | Done | Platform | none | PRD with IDs for every spec item; page-by-page coverage table; module catalog with dependency map; this roadmap. Awaiting your approval of the PRD (status header still reads "Proposed"). |
 | 02 | Architecture & ADRs | Partial | Platform | 01 | ADR-0001..0007 exist, including persistence and auth (0005, G4), LLM provider and secrets (0006, G5) and terminal and lab sandbox (0007, G8); AI_ARCHITECTURE is written (G6). ARCHITECTURE, DOMAIN_MODEL, DATA_ARCHITECTURE, SECURITY_ARCHITECTURE and ADR-0008..0015 are written and proposed, awaiting approval. Missing: a stand-alone READINESS_ENGINE document. |
-| 03 | Repository & Engineering Foundation | Done | Platform | 01 | Monorepo, TypeScript strict, ESLint, tests, build, commit conventions, Docker scaffolding in place. CI pipeline still missing (S9). |
+| 03 | Repository & Engineering Foundation | Done | Platform | 01 | Monorepo, TypeScript strict, ESLint, tests, build, commit conventions, Docker scaffolding in place. CI workflow and `npm run check` added (S9); not yet run on GitHub. |
 | 04 | Design System | Done | P3 | 03 | Light default and dark theme, tokens, shared components, icons, container/presentational rule (ADR-0004). |
 | 05 | Shell & Command Center | Partial | M01 | 04, 15 | Shell, navigation, responsive layout exist. Command Center reads the Readiness Engine report with no sample data (G7 done); plan, continue-training and recent evidence come from the same evidence. |
 
@@ -105,7 +105,7 @@ Order warning: the product was built by feature, so phases 26–27, 34–35, 38�
 | Phase | Name | Status | Owner | Depends on | Exit criteria |
 | --- | --- | --- | --- | --- | --- |
 | 44 | Security Hardening | Partial | Platform | G4, G10 | Secrets handling, input validation at API boundaries, dependency audit, headers policy, audit logging, tenant isolation tested (NFR-SEC-01..10). |
-| 45 | Testing & Quality | Partial | Platform | 03 | 324 unit tests pass. Missing: Playwright end-to-end flows, axe accessibility checks (NFR-UX-01), golden-set prompt regression (NFR-AI-02), CI on every push (S9). |
+| 45 | Testing & Quality | Partial | Platform | 03 | 324 unit tests pass. Missing: Playwright end-to-end flows, axe accessibility checks (NFR-UX-01), golden-set prompt regression (NFR-AI-02). CI on every push is defined (S9) but the workflow has not yet run on GitHub. |
 | 46 | Docker & Local Deployment | Partial | Platform | 03, G4 | Compose and Dockerfiles verified for web, api, Postgres and Redis (G9); object storage is not part of the stack yet. `docker compose up` starts web, api, database, Redis and object storage; health check passes; containers named `opsforge-<service>` (G9, NFR-OPS-04). |
 | 47 | Kubernetes Platform | Not started | Platform | 46, 44 | Manifests or Helm chart, secrets, ingress, probes, resource limits; deployable on a local cluster. |
 | 48 | Production Deployment & Observability | Not started | Platform | 47 | Prometheus and Grafana dashboards, structured logs, traces and LLM-call metrics (NFR-OPS-03); backup and restore tested. |

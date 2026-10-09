@@ -49,7 +49,7 @@ Phase numbers refer to the 50-phase sequence (01 Product Specification to 50 Fin
 | S6 | Write the paused architecture docs: ARCHITECTURE, DOMAIN_MODEL, FRONTEND_ARCHITECTURE, BACKEND_ARCHITECTURE, READINESS_ENGINE; ADR-0010 | **DONE (proposed).** ARCHITECTURE (frontend and backend boundaries are its sections 3 and 4), DOMAIN_MODEL, DATA_ARCHITECTURE, SECURITY_ARCHITECTURE, the AI_ARCHITECTURE revision and ADR-0008..0015 (0010 is now authorization) are written and await approval. Not written: a stand-alone READINESS_ENGINE document; the PRD points to DOMAIN_MODEL section 5 and the readiness types instead. |
 | S7 | Phase 06 Knowledge Domain, then 10 Flashcards, then 12 Question Engine | These feed the Readiness Engine factors that are empty today (knowledge, questions, flashcards). Without them readiness stays at low evidence coverage. |
 | S8 | End-to-end and accessibility tests (Playwright plus axe) | 324 unit tests pass but no browser-level checks exist. Needed for the 3D views and reduced motion. |
-| S9 | CI pipeline (lint, typecheck, test, build on every push) | Currently only run by hand. |
+| S9 **DONE** | CI pipeline (lint, typecheck, test, build on every push) | `.github/workflows/ci.yml` (web, api, migrations on PostgreSQL, compose) and `audit.yml` (weekly), plus `npm run check` locally. Not yet seen running on GitHub: nothing is pushed. |
 | S10 | Browser-check what was not covered for the visualisations: debrief spread replay, interview timeline replay, Table toggle, reduced motion | Listed as unchecked after the last build. |
 
 ## P2: schedule with the owning phase

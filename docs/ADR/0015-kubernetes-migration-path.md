@@ -24,7 +24,7 @@ Compose remains the deployment target until there is a hosted deployment with mo
 | Configuration only from environment variables | ConfigMap and Secret |
 | One image, two commands (API, worker) | Two Deployments from one build |
 | `/live` and `/ready` endpoints | Liveness and readiness probes |
-| Migrations as a separate command | A Job or init step |
+| Migrations are one command; the image runs it at API start today (one replica only) | Move to a Job or init step |
 | Non-root container, no local writable state | Restricted pod security standard |
 | Logs to stdout, metrics on an internal port | Standard log collection and a ServiceMonitor |
 | Object storage, not volumes, for files | No shared `ReadWriteMany` volume |

@@ -270,7 +270,7 @@ Decision record: [ADR-0015](ADR/0015-kubernetes-migration-path.md).
 | Configuration only from environment variables | Maps to ConfigMaps and Secrets |
 | `/live` and `/ready` health endpoints | Map to liveness and readiness probes |
 | One image, two commands (API, worker) | Two Deployments from one build |
-| Migrations run as a separate command, not at API start | A Job or init step |
+| Migrations are one command (`alembic upgrade head`); the image runs it at API start today, which is safe for one replica only | Move it to a Job or init step before the rollout |
 | Non-root container, no writable local state | Passes a restricted pod security policy |
 | In-process rate limiting is documented as a gap | Must move to Redis before a second replica |
 

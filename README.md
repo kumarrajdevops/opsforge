@@ -73,14 +73,33 @@ Baseline in [docs/SECURITY.md](docs/SECURITY.md): secrets from the environment o
 
 ## Quality checks
 
+One command runs every gate that CI runs (format, lint, typecheck, tests and build for the web workspaces; ruff, ruff format, mypy and pytest for the API):
+
+```bash
+npm run check                       # everything
+npm run check:fast                  # skip tests and the production build
+node scripts/check.mjs --web        # JavaScript and TypeScript only
+node scripts/check.mjs --api        # Python only
+node scripts/check.mjs --keep-going # do not stop at the first failure
+```
+
+The script uses `apps/api/.venv` when it exists, otherwise `python` on the path, or the interpreter in the `PYTHON` environment variable. It exits non-zero if any step fails.
+
+The same steps one by one:
+
 ```bash
 npm run typecheck && npm run lint && npm test && npm run format:check
 
 cd apps/api
 .venv/Scripts/python -m ruff check .
+.venv/Scripts/python -m ruff format --check .
 .venv/Scripts/python -m mypy
 .venv/Scripts/python -m pytest
 ```
+
+### Continuous integration
+
+`.github/workflows/ci.yml` runs on every pull request and on pushes to `main`, as four parallel jobs: **web**, **api**, **migrations** (Alembic upgrade, downgrade and re-upgrade, then `alembic check`, against real PostgreSQL with pgvector) and **compose** (validates the Compose files and builds the `app` profile images). `.github/workflows/audit.yml` runs `npm audit` and `pip-audit` weekly and on demand, kept separate so a new upstream advisory does not block an unrelated change.
 
 ## Commit conventions
 
