@@ -7,9 +7,10 @@
 ## 0. Conventions
 
 - **Spec references.** `§P4` = the spec section titled "Phase 4 — Architecture Studio". `§A`, `§B`, `§C` = Appendices A, B, C. The spec also contains an *implementation roadmap* with its own Phase 0–9; those are cited as `RP0`–`RP9` to avoid confusion (see TODO A-03).
-- **Requirement IDs** are `<MODULE>-<nn>`. Every bullet of the spec is mapped to at least one ID. Nothing has been dropped or simplified. Where I added a requirement that is *not* in the spec, it is tagged `[ADDED]` and listed again in §9 so you can veto it.
+- **Requirement IDs** are `<MODULE>-<nn>`. Every bullet of the spec is mapped to at least one ID (proof: the page-by-page table in [SPEC_COVERAGE.md](SPEC_COVERAGE.md)). Nothing has been dropped or simplified. Where I added a requirement that is *not* in the spec, it is tagged `[ADDED]` and listed again in §9 so you can veto it.
 - **Priority** is not assigned here; sequencing lives in [IMPLEMENTATION_ROADMAP.md](IMPLEMENTATION_ROADMAP.md).
 - Items from the prototype that are not in the spec are tagged `[PROTO]`.
+- Items that **are** in the spec but were missing from this document until the spec coverage check (G1) are tagged `[G1]`. They are not architect inventions and are not up for veto; the spec statement they trace to is in [SPEC_COVERAGE.md](SPEC_COVERAGE.md).
 
 ## 1. Product vision (§P0)
 
@@ -118,6 +119,7 @@ M14–M16 are specified in detail in the spec but are absent from the navigation
 | LRN-10 | Infographics/mind maps for: CI/CD architecture & release flow; Terraform workflow; AWS networking; GitOps; zero-downtime deployment; disaster recovery; microservices. |
 | LRN-11 `[PROTO]` | Knowledge map visualization showing connected concepts (prototype: "124 connected concepts"). |
 | LRN-12 `[PROTO]` | Per-technology mastery score, "Continue learning" and "Target weakness" actions. |
+| LRN-13 `[G1]` | Mind maps show visual relationships between concepts; infographics explain architecture and processes. Both exist as per-technology facets of LRN-01, not only as the example set in LRN-09/LRN-10. |
 
 ### 4.3 M03 Documents & ingestion (§P1, §P16)
 
@@ -209,6 +211,7 @@ M14–M16 are specified in detail in the spec but are absent from the navigation
 | OPS-09 | Motion communicates changing system state (status changes, propagation) rather than decoration. |
 | OPS-10 `[PROTO]` | Incident timer, mission/objective with progress, "interviewer notes" panel, suggested-command chips. |
 | OPS-11 | Incident evidence is stored as raw evidence and replayable (PR-18). |
+| OPS-12 `[G1]` | Advanced incident simulation (RP9): richer multi-signal, multi-service scenarios beyond the first set, built on the same incident and evidence model. |
 
 ### 4.9 M07 ForgeLab — Hands-on Labs & Terminal (§P6)
 
@@ -217,7 +220,7 @@ M14–M16 are specified in detail in the spec but are absent from the navigation
 | LAB-01 | Interactive terminal supporting: kubectl, docker, terraform, git, curl, dig, nslookup, ss, netstat, journalctl, top, systemctl, aws, az, helm, argocd. |
 | LAB-02 | Example labs: Fix CrashLoopBackOff; Recover Terraform state lock; Investigate Linux memory pressure; Troubleshoot service connectivity; Repair a failed deployment; Diagnose Kubernetes networking; Investigate certificate or secret failures. |
 | LAB-03 | Lab domains (RP7): Docker, Kubernetes, Terraform, Linux, CI/CD, Cloud labs. |
-| LAB-04 | Sandbox lifecycle: isolate, **reset**, observe; candidate may make real changes without harming production infrastructure. |
+| LAB-04 | Sandbox lifecycle: isolate, **reset**, observe; candidate may make real changes without harming production infrastructure. Controlled environments may eventually use Docker, Kubernetes, Terraform and cloud environments (see FUT-03). |
 | LAB-05 | Lab attempts recorded as hands-on evidence, separate from theory (PR-08). |
 | LAB-06 | Safe command execution; cloud credential isolation; sandbox isolation (PR-19). |
 | LAB-07 `[PROTO]` | Lab cards with technology tag, duration and level. |
@@ -321,6 +324,8 @@ Detailed in [READINESS_ENGINE.md](READINESS_ENGINE.md). Requirements:
 | UX-10 | Mental-state UX: Learn = calm/readable/info-rich; Practice = focused/compact; Simulate = immersive/high-pressure; Analyze = data-rich/diagnostic. |
 | UX-11 | Responsive desktop/tablet/mobile (sidebar → drawer on small screens). `[PROTO]` |
 | UX-12 | Global search, command palette hint (⌘K), toast feedback. `[PROTO]` |
+| UX-13 `[G1]` | Frontend stack and priority (§P14): MUI, @mui/icons-material, Framer Motion, React Flow (priority 5 of 5); Three.js, React Three Fiber, Drei, MUI X Charts (4); GSAP, Lucide React, MUI X Data Grid (3); React Spring and Spline/react-spline (2, optional). Specialised libraries are used where they add functional value, not to make the product 3D. |
+| UX-14 `[G1]` | Library responsibilities (§P14): Framer Motion = page transitions, score animations, micro-interactions, interview transitions; React Flow = Architecture Studio; React Three Fiber + Drei = Neural Core, infrastructure topology, system health, incident visualization; GSAP = incident timeline, chaos simulation, interview simulation; MUI X Charts = readiness and analytics charts; MUI X Data Grid = evidence and analytics tables; Lucide = application icons. |
 | NAV-01 | Navigation groups and items: COMMAND (Command Center); LEARN (Knowledge, Documents, Flashcards); PRACTICE (Questions, Incidents, Hands-on Labs); DESIGN (Architecture Studio, Patterns); INTERVIEW (AI Interviewer, Resume Interrogation, JD Analyzer); ANALYTICS (Readiness). |
 
 ### 4.18 AI platform (§P2)
@@ -331,7 +336,7 @@ Detailed in [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md).
 |---|---|
 | AI-01 | Hybrid architecture: deterministic software is authoritative; local LLMs for cost-effective tutoring/generation; cloud LLMs optional for hard reasoning/high-quality evaluation. |
 | AI-02 | `LLMProvider` abstraction with `OllamaProvider`, `OpenAIProvider`, `AnthropicProvider`. |
-| AI-03 | Authority split: scoring rules, readiness thresholds, spaced repetition → deterministic; question selection → deterministic + adaptive; RAG retrieval → application + pgvector; tutor/explanation → local LLM default; summaries/flashcards → local LLM; scenario generation → local LLM + validation; basic interviewer → local LLM; complex architecture reasoning → optional cloud LLM; advanced answer evaluation → optional cloud LLM; voice evaluation → cloud/local by capability. |
+| AI-03 | Authority split: scoring rules, spaced repetition and question selection → deterministic engine; readiness thresholds → deterministic + adaptive logic (the spec table is misaligned in the PDF text layer; this reading matches the three-to-one count of its "Deterministic engine" cells and the §P2 sentence listing scoring, progress, thresholds, spaced repetition, question selection and readiness as deterministic; confirm visually); RAG retrieval → application + pgvector; tutor/explanation → local LLM default; summaries/flashcards → local LLM; scenario generation → local LLM + validation; basic interviewer → local LLM; complex architecture reasoning → optional cloud LLM; advanced answer evaluation → optional cloud LLM; voice evaluation → cloud/local by capability. |
 | AI-04 | LLMs do not assign the final readiness score. Semantic evaluation emits **evidence dimensions** (technical accuracy, completeness, troubleshooting method, communication, architecture reasoning, trade-off quality, evidence use, root-cause reasoning, remediation, prevention); deterministic weighting converts them to the authoritative score. |
 | AI-05 | RAG pipeline, evaluation pipeline, prompt/version management, guardrails (RP4). |
 | AI-06 | Prompt-injection defenses for retrieved documents; PII and secret redaction. |
@@ -341,13 +346,14 @@ Detailed in [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md).
 | ID | Requirement |
 |---|---|
 | DAT-01 | Every interaction is stored as structured evidence so the readiness score is explainable. |
-| DAT-02 | Core entities (30): User, Technology, Document, Document Chunk, Source/Provenance, Topic, Skill, Question, Question Attempt, Flashcard, Flashcard Review, Scenario, Scenario Node, Scenario Attempt, Incident, Incident Evidence, Lab, Lab Attempt, Architecture Scenario, Architecture Version, Architecture Component, Architecture Finding, Architecture Score, Interview Session, Interview Round, Interview Question, Interview Answer, Evaluation, Resume Claim, JD Requirement, Behavioral Story, Readiness Snapshot, Daily Plan. See [DOMAIN_MODEL.md](DOMAIN_MODEL.md). |
+| DAT-02 | Core entities (33): User, Technology, Document, Document Chunk, Source/Provenance, Topic, Skill, Question, Question Attempt, Flashcard, Flashcard Review, Scenario, Scenario Node, Scenario Attempt, Incident, Incident Evidence, Lab, Lab Attempt, Architecture Scenario, Architecture Version, Architecture Component, Architecture Finding, Architecture Score, Interview Session, Interview Round, Interview Question, Interview Answer, Evaluation, Resume Claim, JD Requirement, Behavioral Story, Readiness Snapshot, Daily Plan. See [DOMAIN_MODEL.md](DOMAIN_MODEL.md). |
 | DAT-03 | Keep raw evidence. |
 | DAT-04 | Keep evaluation separate from evidence. |
 | DAT-05 | Keep AI reasoning separate from deterministic score calculation. |
 | DAT-06 | Preserve timestamps and attempts. |
 | DAT-07 | Allow replay and re-evaluation. |
 | DAT-08 | Never overwrite historical performance when recalculating readiness. |
+| DAT-09 `[G1]` | Evidence provenance meanings (§P16): Official documentation = authoritative external knowledge source; Personal note = user-provided knowledge; Runbook = operational procedure; AI generated = machine-created interpretation or content; Interview question = assessment artifact; Incident = operational simulation evidence; Lab = hands-on evidence; Architecture = design evidence; Interview = communication and reasoning evidence. Each has a distinct provenance type (DOC-05). |
 
 ### 4.20 Future expansion (§P20) — retained, not scheduled
 
@@ -375,8 +381,19 @@ Detailed in [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md).
 | FUT-20 | Cross-topic dependency graphs |
 | FUT-21 | Knowledge decay prediction |
 | FUT-22 | Interview probability / risk estimation based on evidence |
+| FUT-23 `[G1]` | Multi-user or team simulations, if required (RP9) |
 
 The data model and APIs must not preclude these (e.g. multi-tenant keys, versioned rubrics, append-only evidence).
+
+### 4.21 Vision end state and platform architecture (§Final, §P2, §P17, §P19)
+
+| ID | Requirement |
+|---|---|
+| VIS-01 `[G1]` | End state (§Final): a candidate can upload knowledge sources, resume and target job description; learn and recall the relevant material; troubleshoot realistic production failures; design and defend architectures; operate hands-on environments; practice behavioral stories; undergo dynamic AI interviews; and receive a continuously updated, explainable readiness assessment. The product is a continuous interview-readiness system, not a notes application: knowledge → evidence → diagnosis → targeted practice → measurable readiness. |
+| SYS-01 `[G1]` | Recommended initial stack (§P2): React + TypeScript; FastAPI + Python; PostgreSQL; pgvector; Ollama; Redis; Celery or equivalent task queue; S3-compatible object storage; Docker; Kubernetes as the platform matures; Prometheus + Grafana. |
+| SYS-02 `[G1]` | Production architecture (§P17): React/MUI frontend talks to a FastAPI application API over HTTP and WebSocket; the API uses PostgreSQL + pgvector, Redis (cache and queue), Celery/worker processes, object storage (documents and artifacts) and an LLM provider (Ollama or cloud). |
+| SYS-03 `[G1]` | A real-time channel (WebSocket) between frontend and API for streaming AI output, job progress and live simulation state. |
+| SYS-04 `[G1]` | Persistence and identity (§P19 limitation list): backend persistence, authentication, PostgreSQL/pgvector, Ollama/API LLM integration, deterministic architecture evaluation, real lab infrastructure, real cloud integrations, production observability and full interview persistence are required for the production product; the prototype lacked all of them. |
 
 ## 5. Non-functional requirements
 
@@ -468,5 +485,7 @@ All `FUT-*` items; real cloud sandbox provisioning (FUT-03); multi-user/team fea
 - **Provenance** — where content came from and whether it is authoritative (DOC-05).
 
 ## 9. Requirements added by the architect (not in the spec)
+
+Not for veto: every `[G1]` item (VIS-01, SYS-01..04, LRN-13, OPS-12, DAT-09, UX-13, UX-14, FUT-23, and the AI-03 / DAT-02 corrections). These came from the spec and were found missing by the coverage check.
 
 For veto: NFR-DATA-04, NFR-UX-04, NFR-PERF-01..03, NFR-OPS-03/04, NFR-AI-01/02/04, NFR-MNT-01/02/04, and all `[PROTO]` items. None removes or narrows a spec requirement.
