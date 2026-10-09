@@ -35,32 +35,70 @@ READ → UNDERSTAND → RECALL → PRACTICE → APPLY → TROUBLESHOOT → EXPLA
 | Hands-on Labs | ForgeLab | Prove practical ability: Linux, Docker, Kubernetes, Terraform, CI/CD, cloud operational tasks |
 | Readiness Engine | ForgeReady | Continuously combine evidence into a Senior DevOps Interview Readiness Score and a targeted daily plan |
 
+### 1.3 Target users `[ADDED]`
+
+The spec names one user goal and does not list user types. These are derived from it so scope can be tested against someone. They are open to veto (§9).
+
+| User | Who they are | What they need from OPSFORGE |
+|---|---|---|
+| Primary: senior-track candidate | An engineer with real DevOps, SRE, cloud, platform or DevSecOps experience preparing for Senior-level interviews (spec §P0 "primary user goal"). | An honest answer to the core product question, evidence for it, and a daily plan that closes the gaps. |
+| Career switcher or mid-level engineer stepping up | Has some hands-on exposure but gaps in architecture, troubleshooting method or communication at Senior depth. | Levels with evidence thresholds (RDY-04, RDY-05) so progress is visible and not inflated by reading. |
+| Time-boxed candidate | An interview is days away (spec §P12 Emergency mode). | The highest-value actions first (INT-06, RDY-09). |
+| Later: mentor, reviewer, team lead | Reviews another person's evidence or runs team training. Not in the first product (FUT-13, FUT-14, FUT-23, §6). | The data model must not preclude it: tenant keys, versioned rubrics, append-only evidence (§4.20). |
+
+### 1.4 User problems `[ADDED]`
+
+Each problem is stated in the spec's own terms (§P0 "Core principle", §Final, Appendix C) and mapped to the requirements that address it.
+
+| Problem | How it shows up | Addressed by |
+|---|---|---|
+| Reading feels like progress but is not evidence. | A candidate finishes courses and documentation and still cannot answer follow-ups. | PR-01, PR-04, RDY-05, §4.2 to §4.5 |
+| Candidates do not know where they will fail. | No single view of weak areas across theory, practice, incidents and architecture. | RDY-01, RDY-08, RDY-09, CMD-01 to CMD-07 |
+| Knowledge and confidence diverge. | Knows the material but freezes (K86/C61), or is overconfident (K58/C89). | PR-09, RDY-02 |
+| Theory does not show hands-on ability. | Can explain Kubernetes but cannot fix a CrashLoopBackOff. | PR-08, LAB-01 to LAB-07 |
+| Production troubleshooting is untested. | Names a fix before understanding scope, symptoms or timeline. | QST-08, OPS-01 to OPS-08 |
+| Architecture answers are generic. | Draws boxes without stating requirements, trade-offs or failure modes. | PR-10, ARC-01 to ARC-14 |
+| Resume claims are not defensible. | An interviewer probes a listed technology and the candidate cannot go deep. | RSM-01 to RSM-05 |
+| Preparation is not targeted to the role. | Studies broadly while the job needs specific technologies. | JDA-01 to JDA-05 |
+| Communication and behavioral answers are neglected at Senior level. | Strong technical answers, weak structure, no leadership stories. | PR-12, BEH-01 to BEH-06, INT-08 |
+| Interview pressure is never rehearsed. | The first realistic round is the real one; hints and scores are visible in practice. | INT-04, INT-05, INT-09 |
+| Wrong answers are forgotten. | The same mistake repeats. | PR-07, QST-12, QST-13, CRD-02 to CRD-04 |
+
+### 1.5 Product goals `[ADDED]`
+
+Goals are outcomes the product is judged by. They restate the spec's north star as things that can be checked.
+
+| ID | Goal | Measured by |
+|---|---|---|
+| GOAL-01 | A candidate can ask "Am I ready for a Senior DevOps interview today?" and get an evidence-backed answer. | RDY-08, RDY-09. Every score decomposes to evidence. |
+| GOAL-02 | A candidate always knows the next highest-value action. | CMD-03, RDY-06, PR-06. No weakness without a next step. |
+| GOAL-03 | Every major activity produces evidence. | PR-17, CRD-06, LAB-05, OPS-11, INT-07. |
+| GOAL-04 | The score is trusted. | PR-04, PR-05, NFR-DATA-03, NFR-DATA-04. Same evidence and version give the same score. |
+| GOAL-05 | Preparation covers the whole Senior loop: knowledge, hands-on, troubleshooting, architecture, security, communication, incidents. | RDY-01 and the module set in §3. |
+| GOAL-06 | Confidence matches demonstrated capability, in both directions (PR-20). | RDY-02, INT-08. |
+| GOAL-07 | Progress over time is visible and replayable. | PR-18, DAT-03 to DAT-08, RDY-11. |
+| GOAL-08 | The product runs locally with no paid service. | AI-01, NFR-AI-03, NFR-AI-04, NFR-OPS-04. |
+
+### 1.6 Product non-goals `[ADDED]`
+
+Derived from the spec's explicit statements (Final Product Definition, Appendix C) and its roadmap boundaries. A non-goal is not forever; changing one needs an ADR.
+
+| ID | Non-goal | Why |
+|---|---|---|
+| NG-01 | A DevOps notes or documentation reader (spec: "not a DevOps notes application"). | PR-01, PR-02. Documents are a source, not the product. |
+| NG-02 | A course platform with completion certificates for watching content. | Completion is not evidence (PR-01). |
+| NG-03 | Gamified XP, leaderboards or streak mechanics. | PR-13, UX-03. See §7 on the streak badge. |
+| NG-04 | An LLM that decides the user's readiness. | PR-04, PR-05, AI-04. |
+| NG-05 | Running user commands on a server in the first product. | PR-19, ADR-0007. Real sandboxes are FUT-03 and need an ADR. |
+| NG-06 | A real cloud lab or a real Kubernetes cluster for users in the first product. | FUT-03, FUT-06. Labs are emulated and labelled so (PR-08). |
+| NG-07 | A static HTML prototype as the product. | PR-16. |
+| NG-08 | Team, enterprise or mentor features in the first product. | FUT-13 to FUT-15, FUT-23, §6. |
+| NG-09 | Guaranteeing an interview outcome. | The product measures readiness evidence. FUT-22 (probability estimation) is future and would be labelled as an estimate. |
+| NG-10 | Replacing a human interviewer's judgement of a real candidate. | It is a practice and diagnosis tool for the candidate. |
+
 ## 2. Product principles / non-negotiables (§C, all 20)
 
-These are binding acceptance criteria for every phase.
-
-| ID | Principle |
-|---|---|
-| PR-01 | Interview readiness is an evidence problem, not a content-consumption problem. |
-| PR-02 | Documentation is a knowledge source, not the complete learning experience. |
-| PR-03 | Official sources and AI-generated material retain distinct provenance. |
-| PR-04 | Deterministic systems remain authoritative for scoring and readiness thresholds. |
-| PR-05 | LLMs support reasoning and generation; they never silently define the user's readiness. |
-| PR-06 | Every major weakness leads to an actionable next step. |
-| PR-07 | Every wrong answer becomes learning data. |
-| PR-08 | Hands-on ability is represented separately from theoretical knowledge. |
-| PR-09 | Knowledge and confidence are measured separately. |
-| PR-10 | Architecture is evaluated against explicit requirements. |
-| PR-11 | Troubleshooting rewards evidence-driven investigation and clarifying questions. |
-| PR-12 | Senior-level preparation includes communication, leadership and behavioral evidence. |
-| PR-13 | The UI is engaging but never undermines professional interview preparation. |
-| PR-14 | 3D and animation communicate system state, relationships or progress — never mere decoration. |
-| PR-15 | Accessibility and reduced-motion behavior are first-class requirements. |
-| PR-16 | The product is a real React + TypeScript + MUI implementation, not a static HTML prototype. |
-| PR-17 | Every major feature contributes measurable evidence to the readiness engine. |
-| PR-18 | Historical attempts and evaluations are retained for replay and trend analysis. |
-| PR-19 | Security and sandbox isolation are mandatory for any real command execution or cloud lab. |
-| PR-20 | The ultimate outcome is confidence grounded in demonstrated capability. |
+Moved to [PRODUCT_PRINCIPLES.md](PRODUCT_PRINCIPLES.md). The IDs `PR-01` to `PR-20` are unchanged and remain binding acceptance criteria for every phase.
 
 ## 3. Module inventory
 
@@ -397,70 +435,7 @@ The data model and APIs must not preclude these (e.g. multi-tenant keys, version
 
 ## 5. Non-functional requirements
 
-Items marked **(spec)** come directly from the specification; numeric targets are **proposed** and need your sign-off (TODO C-04).
-
-### 5.1 Security (§P17 "Security requirements") — all mandatory
-
-| ID | Requirement |
-|---|---|
-| NFR-SEC-01 (spec) | Tenant/user isolation. |
-| NFR-SEC-02 (spec) | Encrypted secrets. |
-| NFR-SEC-03 (spec) | Strict access controls. |
-| NFR-SEC-04 (spec) | Audit logging. |
-| NFR-SEC-05 (spec) | Sandbox isolation for hands-on labs. |
-| NFR-SEC-06 (spec) | Safe command execution. |
-| NFR-SEC-07 (spec) | Cloud credential isolation. |
-| NFR-SEC-08 (spec) | Document access controls. |
-| NFR-SEC-09 (spec) | Prompt-injection defenses for retrieved documents. |
-| NFR-SEC-10 (spec) | PII and secret redaction where appropriate. |
-
-### 5.2 Data integrity & explainability
-
-| ID | Requirement |
-|---|---|
-| NFR-DATA-01 (spec) | Append-only evidence; historical performance never overwritten (DAT-03..08). |
-| NFR-DATA-02 (spec) | Provenance on all knowledge content (PR-03). |
-| NFR-DATA-03 (spec) | Readiness score fully explainable down to contributing evidence (RDY-08). |
-| NFR-DATA-04 `[ADDED]` | Deterministic reproducibility: given the same evidence set and the same engine/config version, the engine yields the same score. |
-
-### 5.3 Usability, accessibility, performance
-
-| ID | Requirement |
-|---|---|
-| NFR-UX-01 (spec) | Accessibility is first-class (PR-15). Proposed target: WCAG 2.2 AA, full keyboard operation of every flow including the architecture canvas, screen-reader-announced state changes in ForgeOps. |
-| NFR-UX-02 (spec) | `prefers-reduced-motion` honored; an in-app motion toggle; minimal motion in interviews. |
-| NFR-UX-03 (spec) | Responsive desktop/mobile. |
-| NFR-UX-04 `[ADDED]` | 3D routes lazy-loaded; non-3D fallback for low-power/reduced-motion; 3D never blocks primary workflows. |
-| NFR-PERF-01 `[ADDED]` | Proposed: interactive route change < 200 ms after code load; initial JS for the shell < 250 kB gzip (3D, flow, charts split into route chunks). |
-| NFR-PERF-02 `[ADDED]` | Proposed: deterministic engines respond < 100 ms p95 for a single evaluation; architecture rules run < 500 ms for a 100-node graph. |
-| NFR-PERF-03 `[ADDED]` | LLM calls are asynchronous/streamed; UI shows processing state; no request blocks > 30 s without streaming or a job handle. |
-
-### 5.4 Operability
-
-| ID | Requirement |
-|---|---|
-| NFR-OPS-01 (spec) | Docker for development and packaging; Kubernetes as the eventual deployment platform; Prometheus + Grafana for observability; object storage for uploaded documents and generated artifacts. |
-| NFR-OPS-02 (spec) | Background workers for ingestion, embedding, generation, evaluation and lab orchestration. |
-| NFR-OPS-03 `[ADDED]` | Structured logs, OpenTelemetry traces and Prometheus metrics for API, workers and every LLM call (latency, tokens, cost, provider, prompt version). |
-| NFR-OPS-04 `[ADDED]` | One-command local environment (`docker compose up`) for Postgres+pgvector, Redis, object storage (S3-compatible), and optionally Ollama. |
-
-### 5.5 AI quality & cost
-
-| ID | Requirement |
-|---|---|
-| NFR-AI-01 `[ADDED]` | LLM output used for evaluation must be schema-validated; invalid output is retried then marked unevaluated, never scored by guess. |
-| NFR-AI-02 `[ADDED]` | Golden-set regression tests for prompts and evaluators before any prompt/model change is promoted. |
-| NFR-AI-03 (spec) | Local LLM by default for cost; cloud optional (provider routing is configuration, not code). |
-| NFR-AI-04 `[ADDED]` | Per-provider budget caps and an offline mode in which every feature degrades gracefully to deterministic behavior. |
-
-### 5.6 Maintainability & extensibility
-
-| ID | Requirement |
-|---|---|
-| NFR-MNT-01 `[ADDED]` | Content (questions, scenarios, labs, patterns, rubrics) is authored as versioned, schema-validated files and seeded, not hand-entered in the DB. |
-| NFR-MNT-02 `[ADDED]` | Deterministic engines are pure libraries with no I/O (unit-testable in isolation). |
-| NFR-MNT-03 (spec) | Evaluators, rubrics and readiness weights are versioned to allow re-evaluation (DAT-07). |
-| NFR-MNT-04 `[ADDED]` | Every API contract is described by OpenAPI and the web client is generated from it. |
+Moved to [NON_FUNCTIONAL_REQUIREMENTS.md](NON_FUNCTIONAL_REQUIREMENTS.md), with a status column that says what is met today. The IDs (`NFR-SEC-*`, `NFR-DATA-*`, `NFR-UX-*`, `NFR-PERF-*`, `NFR-OPS-*`, `NFR-AI-*`, `NFR-MNT-*`) are unchanged. Numeric targets are proposed and need sign-off (TODO C-04).
 
 ## 6. Out of scope until explicitly approved
 
@@ -489,3 +464,34 @@ All `FUT-*` items; real cloud sandbox provisioning (FUT-03); multi-user/team fea
 Not for veto: every `[G1]` item (VIS-01, SYS-01..04, LRN-13, OPS-12, DAT-09, UX-13, UX-14, FUT-23, and the AI-03 / DAT-02 corrections). These came from the spec and were found missing by the coverage check.
 
 For veto: NFR-DATA-04, NFR-UX-04, NFR-PERF-01..03, NFR-OPS-03/04, NFR-AI-01/02/04, NFR-MNT-01/02/04, and all `[PROTO]` items. None removes or narrows a spec requirement.
+
+For veto, from the Phase-1 completion: the target users (§1.3), user problems (§1.4), product goals GOAL-01..08 (§1.5), product non-goals NG-01..10 (§1.6), and the cross-cutting index (§10). They are derived from the spec text and add no feature.
+
+## 10. Cross-cutting index
+
+Where each topic of the Phase-1 analysis lives. This is a map and adds no requirement.
+
+| Topic | Where |
+|---|---|
+| Product vision | §1, VIS-01 |
+| Target users | §1.3 |
+| User problems | §1.4 |
+| Product goals | §1.5 |
+| Product non-goals | §1.6, §6 |
+| Principles | [PRODUCT_PRINCIPLES.md](PRODUCT_PRINCIPLES.md) |
+| Modules | §3, [MODULE_CATALOG.md](MODULE_CATALOG.md) (includes the dependency map) |
+| Functional requirements | §4 |
+| Non-functional requirements | [NON_FUNCTIONAL_REQUIREMENTS.md](NON_FUNCTIONAL_REQUIREMENTS.md) |
+| AI | §4.18 AI-01..06, [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md), NFR-AI-* |
+| Learning | §4.2 LRN, §4.3 DOC, §4.4 CRD, §4.5 QST |
+| Interview | §4.12 INT, §4.13 RSM, §4.14 JDA, §4.15 BEH |
+| Architecture | §4.6 PAT, §4.7 ARC, SYS-02 |
+| Incident | §4.8 OPS, §4.10 OBS |
+| Lab | §4.9 LAB |
+| Readiness | §4.16 RDY, [READINESS_ENGINE.md](READINESS_ENGINE.md) |
+| UX | §4.17 UX and NAV, NFR-UX-* |
+| Security | NFR-SEC-*, PR-19, DOC-11, OPS-08, CIC-02, CIC-03, ARC-13, AI-06, [SECURITY.md](SECURITY.md) |
+| Infrastructure | §4.21 SYS, NFR-OPS-*, [ADR](ADR/) |
+| Data | §4.19 DAT, [DOMAIN_MODEL.md](DOMAIN_MODEL.md) |
+| Future | §4.20 FUT, §6 |
+| Open decisions | [TODO.md](TODO.md); sequencing in [TODO-PRIORITY.md](TODO-PRIORITY.md) |
