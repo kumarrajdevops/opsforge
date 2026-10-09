@@ -1,6 +1,6 @@
 # OPSFORGE: Prioritised TODO
 
-Status: G1 to G6 are done. G7 to G10 are not started. Everything else is proposed and not started. The root `TODO.md` (tools inventory rework) stays separate and is listed as P3 below.
+Status: G1 to G10 are done. Everything else is proposed and not started. The root `TODO.md` (tools inventory rework) stays separate and is listed as P3 below.
 
 How to read this:
 
@@ -32,10 +32,10 @@ Phase numbers refer to the 50-phase sequence (01 Product Specification to 50 Fin
 | G4 **DONE** | API persistence and auth (`apps/api`) | The API is a health endpoint only. Everything saves in the browser, so documents, RAG, spaced repetition and multi-device use cannot work. | Postgres models, migrations, a user and auth flow, and one module (readiness snapshots) moved off localStorage as the pattern. Result: [ADR-0005](ADR/0005-identity-and-persistence.md); `apps/api` has users, sessions, migration `0001` and `/api/auth` and `/api/readiness/snapshots`; the web app signs in and reads and writes snapshots through the API, falling back to the browser. Rate limiting is left to G10. |
 | G5 **DONE** | LLM provider and secrets decision (ADR) | Phases 07, 08, 12, 13, 38 need an AI provider. The `LlmProvider` interface exists but nothing is registered. API keys must never reach the browser. | An ADR chooses the provider(s), key storage, cost caps and a no-provider fallback. Result: [ADR-0006](ADR/0006-llm-providers-and-secrets.md). |
 | G6 **DONE** | `docs/AI_ARCHITECTURE.md` | Prompt, evidence and evaluation rules ("LLMs only produce evidence") are only in code and chat. | The document states the rules and lists which module may call a model and for what. Result: [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md). |
-| G7 | Wire the Command Center to the Readiness Engine | It still shows labelled sample data while the engine exists. Two sources of truth for readiness is the main trust risk. | The Command Center reads the same report as the Readiness page, with no sample data left. |
-| G8 | Terminal and lab sandbox decision (ADR) | Phases 28-33 run user commands. The sandbox model (browser emulation or containers) changes the whole security design. | An ADR picks the approach and its isolation limits. |
-| G9 | Verify Docker end to end | Compose and Dockerfiles exist but have not been confirmed to build and run. | `docker compose up` starts web, api and database, and the health check passes. |
-| G10 | Security hardening baseline | Needed before any real user data or provider key is stored. | Secrets handling, input validation at API boundaries, dependency audit and a headers policy are in place and documented. |
+| G7 **DONE** | Wire the Command Center to the Readiness Engine | It still shows labelled sample data while the engine exists. Two sources of truth for readiness is the main trust risk. | The Command Center reads the same report as the Readiness page, with no sample data left. |
+| G8 **DONE** | Terminal and lab sandbox decision (ADR) | Phases 28-33 run user commands. The sandbox model (browser emulation or containers) changes the whole security design. | An ADR picks the approach and its isolation limits. Result: [ADR-0007](ADR/0007-terminal-and-lab-sandbox.md) picks browser emulation and defers containers. |
+| G9 **DONE** | Verify Docker end to end | Compose and Dockerfiles exist but have not been confirmed to build and run. | `docker compose up` starts web, api and database, and the health check passes. Result: verified with `docker compose --profile app up --build`; see the README section "Full stack in containers". |
+| G10 **DONE** | Security hardening baseline | Needed before any real user data or provider key is stored. | Secrets handling, input validation at API boundaries, dependency audit and a headers policy are in place and documented. Result: [SECURITY.md](SECURITY.md); production config guard, security headers on the API and nginx (with a CSP), a 2 MiB body limit, login lockout and registration throttling, trusted-proxy handling, a test that no route runs user commands, and clean `npm audit` and `pip-audit`. Known gaps are listed there (CSRF token, audit log, shared rate-limit store). |
 
 ## P1: do soon
 

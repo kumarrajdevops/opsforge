@@ -27,10 +27,10 @@ Order warning: the product was built by feature, so phases 26–27, 34–35, 38�
 | Phase | Name | Status | Owner | Depends on | Exit criteria |
 | --- | --- | --- | --- | --- | --- |
 | 01 | Product Specification & Source of Truth | Done | Platform | none | PRD with IDs for every spec item; page-by-page coverage table; module catalog with dependency map; this roadmap. Awaiting your approval of the PRD (status header still reads "Proposed"). |
-| 02 | Architecture & ADRs | Partial | Platform | 01 | ADR-0001..0006 exist, including persistence and auth (0005, G4) and LLM provider and secrets (0006, G5); AI_ARCHITECTURE is written (G6). Missing: ARCHITECTURE, DOMAIN_MODEL, FRONTEND_ARCHITECTURE, BACKEND_ARCHITECTURE, READINESS_ENGINE docs; the terminal sandbox ADR (G8). |
+| 02 | Architecture & ADRs | Partial | Platform | 01 | ADR-0001..0007 exist, including persistence and auth (0005, G4), LLM provider and secrets (0006, G5) and terminal and lab sandbox (0007, G8); AI_ARCHITECTURE is written (G6). Missing: ARCHITECTURE, DOMAIN_MODEL, FRONTEND_ARCHITECTURE, BACKEND_ARCHITECTURE, READINESS_ENGINE docs; the terminal sandbox ADR (G8). |
 | 03 | Repository & Engineering Foundation | Done | Platform | 01 | Monorepo, TypeScript strict, ESLint, tests, build, commit conventions, Docker scaffolding in place. CI pipeline still missing (S9). |
 | 04 | Design System | Done | P3 | 03 | Light default and dark theme, tokens, shared components, icons, container/presentational rule (ADR-0004). |
-| 05 | Shell & Command Center | Partial | M01 | 04, 15 | Shell, navigation, responsive layout exist. Command Center must read the Readiness Engine report with no sample data (G7) and show plan, continue-training and recent evidence from real sources. |
+| 05 | Shell & Command Center | Partial | M01 | 04, 15 | Shell, navigation, responsive layout exist. Command Center reads the Readiness Engine report with no sample data (G7 done); plan, continue-training and recent evidence come from the same evidence. |
 
 ## Knowledge and learning (06–14)
 
@@ -104,9 +104,9 @@ Order warning: the product was built by feature, so phases 26–27, 34–35, 38�
 
 | Phase | Name | Status | Owner | Depends on | Exit criteria |
 | --- | --- | --- | --- | --- | --- |
-| 44 | Security Hardening | Not started | Platform | G4, G10 | Secrets handling, input validation at API boundaries, dependency audit, headers policy, audit logging, tenant isolation tested (NFR-SEC-01..10). |
+| 44 | Security Hardening | Partial | Platform | G4, G10 | Secrets handling, input validation at API boundaries, dependency audit, headers policy, audit logging, tenant isolation tested (NFR-SEC-01..10). |
 | 45 | Testing & Quality | Partial | Platform | 03 | 324 unit tests pass. Missing: Playwright end-to-end flows, axe accessibility checks (NFR-UX-01), golden-set prompt regression (NFR-AI-02), CI on every push (S9). |
-| 46 | Docker & Local Deployment | Unverified | Platform | 03, G4 | Compose and Dockerfiles exist but are unconfirmed. `docker compose up` starts web, api, database, Redis and object storage; health check passes; containers named `opsforge-<service>` (G9, NFR-OPS-04). |
+| 46 | Docker & Local Deployment | Partial | Platform | 03, G4 | Compose and Dockerfiles verified for web, api, Postgres and Redis (G9); object storage is not part of the stack yet. `docker compose up` starts web, api, database, Redis and object storage; health check passes; containers named `opsforge-<service>` (G9, NFR-OPS-04). |
 | 47 | Kubernetes Platform | Not started | Platform | 46, 44 | Manifests or Helm chart, secrets, ingress, probes, resource limits; deployable on a local cluster. |
 | 48 | Production Deployment & Observability | Not started | Platform | 47 | Prometheus and Grafana dashboards, structured logs, traces and LLM-call metrics (NFR-OPS-03); backup and restore tested. |
 | 49 | Performance, Reliability, Cost | Not started | Platform | 45, 48 | Targets in NFR-PERF-01..03 measured and met; load test on the API; per-provider cost caps verified (NFR-AI-04). |
@@ -121,9 +121,9 @@ Order warning: the product was built by feature, so phases 26–27, 34–35, 38�
 | G5 provider and secrets ADR | 07, 08 |
 | G6 AI architecture doc | 08 |
 | G7 Command Center on the engine | 05, and real readiness with 06, 10, 12 |
-| G8 terminal sandbox ADR | 28 and everything after it in 29–33 |
-| G9 Docker verified | 46 |
-| G10 security baseline | 44, 47 |
+| G8 terminal sandbox ADR (done) | 28 and everything after it in 29–33 |
+| G9 Docker verified (done) | 46 |
+| G10 security baseline (done) | 44, 47 |
 
 ## Suggested build order from here
 

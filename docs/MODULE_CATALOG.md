@@ -45,7 +45,7 @@ Cross-cutting requirements (PR-*, NFR-*, VIS-01, SYS-*) apply to every module an
 - **Requirements**: CMD-01..CMD-08.
 - **Inputs**: the latest readiness report and plan (M13), recent evidence (P2), resumable work from M06, M08, M10.
 - **Evidence produced**: none. It only reads.
-- **Status**: Partial. Shell and layout built; it still shows labelled sample data (gate G7). Phase 05.
+- **Status**: Partial. Reads the same readiness report as the Readiness page (gate G7 done, no sample data). Plan items link to modules not built yet and are marked so; continue-training shows the latest attempt per module. Phase 05.
 
 ### M02 ForgeLearn (Knowledge Hub)
 
@@ -91,7 +91,7 @@ Cross-cutting requirements (PR-*, NFR-*, VIS-01, SYS-*) apply to every module an
 
 - **Purpose**: interactive terminal and hands-on labs with an isolated, resettable, observed sandbox. Owns the terminal engine (kubectl, docker, terraform, git, curl, dig, nslookup, ss, netstat, journalctl, top, systemctl, aws, az, helm, argocd).
 - **Requirements**: LAB-01..LAB-07, NFR-SEC-05..07.
-- **Inputs**: lab definitions, the candidate's commands, sandbox runtime (gate G8 decides browser emulation or containers).
+- **Inputs**: lab definitions, the candidate's commands, sandbox runtime (ADR-0007: browser emulation, no server-side execution of user commands).
 - **Evidence produced**: Hands-on (kept separate from theory, PR-08), plus Troubleshooting by lab tag.
 - **Status**: Not started (Phases 28, 29).
 
