@@ -1,6 +1,6 @@
 # Security baseline
 
-Status: G10 baseline, 2026-10-09. This is what is in place and tested today, and what is not. It covers the API (`apps/api`), the web container and the nginx config. It is not a penetration test or a compliance claim.
+Status: G10 baseline, 2026-10-09. This is what is in place and tested today, and what is not. It covers the API (`apps/api`), the web container and the nginx config. It is not a penetration test or a compliance claim. The design that closes the gaps below is in [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md).
 
 Threat model for now: one API instance behind one reverse proxy, a single-tenant database, users who can register themselves, and no server-side execution of user input ([ADR-0007](ADR/0007-terminal-and-lab-sandbox.md)). Provider keys and tenant isolation arrive with later gates and will extend this document.
 
