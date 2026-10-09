@@ -1,6 +1,9 @@
 services:
-  postgres:
-    image: pgvector/pgvector:pg17
+  opsforge-postgres:
+    # Upstream image re-tagged so every image in the stack is named opsforge-<service>.
+    build:
+      dockerfile_inline: FROM pgvector/pgvector:pg17
+    image: opsforge-postgres:${OPSFORGE_TAG:-dev}
     container_name: opsforge-postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-opsforge}
@@ -17,8 +20,10 @@ services:
       timeout: 5s
       retries: 10
 
-  redis:
-    image: redis:7-alpine
+  opsforge-redis:
+    build:
+      dockerfile_inline: FROM redis:7-alpine
+    image: opsforge-redis:${OPSFORGE_TAG:-dev}
     container_name: opsforge-redis
     ports:
       - '${REDIS_PORT:-6379}:6379'
@@ -31,7 +36,7 @@ services:
       retries: 10
 
   # Full containerised stack: docker compose --profile app up --build
-  api:
+  opsforge-api:
     profiles: ['app']
     image: opsforge-api:${OPSFORGE_TAG:-dev}
     build:
@@ -42,17 +47,29 @@ services:
       API_ENV: ${API_ENV:-development}
       API_LOG_LEVEL: ${API_LOG_LEVEL:-info}
       API_CORS_ORIGINS: '["http://localhost:8080"]'
-      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-opsforge}:${POSTGRES_PASSWORD:-opsforge}@postgres:5432/${POSTGRES_DB:-opsforge}
-      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-opsforge}:${POSTGRES_PASSWORD:-opsforge}@opsforge-postgres:5432/${POSTGRES_DB:-opsforge}
+      REDIS_URL: redis://opsforge-redis:6379/0
+      # nginx in opsforge-web is the one proxy that appends X-Forwarded-For.
+      API_TRUSTED_PROXIES: '1'
     ports:
       - '${API_PORT:-8000}:8000'
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request as u; u.urlopen('http://127.0.0.1:8000/api/health/ready', timeout=3)"
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 15s
     depends_on:
-      postgres:
+      opsforge-postgres:
         condition: service_healthy
-      redis:
+      opsforge-redis:
         condition: service_healthy
 
-  web:
+  opsforge-web:
     profiles: ['app']
     image: opsforge-web:${OPSFORGE_TAG:-dev}
     build:
@@ -61,8 +78,14 @@ services:
     container_name: opsforge-web
     ports:
       - '${WEB_PORT:-8080}:80'
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '-O', '/dev/null', 'http://127.0.0.1/api/health/live']
+      interval: 10s
+      timeout: 5s
+      retries: 6
     depends_on:
-      - api
+      opsforge-api:
+        condition: service_healthy
 
 volumes:
   postgres_data:

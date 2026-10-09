@@ -14,4 +14,5 @@ RUN useradd --system --no-create-home opsforge
 USER opsforge
 
 EXPOSE 8000
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Migrations run before the server starts so a fresh database is usable. Single instance only.
+CMD ["sh", "-c", "alembic upgrade head && exec uvicorn app.main:app --host 0.0.0.0 --port 8000"]
