@@ -41,9 +41,15 @@ export class LocalStorageSnapshotRepository implements ReadinessSnapshotReposito
     const existing = this.doc.read() ?? []
     this.doc.write([...existing, snapshot].slice(-MAX_SNAPSHOTS))
   }
+
+  /** Used once, after the history has been confirmed saved to the account. */
+  clear(): void {
+    this.doc.remove()
+  }
 }
 
-export const snapshotRepository: ReadinessSnapshotRepository = new LocalStorageSnapshotRepository()
+export const localSnapshotRepository = new LocalStorageSnapshotRepository()
+export const snapshotRepository: ReadinessSnapshotRepository = localSnapshotRepository
 
 export function snapshotOf(report: ReadinessReport): ReadinessSnapshot {
   return {

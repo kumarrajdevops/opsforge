@@ -7,7 +7,8 @@ import type {
 import { useEffect, useState } from 'react'
 import { buildReadinessReport } from './engine'
 import { loadEvidence, type EvidenceSource } from './sources'
-import { recordSnapshot, snapshotRepository } from './snapshots'
+import { recordSnapshot } from './snapshots'
+import { useSnapshotRepository } from './useSnapshotRepository'
 
 export interface ReadinessRuntime {
   sources?: EvidenceSource[]
@@ -28,9 +29,13 @@ export type ReadinessState =
 /** Container hook: gathers evidence, asks the engine for the report, records a snapshot. */
 export function useReadiness(runtime: ReadinessRuntime = {}): ReadinessState {
   const [state, setState] = useState<ReadinessState>({ status: 'loading' })
-  const { sources, snapshots = snapshotRepository, now } = runtime
+  const { sources, snapshots: injected, now } = runtime
+  const stored = useSnapshotRepository()
+  const snapshots = injected ?? stored.repository
+  const ready = injected !== undefined || stored.ready
 
   useEffect(() => {
+    if (!ready) return
     let cancelled = false
     ;(async () => {
       const { evidence, statuses } = await loadEvidence(sources)
@@ -48,7 +53,7 @@ export function useReadiness(runtime: ReadinessRuntime = {}): ReadinessState {
     return () => {
       cancelled = true
     }
-  }, [sources, snapshots, now])
+  }, [sources, snapshots, now, ready])
 
   return state
 }
