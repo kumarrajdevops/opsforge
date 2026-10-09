@@ -5,164 +5,30 @@ import type {
   QuestionSpec,
   ResumeClaim,
 } from '@opsforge/types'
-import { compileTerm, collapse, excerpt, splitSentences } from './analysis/text'
+import { technologyLabel, technologyTopic } from '../technologies/catalog'
+import { analyzeJd } from '../jd/analyze'
+import { extractResume } from '../resume/claims'
 import { concept, question } from './bank/author'
-
-/** Canonical technology id, display name and the spellings that identify it in free text. */
-const CATALOG: { id: string; label: string; aliases: string[]; topic: string }[] = [
-  {
-    id: 'kubernetes',
-    label: 'Kubernetes',
-    aliases: ['kubernetes', 'k8s', 'eks', 'gke', 'aks', 'helm'],
-    topic: 'kubernetes',
-  },
-  {
-    id: 'docker',
-    label: 'Docker',
-    aliases: ['docker', 'containerd', 'containers'],
-    topic: 'containers',
-  },
-  {
-    id: 'terraform',
-    label: 'Terraform',
-    aliases: ['terraform', 'opentofu', 'terragrunt'],
-    topic: 'terraform',
-  },
-  { id: 'ansible', label: 'Ansible', aliases: ['ansible'], topic: 'terraform' },
-  {
-    id: 'aws',
-    label: 'AWS',
-    aliases: ['aws', 'amazon web services', 'ec2', 's3', 'lambda', 'cloudformation'],
-    topic: 'aws',
-  },
-  { id: 'azure', label: 'Azure', aliases: ['azure'], topic: 'architecture' },
-  { id: 'gcp', label: 'GCP', aliases: ['gcp', 'google cloud'], topic: 'architecture' },
-  { id: 'jenkins', label: 'Jenkins', aliases: ['jenkins'], topic: 'ci-cd' },
-  { id: 'github-actions', label: 'GitHub Actions', aliases: ['github actions'], topic: 'ci-cd' },
-  { id: 'gitlab', label: 'GitLab CI', aliases: ['gitlab'], topic: 'ci-cd' },
-  {
-    id: 'ci-cd',
-    label: 'CI/CD',
-    aliases: [
-      'ci/cd',
-      'cicd',
-      'ci cd',
-      'continuous delivery',
-      'continuous integration',
-      'pipelines',
-    ],
-    topic: 'ci-cd',
-  },
-  {
-    id: 'argocd',
-    label: 'Argo CD',
-    aliases: ['argocd', 'argo cd', 'flux', 'gitops'],
-    topic: 'gitops',
-  },
-  {
-    id: 'prometheus',
-    label: 'Prometheus',
-    aliases: ['prometheus', 'alertmanager', 'promql'],
-    topic: 'observability',
-  },
-  {
-    id: 'grafana',
-    label: 'Grafana',
-    aliases: ['grafana', 'datadog', 'new relic', 'splunk', 'elk', 'opentelemetry'],
-    topic: 'observability',
-  },
-  { id: 'linux', label: 'Linux', aliases: ['linux', 'bash', 'shell scripting'], topic: 'linux' },
-  {
-    id: 'networking',
-    label: 'Networking',
-    aliases: ['networking', 'dns', 'load balanc', 'tcp/ip', 'vpc', 'nginx', 'haproxy'],
-    topic: 'networking',
-  },
-  { id: 'vault', label: 'Vault', aliases: ['vault', 'secrets manager'], topic: 'security' },
-  {
-    id: 'sre',
-    label: 'SRE',
-    aliases: ['sre', 'site reliability', 'slo', 'sla', 'incident response', 'on-call', 'on call'],
-    topic: 'sre',
-  },
-  {
-    id: 'postgres',
-    label: 'PostgreSQL',
-    aliases: ['postgres', 'postgresql', 'mysql', 'rds', 'aurora'],
-    topic: 'observability',
-  },
-  { id: 'python', label: 'Python', aliases: ['python', 'golang', 'go lang'], topic: 'ci-cd' },
-]
-
-export function technologyLabel(id: string): string {
-  return CATALOG.find((t) => t.id === id)?.label ?? id
-}
-
-export function technologyTopic(id: string): string {
-  return CATALOG.find((t) => t.id === id)?.topic ?? 'architecture'
-}
-
-function technologiesIn(text: string): string[] {
-  return CATALOG.filter((t) => t.aliases.some((a) => compileTerm(a).test(text))).map((t) => t.id)
-}
-
-const METRIC =
-  /(?:\d+\s?%|\b\d[\d,.]*\s?(?:x|ms|s|min|minutes|hours|users|requests|rps|tb|gb|services|clusters|engineers|teams|nodes)\b|\$\s?\d)/i
-const MUST =
-  /\b(?:required|must|essential|minimum|you will|you'll|responsible for|strong experience|proven)\b/i
-const NICE = /\b(?:nice to have|preferred|bonus|plus|familiarity|ideally)\b/i
 
 function stableId(prefix: string, index: number): string {
   return `${prefix}-${index + 1}`
 }
 
-/** Splits pasted resume text into bullet-sized claims and keeps those that name a technology or an outcome. */
+/** Claims from pasted resume text that name something concrete. Skills-list entries are not asked about here. */
 export function parseResume(text: string): ResumeClaim[] {
-  const lines = text
-    .split(/\r?\n|•|•|\s-\s(?=[A-Z])/)
-    .flatMap((line) => (line.length > 260 ? splitSentences(line) : [line]))
-    .map((line) => collapse(line.replace(/^[\s\-*••]+/, '')))
-    .filter((line) => line.split(' ').length >= 5)
-
-  const claims: ResumeClaim[] = []
-  for (const line of lines) {
-    const technologies = technologiesIn(line)
-    const hasMetric = METRIC.test(line)
-    if (technologies.length === 0 && !hasMetric) continue
-    claims.push({
-      id: stableId('claim', claims.length),
-      text: excerpt(line, 240),
-      technologies,
-      hasMetric,
-    })
-    if (claims.length >= 12) break
-  }
-  return claims
+  return extractResume(text)
+    .claims.filter((claim) => !claim.flags.includes('listed-only'))
+    .slice(0, 12)
 }
 
-/** Extracts the technologies a job description asks for, with a rough must/nice split. */
+/** Technologies a job description asks for, as interview requirements. Analysis lives in the JD feature. */
 export function parseJobDescription(text: string): JdRequirement[] {
-  const requirements = new Map<string, JdRequirement>()
-  const sentences = text
-    .split(/\r?\n|(?<=[.;])\s/)
-    .map((s) => collapse(s))
-    .filter(Boolean)
-  for (const sentence of sentences) {
-    const priority: JdRequirement['priority'] =
-      NICE.test(sentence) && !MUST.test(sentence) ? 'nice' : 'must'
-    for (const id of technologiesIn(sentence)) {
-      const existing = requirements.get(id)
-      if (!existing || (existing.priority === 'nice' && priority === 'must')) {
-        requirements.set(id, {
-          id: stableId('jd', requirements.size),
-          technology: id,
-          label: technologyLabel(id),
-          priority,
-        })
-      }
-    }
-  }
-  return [...requirements.values()]
+  return analyzeJd({ id: 'interview-jd', text, now: '' }).technologies.map((tech, index) => ({
+    id: stableId('jd', index),
+    technology: tech.id,
+    label: tech.label,
+    priority: tech.priority === 'required' ? 'must' : 'nice',
+  }))
 }
 
 export function buildContext(input: {

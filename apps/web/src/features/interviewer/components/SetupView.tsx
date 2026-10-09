@@ -18,6 +18,8 @@ import { bandTone, evaluatedAreas } from '../presentation'
 import { DEFAULT_SETUP, type SetupInput } from '../setup'
 
 export interface SetupViewProps {
+  /** Values offered up front, for example the saved resume and job description. */
+  initial?: Partial<SetupInput>
   disclosure: string
   weakTopics: string[]
   history: InterviewSession[]
@@ -32,6 +34,7 @@ export interface SetupViewProps {
 const MODES: InterviewMode[] = ['interview-day', 'emergency', 'single-round']
 
 export function SetupView({
+  initial,
   disclosure,
   weakTopics,
   history,
@@ -42,7 +45,7 @@ export function SetupView({
   onFinish,
   onRemove,
 }: SetupViewProps) {
-  const [input, setInput] = useState<SetupInput>(DEFAULT_SETUP)
+  const [input, setInput] = useState<SetupInput>({ ...DEFAULT_SETUP, ...initial })
   const patch = (next: Partial<SetupInput>) => setInput((previous) => ({ ...previous, ...next }))
   const plan = planRounds(input.mode, input.round)
   const totalMinutes = plan.reduce((sum, r) => sum + r.timeboxMinutes, 0)
@@ -175,6 +178,9 @@ export function SetupView({
                 onChange={(e) => patch({ jd: e.target.value })}
               />
               <Typography variant="caption" color="text.secondary">
+                {initial?.resume || initial?.jd
+                  ? 'Filled from your saved resume and job description; edit freely. '
+                  : ''}
                 Everything stays in this browser unless a language model is configured; the note
                 below says which.
               </Typography>

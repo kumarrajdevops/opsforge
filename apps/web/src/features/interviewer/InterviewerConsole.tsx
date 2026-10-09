@@ -8,12 +8,20 @@ import { ReplayView } from './components/ReplayView'
 import { RoomView } from './components/RoomView'
 import { SetupView } from './components/SetupView'
 import type { InterviewerRuntime } from './factory'
+import type { SetupInput } from './setup'
 import { useInterviewer } from './useInterviewer'
 
 type Confirm = 'round' | 'interview' | null
 
 /** Container for ForgeInterview. Wires the interview hook to presentational views. */
-export function InterviewerConsole({ runtime }: { runtime: InterviewerRuntime }) {
+export function InterviewerConsole({
+  runtime,
+  prefill,
+}: {
+  runtime: InterviewerRuntime
+  /** Saved resume and job description text offered on the setup screen. */
+  prefill?: Partial<SetupInput>
+}) {
   const interviewer = useInterviewer({ runtime })
   const { phase, view, completed, replay, busy, error } = interviewer
   const [confirm, setConfirm] = useState<Confirm>(null)
@@ -69,6 +77,7 @@ export function InterviewerConsole({ runtime }: { runtime: InterviewerRuntime })
     }
     return (
       <SetupView
+        {...(prefill ? { initial: prefill } : {})}
         disclosure={interviewer.disclosure}
         weakTopics={interviewer.weakTopics}
         history={interviewer.history}

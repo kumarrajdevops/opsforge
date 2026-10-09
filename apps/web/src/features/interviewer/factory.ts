@@ -1,4 +1,4 @@
-import type { InterviewRepository, LlmProvider } from '@opsforge/types'
+import type { AnswerAnalyzer, InterviewRepository, LlmProvider } from '@opsforge/types'
 import { llmProviders } from '../ai/registry'
 import { LlmAnswerAnalyzer, ResilientAnalyzer } from './analysis/llmAnalyzer'
 import { InterviewEngine } from './engine'
@@ -25,6 +25,18 @@ export function createInterviewEngine({
     repository,
     ...(provider ? { llmProviderId: provider.id } : {}),
   })
+}
+
+/** The registered provider, or null. Other features call this instead of reading the registry. */
+export function preferredProvider(): LlmProvider | null {
+  return llmProviders.preferred()
+}
+
+/** The answer analyzer alone, for features (drills) that score answers without running an interview. */
+export function createAnswerAnalyzer(
+  provider: LlmProvider | null = llmProviders.preferred(),
+): AnswerAnalyzer {
+  return new ResilientAnalyzer(provider ? new LlmAnswerAnalyzer(provider) : null)
 }
 
 export interface InterviewerRuntime {
