@@ -84,4 +84,31 @@ describe('navigation structure', () => {
     expect(new Set(paths).size).toBe(paths.length)
     expect(MODULES).toHaveLength(16)
   })
+
+  it('shows roadmap facts on every module that has no page yet', () => {
+    const real = [
+      'command-center',
+      'architecture',
+      'incidents',
+      'interviewer',
+      'resume',
+      'jd',
+      'readiness',
+    ]
+    const placeholders = MODULES.filter((m) => !real.includes(m.id))
+    expect(placeholders.map((m) => m.id)).toEqual([
+      'knowledge',
+      'documents',
+      'flashcards',
+      'questions',
+      'scenarios',
+      'labs',
+      'patterns',
+      'behavioral',
+      'replay',
+    ])
+    for (const m of placeholders) expect(m.planned?.phase, m.id).toBeTruthy()
+    for (const m of MODULES.filter((x) => real.includes(x.id)))
+      expect(m.planned, m.id).toBeUndefined()
+  })
 })
