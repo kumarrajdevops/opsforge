@@ -1,6 +1,7 @@
 import { Reveal } from '@opsforge/ui'
 import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { CommandCenterPage } from '../pages/CommandCenterPage'
 import { ModulePlaceholderPage } from '../pages/ModulePlaceholderPage'
 import { MODULES } from './modules'
 import { ShellLayout } from './ShellLayout'
@@ -19,7 +20,11 @@ export function App() {
             path={module.path}
             element={
               <Reveal>
-                <ModulePlaceholderPage module={module} />
+                {module.id === 'command-center' ? (
+                  <CommandCenterPage />
+                ) : (
+                  <ModulePlaceholderPage module={module} />
+                )}
               </Reveal>
             }
           />
