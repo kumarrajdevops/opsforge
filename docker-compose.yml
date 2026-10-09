@@ -1,0 +1,69 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: opsforge-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-opsforge}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-opsforge}
+      POSTGRES_DB: ${POSTGRES_DB:-opsforge}
+    ports:
+      - '${POSTGRES_PORT:-5432}:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infrastructure/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-opsforge}']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: opsforge-redis
+    ports:
+      - '${REDIS_PORT:-6379}:6379'
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Full containerised stack: docker compose --profile app up --build
+  api:
+    profiles: ['app']
+    image: opsforge-api:${OPSFORGE_TAG:-dev}
+    build:
+      context: .
+      dockerfile: infrastructure/docker/api.Dockerfile
+    container_name: opsforge-api
+    environment:
+      API_ENV: ${API_ENV:-development}
+      API_LOG_LEVEL: ${API_LOG_LEVEL:-info}
+      API_CORS_ORIGINS: '["http://localhost:8080"]'
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-opsforge}:${POSTGRES_PASSWORD:-opsforge}@postgres:5432/${POSTGRES_DB:-opsforge}
+      REDIS_URL: redis://redis:6379/0
+    ports:
+      - '${API_PORT:-8000}:8000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  web:
+    profiles: ['app']
+    image: opsforge-web:${OPSFORGE_TAG:-dev}
+    build:
+      context: .
+      dockerfile: infrastructure/docker/web.Dockerfile
+    container_name: opsforge-web
+    ports:
+      - '${WEB_PORT:-8080}:80'
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
+  redis_data:
