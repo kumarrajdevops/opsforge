@@ -41,11 +41,11 @@ Phase numbers refer to the 50-phase sequence (01 Product Specification to 50 Fin
 
 | ID | Item | Notes |
 | --- | --- | --- |
-| S1 | Add target users, user problems, product goals and non-goals sections to the PRD | Currently implicit in the vision and the out-of-scope list. |
-| S2 | Split `NON_FUNCTIONAL_REQUIREMENTS.md` and `PRODUCT_PRINCIPLES.md` out of PRD §5 and §2 | Content exists; this is a move plus links. |
+| S1 **DONE** | Add target users, user problems, product goals and non-goals sections to the PRD | PRD §1.3 to §1.6. Derived from the spec wording; awaiting approval (TODO D-02). |
+| S2 **DONE** | Split `NON_FUNCTIONAL_REQUIREMENTS.md` and `PRODUCT_PRINCIPLES.md` out of PRD §5 and §2 | IDs unchanged. The NFR file adds a status column. |
 | S3 **DONE** | `MODULE_CATALOG.md` (one entry per module: purpose, requirement IDs, inputs, evidence it produces) | Written as part of G2. |
-| S4 | Add a cross-cutting index to the PRD (AI, learning, interview, architecture, incident, lab, readiness, UX, security, infrastructure) | The PRD is organised by module; the prompt asked for these categories. |
-| S5 | Reconcile `docs/TODO.md`: the PRD cites items like "TODO A-03" that do not exist | Either create them in this file or rewrite the references. |
+| S4 **DONE** | Add a cross-cutting index to the PRD (AI, learning, interview, architecture, incident, lab, readiness, UX, security, infrastructure) | PRD §10. |
+| S5 **DONE** | Reconcile `docs/TODO.md`: the PRD cites items like "TODO A-03" that did not exist | Created [TODO.md](TODO.md) with A-03, A-06, A-09, C-04, C-08 and new D items. |
 | S6 | Write the paused architecture docs: ARCHITECTURE, DOMAIN_MODEL, FRONTEND_ARCHITECTURE, BACKEND_ARCHITECTURE, READINESS_ENGINE; ADR-0010 | Paused until you say go. READINESS_ENGINE is the most useful now because the engine is built. |
 | S7 | Phase 06 Knowledge Domain, then 10 Flashcards, then 12 Question Engine | These feed the Readiness Engine factors that are empty today (knowledge, questions, flashcards). Without them readiness stays at low evidence coverage. |
 | S8 | End-to-end and accessibility tests (Playwright plus axe) | 324 unit tests pass but no browser-level checks exist. Needed for the 3D views and reduced motion. |
