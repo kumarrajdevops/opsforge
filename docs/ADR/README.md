@@ -8,6 +8,7 @@
 | [0004](0004-design-system.md) | Design system | Accepted |
 | [0005](0005-identity-and-persistence.md) | Identity, sessions and server-side persistence | Accepted |
 | [0006](0006-llm-providers-and-secrets.md) | LLM providers, secrets, cost caps and fallback | Accepted |
+| [0007](0007-terminal-and-lab-sandbox.md) | Terminal and lab sandbox | Accepted |
 
 User identity is ADR-0005, not the ADR-0010 the PRD used to mention. ADR-0010 is not reserved.
 
