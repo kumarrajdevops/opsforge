@@ -1,6 +1,7 @@
 import { Reveal } from '@opsforge/ui'
 import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { ArchitectureStudioPage } from '../pages/ArchitectureStudioPage'
 import { CommandCenterPage } from '../pages/CommandCenterPage'
 import { ModulePlaceholderPage } from '../pages/ModulePlaceholderPage'
 import { MODULES } from './modules'
@@ -22,6 +23,8 @@ export function App() {
               <Reveal>
                 {module.id === 'command-center' ? (
                   <CommandCenterPage />
+                ) : module.id === 'architecture' ? (
+                  <ArchitectureStudioPage />
                 ) : (
                   <ModulePlaceholderPage module={module} />
                 )}
