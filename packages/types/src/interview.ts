@@ -12,12 +12,7 @@
 // ───────────────────────────── Taxonomy ─────────────────────────────
 
 export type InterviewRoundKind =
-  | 'screening'
-  | 'technical'
-  | 'troubleshooting'
-  | 'architecture'
-  | 'behavioral'
-  | 'final'
+  'screening' | 'technical' | 'troubleshooting' | 'architecture' | 'behavioral' | 'final'
 
 export type InterviewMode = 'single-round' | 'interview-day' | 'emergency'
 
@@ -42,14 +37,7 @@ export type InterviewDimensionId =
 
 /** Why the interviewer asked a follow-up. The wording never states the answer. */
 export type ProbeKind =
-  | 'clarify'
-  | 'gap'
-  | 'depth'
-  | 'tradeoff'
-  | 'challenge'
-  | 'ownership'
-  | 'outcome'
-  | 'signal'
+  'clarify' | 'gap' | 'depth' | 'tradeoff' | 'challenge' | 'ownership' | 'outcome' | 'signal'
 
 /**
  * Observable properties of an answer. Detected by the analyzer, scored by the deterministic scorer.
