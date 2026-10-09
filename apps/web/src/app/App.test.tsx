@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { App } from './App'
-import { findActiveId } from './modules'
+import { buildNavGroups, findActiveId, MODULES } from './modules'
 
 describe('shell', () => {
   beforeEach(() => {
@@ -63,5 +63,25 @@ describe('findActiveId', () => {
     expect(findActiveId('/')).toBe('command-center')
     expect(findActiveId('/knowledge/linux')).toBe('knowledge')
     expect(findActiveId('/nope')).toBeUndefined()
+  })
+})
+
+describe('navigation structure', () => {
+  it('has the six groups and 16 items in the approved order', () => {
+    const groups = buildNavGroups().map((g) => [g.label, g.items.map((i) => i.label)])
+    expect(groups).toEqual([
+      ['Command', ['Command Center']],
+      ['Learn', ['Knowledge', 'Documents', 'Flashcards']],
+      ['Practice', ['Questions', 'Scenarios', 'Incidents', 'Hands-on Labs']],
+      ['Design', ['Architecture Studio', 'Patterns']],
+      ['Interview', ['AI Interviewer', 'Resume Interrogation', 'JD Analyzer', 'Behavioral']],
+      ['Analytics', ['Readiness', 'Interview Replay']],
+    ])
+  })
+
+  it('gives every item a unique route', () => {
+    const paths = MODULES.map((m) => m.path)
+    expect(new Set(paths).size).toBe(paths.length)
+    expect(MODULES).toHaveLength(16)
   })
 })
