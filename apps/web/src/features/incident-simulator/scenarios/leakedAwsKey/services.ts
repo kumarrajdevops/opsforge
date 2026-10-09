@@ -1,0 +1,148 @@
+import type { ImpactFact, IncidentService } from '@opsforge/types'
+
+export const services: IncidentService[] = [
+  {
+    id: 'github-repo',
+    name: 'acme/infra-scripts',
+    kind: 'source-control',
+    dependsOn: [],
+    health: 'degraded',
+    recoveredHealth: 'healthy',
+    note: 'Repository settings changed recently; 1 open security alert',
+    recoveredNote: 'Private again; leaked credential revoked',
+    headline: [
+      {
+        id: 'visibility',
+        label: 'Visibility',
+        value: 'Public',
+        state: 'crit',
+        recovered: { value: 'Private', state: 'ok' },
+      },
+      {
+        id: 'alerts',
+        label: 'Open secret alerts',
+        value: '1',
+        state: 'warn',
+        recovered: { value: '0 (revoked)', state: 'ok' },
+      },
+    ],
+  },
+  {
+    id: 'aws-iam',
+    name: 'aws-iam',
+    kind: 'identity',
+    dependsOn: [],
+    health: 'degraded',
+    recoveredHealth: 'healthy',
+    note: 'Keys in use from addresses we do not recognise',
+    recoveredNote: 'Attacker credentials removed',
+    headline: [
+      {
+        id: 'foreign-keys',
+        label: 'Keys used from new IPs',
+        value: '2',
+        state: 'crit',
+        recovered: { value: '0', state: 'ok' },
+      },
+      {
+        id: 'new-users',
+        label: 'IAM users created today',
+        value: '1',
+        state: 'crit',
+        recovered: { value: '0', state: 'ok' },
+      },
+    ],
+  },
+  {
+    id: 'ec2-compute',
+    name: 'ec2-compute',
+    kind: 'platform',
+    dependsOn: ['aws-iam'],
+    health: 'degraded',
+    recoveredHealth: 'healthy',
+    note: 'GPU instances running that no team asked for',
+    recoveredNote: 'Unauthorised instances stopped',
+    headline: [
+      {
+        id: 'gpu',
+        label: 'GPU instances (all regions)',
+        value: '16',
+        state: 'crit',
+        recovered: { value: '0 running', state: 'ok' },
+      },
+      {
+        id: 'spend',
+        label: 'Compute spend',
+        value: '$526/h',
+        state: 'crit',
+        recovered: { value: '$38/h', state: 'ok' },
+      },
+    ],
+  },
+  {
+    id: 's3-customer-exports',
+    name: 's3-customer-exports',
+    kind: 'storage',
+    dependsOn: ['aws-iam'],
+    health: 'degraded',
+    note: 'Holds customer report exports; access history incomplete',
+    headline: [
+      { id: 'read-log', label: 'Object-level access log', value: 'Not recorded', state: 'warn' },
+    ],
+  },
+  {
+    id: 'cloudtrail',
+    name: 'cloudtrail',
+    kind: 'platform',
+    dependsOn: [],
+    health: 'healthy',
+    note: 'Management events logging; S3 data events off',
+    headline: [
+      { id: 'mgmt', label: 'Management events', value: 'Logging', state: 'ok' },
+      { id: 'data', label: 'S3 data events', value: 'Off', state: 'warn' },
+    ],
+  },
+  {
+    id: 'ci-pipeline',
+    name: 'ci-pipeline',
+    kind: 'platform',
+    dependsOn: ['aws-iam'],
+    health: 'healthy',
+    note: 'Deploying normally',
+    headline: [{ id: 'last-deploy', label: 'Last deploy', value: 'Succeeded', state: 'ok' }],
+  },
+]
+
+export const impact: ImpactFact[] = [
+  {
+    id: 'spend',
+    label: 'Unplanned cloud spend',
+    value: '+$488/h and rising',
+    state: 'crit',
+    recovered: { value: 'Stopped', state: 'ok' },
+  },
+  { id: 'customers', label: 'Customer-facing service', value: 'No outage reported', state: 'ok' },
+  {
+    id: 'blast',
+    label: 'What the leaked key can do',
+    value: 'PowerUser plus IAM write access',
+    state: 'crit',
+    gatedBy: 'e-iam-key-policy',
+    recovered: { value: 'Key revoked', state: 'ok' },
+  },
+  {
+    id: 'persistence',
+    label: 'Attacker persistence',
+    value: 'Admin IAM user created by the attacker',
+    state: 'crit',
+    gatedBy: 'e-iam-new-user',
+    recovered: { value: 'Removed', state: 'ok' },
+  },
+  {
+    id: 'data',
+    label: 'Customer data accessed',
+    value: 'Cannot be confirmed: object reads were not logged',
+    state: 'warn',
+    gatedBy: 'e-s3-no-data-events',
+  },
+]

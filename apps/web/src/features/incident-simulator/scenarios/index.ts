@@ -1,7 +1,8 @@
 import type { IncidentScenario } from '@opsforge/types'
+import { leakedAwsKeyScenario } from './leakedAwsKey'
 import { paymentApiScenario } from './paymentApi'
 
-export const scenarios: IncidentScenario[] = [paymentApiScenario]
+export const scenarios: IncidentScenario[] = [paymentApiScenario, leakedAwsKeyScenario]
 
 export const DEFAULT_SCENARIO_ID = paymentApiScenario.id
 
