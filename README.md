@@ -69,6 +69,35 @@ cd apps/api
 .venv/Scripts/python -m pytest
 ```
 
+## Commit conventions
+
+Commits follow [Conventional Commits](https://www.conventionalcommits.org/): `<type>(<scope>): <short description>`. Commit feature by feature, one logical change per commit, and keep the subject in the imperative or as a short noun phrase.
+
+| Type       | Use for                                                        |
+| ---------- | -------------------------------------------------------------- |
+| `feat`     | a new feature or capability                                    |
+| `fix`      | a bug fix                                                      |
+| `hotfix`   | an urgent fix to something already released                    |
+| `refactor` | restructuring with no behaviour change                         |
+| `perf`     | a performance improvement                                      |
+| `test`     | adding or correcting tests                                     |
+| `docs`     | documentation only, including ADRs and this README             |
+| `style`    | formatting only, no code change                                |
+| `build`    | build system, dependencies, Docker                             |
+| `ci`       | CI configuration                                               |
+| `chore`    | maintenance that fits none of the above                        |
+
+The scope is the module or area, hyphenated, for example `incident-simulator`, `architecture-studio`, `command-center`, `ui`, `api`, `docker`. Examples:
+
+```
+feat(incident-simulator): leaked cloud credential scenario
+fix(architecture-studio): keep edges attached when a node is deleted
+hotfix(api): return 503 when Redis is unreachable
+docs: update README status for Architecture Studio
+```
+
+Append `!` after the scope for a breaking change (`feat(api)!: ...`). Update the README Status paragraph in the same feature series whenever a module becomes user-visible.
+
 ## Database migrations
 
 ```bash
