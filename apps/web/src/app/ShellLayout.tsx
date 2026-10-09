@@ -2,6 +2,7 @@ import ConstructionOutlined from '@mui/icons-material/ConstructionOutlined'
 import Typography from '@mui/material/Typography'
 import { AppShell, ColorModeToggle, PageTransition, type NavGroup } from '@opsforge/ui'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
+import { AccountMenu } from '../features/account/components/AccountMenu'
 import { ApiStatus } from '../features/health/ApiStatus'
 import { MODULES, buildNavGroups, findActiveId } from './modules'
 
@@ -46,6 +47,7 @@ export function ShellLayout() {
       topBarEnd={
         <>
           <ApiStatus />
+          <AccountMenu />
           <ColorModeToggle />
         </>
       }
