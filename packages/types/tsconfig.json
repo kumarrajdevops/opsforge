@@ -1,0 +1,4 @@
+{
+  "extends": "@opsforge/config/tsconfig.base.json",
+  "include": ["src"]
+}

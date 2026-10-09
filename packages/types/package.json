@@ -1,0 +1,15 @@
+{
+  "name": "@opsforge/types",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Shared TypeScript contracts between web and api (hand-maintained until OpenAPI client generation is introduced)",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint ."
+  }
+}
