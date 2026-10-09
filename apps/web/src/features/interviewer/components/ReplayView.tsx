@@ -3,6 +3,7 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { PageHeader, Panel, ScoreBadge, ToneChip } from '@opsforge/ui'
 import type { ReplayThread } from '../replay'
+import { InterviewTimeline } from './InterviewTimeline'
 import { ROUND_LABELS } from '../modes'
 import {
   closeReasonLabel,
@@ -129,6 +130,9 @@ export function ReplayView({ threads, onBack }: ReplayViewProps) {
           </Button>
         }
       />
+      <Panel title="Timeline" subtitle="Where the time went, question by question.">
+        <InterviewTimeline threads={threads} />
+      </Panel>
       {threads.map((thread, i) => (
         <ThreadCard key={thread.threadId} thread={thread} index={i} />
       ))}
