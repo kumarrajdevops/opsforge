@@ -4,6 +4,8 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { ArchitectureStudioPage } from '../pages/ArchitectureStudioPage'
 import { IncidentSimulatorPage } from '../pages/IncidentSimulatorPage'
 import { InterviewerPage } from '../pages/InterviewerPage'
+import { JdPage } from '../pages/JdPage'
+import { ResumePage } from '../pages/ResumePage'
 import { CommandCenterPage } from '../pages/CommandCenterPage'
 import { ModulePlaceholderPage } from '../pages/ModulePlaceholderPage'
 import { MODULES } from './modules'
@@ -31,6 +33,10 @@ export function App() {
                   <IncidentSimulatorPage />
                 ) : module.id === 'interviewer' ? (
                   <InterviewerPage />
+                ) : module.id === 'resume' ? (
+                  <ResumePage />
+                ) : module.id === 'jd' ? (
+                  <JdPage />
                 ) : (
                   <ModulePlaceholderPage module={module} />
                 )}
