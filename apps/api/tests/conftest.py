@@ -1,4 +1,5 @@
 from collections.abc import Iterator
+from contextlib import contextmanager
 
 import pytest
 from fastapi.testclient import TestClient
@@ -16,8 +17,8 @@ def settings() -> Settings:
     return Settings(_env_file=None, api_env="test")
 
 
-@pytest.fixture
-def client(settings: Settings) -> Iterator[TestClient]:
+@contextmanager
+def build_client(settings: Settings) -> Iterator[TestClient]:
     """An app on in-memory SQLite. Migrations are checked separately against PostgreSQL."""
     engine = create_engine(
         "sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool
@@ -34,3 +35,9 @@ def client(settings: Settings) -> Iterator[TestClient]:
     with TestClient(app) as test_client:
         yield test_client
     engine.dispose()
+
+
+@pytest.fixture
+def client(settings: Settings) -> Iterator[TestClient]:
+    with build_client(settings) as test_client:
+        yield test_client

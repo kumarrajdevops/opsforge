@@ -7,6 +7,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.config import Settings, get_settings
+from app.core.ratelimit import AuthLimiters
 from app.core.security import hash_token
 from app.db.session import get_session
 from app.models import AuthSession, User
@@ -21,6 +22,14 @@ def get_db(settings: SettingsDep) -> Iterator[Session]:
 
 
 DbDep = Annotated[Session, Depends(get_db)]
+
+
+def get_limiters(request: Request) -> AuthLimiters:
+    limiters: AuthLimiters = request.app.state.limiters
+    return limiters
+
+
+LimitersDep = Annotated[AuthLimiters, Depends(get_limiters)]
 
 
 def current_user(request: Request, db: DbDep, settings: SettingsDep) -> User:

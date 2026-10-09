@@ -29,8 +29,39 @@ class Settings(BaseSettings):
     # None means: secure cookies everywhere except local development and tests.
     auth_cookie_secure: bool | None = None
 
+    # Login throttling. Failures are counted per submitted email and per client address.
+    auth_login_max_failures: int = Field(default=5, ge=1)
+    auth_login_window_seconds: int = Field(default=900, ge=1)
+    auth_lockout_seconds: int = Field(default=900, ge=1)
+    auth_register_max_per_hour: int = Field(default=10, ge=1)
+
+    # Request bodies above this size are refused with 413 before they are parsed.
+    api_max_body_bytes: int = Field(default=2 * 1024 * 1024, ge=1024)
+    # Number of reverse proxies in front of the API that append to X-Forwarded-For.
+    # 0 means the header is ignored (it can be forged by any client).
+    api_trusted_proxies: int = Field(default=0, ge=0, le=5)
+
     service_name: str = "opsforge-api"
     service_version: str = "0.1.0"
+
+
+def production_problems(settings: Settings) -> list[str]:
+    """Settings that must not reach production. Empty when the configuration is acceptable."""
+    if settings.api_env != "production":
+        return []
+    problems: list[str] = []
+    if not settings.database_url:
+        problems.append("DATABASE_URL is not set.")
+    elif ":opsforge@" in settings.database_url:
+        problems.append("DATABASE_URL uses the development database password.")
+    if settings.auth_cookie_secure is False:
+        problems.append("AUTH_COOKIE_SECURE=false would send session cookies over plain HTTP.")
+    if any(
+        origin.strip() == "*" or origin.startswith("http://")
+        for origin in settings.api_cors_origins
+    ):
+        problems.append("API_CORS_ORIGINS must list https origins, not * or http.")
+    return problems
 
 
 def cookie_secure(settings: Settings) -> bool:
