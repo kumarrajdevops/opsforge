@@ -22,9 +22,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         app.add_middleware(
             CORSMiddleware,
             allow_origins=settings.api_cors_origins,
-            allow_methods=["GET"],
+            allow_methods=["GET", "POST"],
+            allow_credentials=True,
             allow_headers=["*"],
         )
+    app.dependency_overrides[get_settings] = lambda: settings
     app.include_router(api_router)
     return app
 

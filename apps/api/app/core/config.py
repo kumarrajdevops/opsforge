@@ -23,8 +23,20 @@ class Settings(BaseSettings):
     database_url: str | None = None
     redis_url: str | None = None
 
+    auth_allow_registration: bool = True
+    auth_session_ttl_hours: int = Field(default=24 * 14, ge=1)
+    auth_cookie_name: str = "opsforge_session"
+    # None means: secure cookies everywhere except local development and tests.
+    auth_cookie_secure: bool | None = None
+
     service_name: str = "opsforge-api"
     service_version: str = "0.1.0"
+
+
+def cookie_secure(settings: Settings) -> bool:
+    if settings.auth_cookie_secure is not None:
+        return settings.auth_cookie_secure
+    return settings.api_env == "production"
 
 
 @lru_cache

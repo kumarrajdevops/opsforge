@@ -1,10 +1,9 @@
 from alembic import context
 from sqlalchemy import create_engine
 
+import app.models  # noqa: F401  (registers the tables for autogenerate)
 from app.core.config import get_settings
 from app.db.base import Base
-
-# Import model modules here so autogenerate can see them.
 
 target_metadata = Base.metadata
 

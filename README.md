@@ -8,7 +8,7 @@ Evidence-based interview-readiness platform for Senior DevOps / SRE engineers. P
 
 ```
 apps/web         React + Vite client (shell, routing, API status)
-apps/api         FastAPI modular monolith (health endpoints only)
+apps/api         FastAPI modular monolith (health, accounts, readiness snapshots)
 packages/ui      @opsforge/ui     design system on MUI
 packages/types   @opsforge/types  API contract types
 packages/config  @opsforge/config shared TypeScript and ESLint config
@@ -57,6 +57,13 @@ docker compose --profile app up --build                 # web on :8080, api on :
 - `GET /api/health/live`: process is up.
 - `GET /api/health/ready`: checks PostgreSQL and Redis; `503` if one is down.
 - `GET /api/docs`: OpenAPI UI (disabled when `API_ENV=production`).
+
+## Accounts and saved history
+
+Sign in from the top bar (needs PostgreSQL and `alembic upgrade head`). Signed in, readiness history is saved to your account; signed out, it stays in the browser, and the browser copy is moved to the account on first sign-in. Other modules still save in the browser. Set `AUTH_ALLOW_REGISTRATION=false` to close sign-up. See [ADR-0005](docs/ADR/0005-identity-and-persistence.md).
+
+- `POST /api/auth/register`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me`
+- `GET` and `POST /api/readiness/snapshots`, `POST /api/readiness/snapshots/import`
 
 ## Quality checks
 
